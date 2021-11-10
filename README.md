@@ -21,7 +21,7 @@ contract DividendContract{
 
 **Name:** Names the contract.
 
-**Shards: ** The total amount of circulating shards.
+**Shards:** The total amount of circulating shards.
 
 **URI:** holds some metadata about the resource of the token. 
 
