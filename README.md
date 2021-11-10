@@ -7,6 +7,7 @@ The XRC1170 standard is a token dividend standard for the XDC Network this stand
 ### **Example Execution:**
 
 ```solidity
+pragma solidity ^0.8.0;
 contract DividendContract is XRC1170{
 	constructor() public XRC1170(NAME,SHARDS,URI){}
 	
