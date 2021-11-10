@@ -54,9 +54,4 @@ contract XRC1170 is ERC1155 {
     function getBalance() public view returns (uint) {
         return address(this).balance;
     }
-
-    fallback() external payable {
-        // send / transfer (forwards 2300 gas to this fallback function)
-        // call (forwards all of the gas)
-    }
 }
