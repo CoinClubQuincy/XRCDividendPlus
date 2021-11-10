@@ -19,3 +19,4 @@ contract DividendContract{
 
 To issue dividends you can call the Dividends() function and all tokens held in contract address  will will be issued to shard holders
 
+![XRC](https://user-images.githubusercontent.com/16103963/141028633-bd7a483c-e422-4b9a-b3ec-df7c9c8026ae.png)
