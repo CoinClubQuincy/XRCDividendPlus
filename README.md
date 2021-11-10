@@ -4,6 +4,8 @@ So most dapps will have Owners and each owner may have shards in the dapp This s
 
 The XRC1170 standard is a token dividend standard for the XDC Network this standard is for smart contracts that require dividends to their token holders or for developers to sell stake in their contracts.
 
+### **Example Execution:**
+
 ```solidity
 contract DividendContract{
 	constructor() public XRC1170(NAME,SHARDS,URI){}
@@ -18,5 +20,9 @@ contract DividendContract{
 
 
 To issue dividends you can call the Dividends() function and all tokens held in contract address  will will be issued to shard holders
+
+### **Diagram:**
+
+This contract standard is for contracts that will yield profits for the token holders based on contract performance
 
 # ![XRC](https://user-images.githubusercontent.com/16103963/141028633-bd7a483c-e422-4b9a-b3ec-df7c9c8026ae.png)
