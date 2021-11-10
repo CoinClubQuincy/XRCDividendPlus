@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 //pragma solidity ^0.8.0;
 
-//import "@openzeppelin/contracts/token/XRC1155/XRC1155.sol";
+//import "1155/ERC1155.sol";
 
 
 contract XRC1170 is ERC1155 {
