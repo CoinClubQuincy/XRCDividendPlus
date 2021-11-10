@@ -17,7 +17,13 @@ contract DividendContract{
 }
 ```
 
+### **Parameters:**
 
+**Name:** Names the contract.
+
+**Shards: ** The total amount of circulating shards.
+
+**URI:** holds some metadata about the resource of the token. 
 
 To issue dividends you can call the Dividends() function and all tokens held in contract address  will will be issued to shard holders
 
