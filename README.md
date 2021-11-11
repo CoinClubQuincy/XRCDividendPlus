@@ -9,7 +9,7 @@ The XRC1170 standard is a token dividend standard for the XDC Network this stand
 ```solidity
 pragma solidity ^0.8.0;
 contract DividendContract is XRC1170{
-	constructor() public XRC1170(NAME,SHARDS,URI){}
+	constructor() public XRC1170(NAME,SYMBOL,TOTAL_SUPPLY){}
 	
 	function Payment(uint _int) public payable{
 		// Code for function
@@ -17,14 +17,6 @@ contract DividendContract is XRC1170{
 	}
 }
 ```
-
-### **Parameters:**
-
-**Name:** Names the contract.
-
-**Shards:** The total amount of circulating shards.
-
-**URI:** holds some metadata about the resource of the token. 
 
 To issue dividends you can call the Dividends() function and all tokens held in contract address  will will be issued to shard holders
 
