@@ -5,10 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 
 contract XRC1170 is ERC20 {
-    uint256 public constant SHARDS = 0;
-    string public Name;
     uint counter =0;
-    uint total_supply;
 
     mapping (uint256 => Micro_Ledger) public Micro_ledger_map;
     
@@ -16,8 +13,8 @@ contract XRC1170 is ERC20 {
         address payable Address;
     }
     
-    constructor(string memory name,string memory symbol,uint256 initialSupply) public ERC20(name, symbol) {
-        _mint(msg.sender, initialSupply);
+    constructor(string memory name,string memory symbol,uint256 total_supply) public ERC20(name, symbol) {
+        _mint(msg.sender, total_supply);
 
         Ledger(msg.sender);
     }
