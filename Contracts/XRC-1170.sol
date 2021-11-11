@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 //pragma solidity ^0.8.0;
 
-//import "1155/ERC1155.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 
-contract XRC1170 is ERC1155 {
+contract XRC1170 is ERC20 {
     uint256 public constant SHARDS = 0;
     string public Name;
     uint counter =0;
@@ -16,11 +16,9 @@ contract XRC1170 is ERC1155 {
         address payable Address;
     }
     
-    constructor(string memory _name,uint _Shards, string memory _uri) public ERC1155(_uri) {
-        Name = _name;
-        total_supply = _Shards;
-        
-        _mint(msg.sender, SHARDS, _Shards, "");
+    constructor(string memory name,string memory symbol,uint256 initialSupply) public ERC20(name, symbol) {
+        _mint(msg.sender, initialSupply);
+
         Ledger(msg.sender);
     }
 
