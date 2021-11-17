@@ -8,8 +8,8 @@ The XRC20 + standard is a token dividend standard for the XDC Network this stand
 
 ```solidity
 pragma solidity ^0.8.0;
-contract DividendContract is 20Plus{
-	constructor() public 20Plus(NAME,SYMBOL,TOTAL_SUPPLY){}
+contract DividendContract is Plus{
+	constructor() public Plus(NAME,SYMBOL,TOTAL_SUPPLY){}
 	
 	function Payment(uint _int) public payable{
 		// Code for function

@@ -4,7 +4,7 @@
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 
-contract 20Plus is ERC20 {
+contract Plus is ERC20 {
     uint counter =0;
 
     mapping (uint256 => Micro_Ledger) public Micro_ledger_map;
