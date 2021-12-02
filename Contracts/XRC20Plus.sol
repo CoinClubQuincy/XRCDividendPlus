@@ -1,5 +1,5 @@
+pragma solidity ^0.8.10;
 // SPDX-License-Identifier: MIT
-//pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
@@ -13,15 +13,15 @@ contract Plus is ERC20 {
         address payable Address;
     }
     
-    constructor(string memory name,string memory symbol,uint256 total_supply) public ERC20(name, symbol) {
-        _mint(msg.sender, total_supply);
-        Ledger(msg.sender);
+    constructor(string memory name,string memory symbol,uint256 totalSupply) ERC20(name, symbol) {
+        _mint(msg.sender, totalSupply);
+        Plus.Ledger(payable(msg.sender));
     }
 
     function Ledger(address payable _to) public{
         uint i=0;
         for(i;i<=counter;i++){
-            if(Micro_ledger_map[i] != Micro_Ledger(_to) && counter ==i){
+            if(Micro_ledger_map[i].Address != _to && counter ==i){
                 Micro_ledger_map[i++] = Micro_Ledger(_to);
                 counter++;
             }
@@ -29,17 +29,17 @@ contract Plus is ERC20 {
     }
 
     function Submit(address payable _address, uint _total) public payable{
-        _address.send(_total);
+        _address.transfer(_total);
         Ledger(_address);
     }
     
     function Dividends() public payable{
         uint i=0;
-        uint ammount = total_supply/address(this).balance;
+        uint ammount = totalSupply/int256(address(this).balance);
         for (i;i<=counter;i++){
             address payable Pay = Micro_ledger_map[i].Address;
-            if(balanceOf(Micro_ledger_map[i].Address,0) != 0){
-                uint total = ammount * balanceOf(Micro_ledger_map[i].Address,0);
+            if(balanceOf(Micro_ledger_map[i].Address) != 0){
+                uint total = ammount * balanceOf(Micro_ledger_map[i].Address);
                 Submit(Pay,total);
             }
         }
