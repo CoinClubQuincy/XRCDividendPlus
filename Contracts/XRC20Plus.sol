@@ -13,9 +13,12 @@ contract Plus is ERC20 {
         address payable Address;
     }
     
-    constructor(string memory name,string memory symbol,uint256 totalSupply) ERC20(name, symbol) {
-        _mint(msg.sender, totalSupply);
+    constructor(string memory name,string memory symbol,int256 totalSupply) ERC20(name, symbol) {
+        _mint(msg.sender, uint(totalSupply));
         Plus.Ledger(payable(msg.sender));
+
+        //Test
+        //Ledger()
     }
 
     function Ledger(address payable _to) public{
@@ -35,16 +38,15 @@ contract Plus is ERC20 {
     
     function Dividends() public payable{
         uint i=0;
-        uint ammount = totalSupply/int256(address(this).balance);
+        int ammount = totalSupply/int(address(this).balance);
         for (i;i<=counter;i++){
             address payable Pay = Micro_ledger_map[i].Address;
             if(balanceOf(Micro_ledger_map[i].Address) != 0){
-                uint total = ammount * balanceOf(Micro_ledger_map[i].Address);
+                int total = ammount * balanceOf(Micro_ledger_map[i].Address);
                 Submit(Pay,total);
             }
         }
     }
-    
     
     function getBalance() public view returns (uint) {
         return address(this).balance;
