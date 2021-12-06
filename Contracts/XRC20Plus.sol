@@ -54,5 +54,5 @@ contract Plus is ERC20 {
     
     function Balance() public returns (uint256) {
         return address(this).balance;
-    } 
+    }
 }
