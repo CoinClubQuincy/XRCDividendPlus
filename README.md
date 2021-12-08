@@ -23,5 +23,3 @@ To issue dividends you can call the Dividends() function and all tokens held in 
 ### **Diagram:**
 
 This contract standard is for contracts that will yield profits for the token holders based on contract performance
-
-# ![XRC](https://user-images.githubusercontent.com/16103963/141028633-bd7a483c-e422-4b9a-b3ec-df7c9c8026ae.png)
