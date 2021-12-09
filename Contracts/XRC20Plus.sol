@@ -32,7 +32,7 @@ contract Plus is ERC20 {
     }
 
     function Submit(address payable _address, uint _total) public payable{
-        _address.transfer(_total);
+        _address.transfer(msg.value);
         Ledger(_address);
     }
     
