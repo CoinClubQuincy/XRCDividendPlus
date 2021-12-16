@@ -24,19 +24,7 @@ contract Plus is ERC20 {
         _mint(msg.sender, uint(totalSupply));
     }
     //Test logging and accounting user dividends
-    function Submit(address _reciver,uint _amount) public{
-
-        if(accounts[_reciver].exist == true){
-            if(accounts[_reciver].ammount > 0){
-                Add = _amount + accounts[_reciver].ammount
-                accounts[msg.sender] = Accounts(Add,true);
-            }
-        } else {
-            micro_ledger[Account_Counter] = micro_ledger(msg.sender);
-            accounts[msg.sender] = Accounts(msg.value,true);
-        }
-        Plus.transfer(_reciver,_amount);
-    }   
+    function Submit(address _reciver,uint _amount) public{}   
     //Account of your funds in contract
     function CoinBank() public view returns(string memory){
         return accounts[msg.sender].ammount;
