@@ -39,6 +39,7 @@ contract Plus is ERC20 {
     }   
     //Account of all funds in contract
     function CoinBank() public payable{}
+    
     //call contract balance
     function Balance() public returns (uint256) {
         return address(this).balance;
