@@ -6,52 +6,40 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract Plus is ERC20 {
     uint counter =0;
-
-    mapping (uint256 => Micro_Ledger) public Micro_ledger_map;
-    
-    struct Micro_Ledger{
-        address payable Address;
+    uint Account_Counter = 0;
+    //mappings map Account amounts and micro ledger
+    mapping (address => Accounts) public accounts;
+    mapping (uint => micro_ledger) public ledger;
+    //Account Details
+    struct Accounts{
+        uint ammount;
+        bool exist;
     }
-    
+    //Micrledger holds all accounts ever
+    struct micro_ledger{
+        address account;
+    }
+    //launch Contract
     constructor(string memory name,string memory symbol,uint256 totalSupply) ERC20(name, symbol) {
         _mint(msg.sender, uint(totalSupply));
-        Plus.Ledger(payable(msg.sender));
-
-        //Test
-        //Ledger()
     }
+    //Test logging and accounting user dividends
+    function Submit(address _reciver,uint _amount) public{
 
-    function Ledger(address payable _to) public{
-        uint i=0;
-        for(i;i<=counter;i++){
-            if(Micro_ledger_map[i].Address != _to && counter ==i){
-                Micro_ledger_map[i++] = Micro_Ledger(_to);
-                counter++;
+        if(accounts[_reciver].exist == true){
+            if(accounts[_reciver].ammount > 0){
+                Add = _amount + accounts[_reciver].ammount
+                accounts[msg.sender] = Accounts(Add,true);
             }
+        } else {
+            micro_ledger[Account_Counter] = micro_ledger(msg.sender);
+            accounts[msg.sender] = Accounts(msg.value,true);
         }
-    }
-
-    function Submit(address payable _address, uint _total) public payable{
-        _address.transfer(msg.value);
-        Ledger(_address);
-    }
-    
-    function Dividends() public payable{
-        uint i=0;
-        if(address(this).balance!=0){
-            uint bal = address(this).balance;
-            uint ammount = (totalSupply()/bal);
-        
-            for (i;i<=counter;i++){
-                address payable Pay = Micro_ledger_map[i].Address;
-                if(balanceOf(Micro_ledger_map[i].Address) != 0){
-                    uint total = ammount * balanceOf(Micro_ledger_map[i].Address);
-                    Submit(Pay,total);
-                }
-            }
-        }
-    }
-    
+        Plus.transfer(_reciver,_amount);
+    }   
+    //Account of all funds in contract
+    function CoinBank() public payable{}
+    //call contract balance
     function Balance() public returns (uint256) {
         return address(this).balance;
     }
