@@ -37,7 +37,7 @@ contract Plus is ERC20 {
         }
         Plus.transfer(_reciver,_amount);
     }   
-    //Account of all funds in contract
+    //Account of your funds in contract
     function CoinBank() public view returns(string memory){
         return accounts[msg.sender].ammount;
     }
