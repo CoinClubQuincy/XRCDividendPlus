@@ -7,11 +7,32 @@ abstract contract CoinBank{
     uint coinbanktotal = address(this).balance;
     uint Shard_yeild_depisit;
     uint supply;
-    //function Add_To_Treasury(){}
+    uint Fund_Retention_Rate;
+    // Keep track of Funds in CoinBank
+    struct CoinBank_Accounting{
+        uint Current_Funds_Retained;
+        uint Current_Time;
+    }
+    constructor(address TreasuryAddress){
+        Bank[0] = CoinBank_Accounting(0,block.timestamp);
+    }
+    //CoinBank Index of all DAO Banks
+    mapping (uint256 => CoinBank_Accounting) public Bank;
+
+    // Send funds to Treasury Contract
+    function Issue_To_Treasury(address payable _TreasuryContract)internal{
+        _TreasuryContract.transfer(address(this).balance);
+    }
+    // Payments to CoinBank will take account of funds
+    function Incomming_Payments()public payable{
+        uint min=0;
+        if(min+block.timestamp>Bank[0].Current_Time){
+            Issue_To_Treasury(TreasuryAddress);
+            // Add Math for Banks
+        }
+    } 
 }
-
-
-
+//----------------------------------------------------------------------------------------------------------------
 contract Plus is ERC20, CoinBank {
     uint counter =0;
     uint Account_Counter = 0;
@@ -29,7 +50,7 @@ contract Plus is ERC20, CoinBank {
         address account;
     }
     //launch Contract
-    constructor(string memory name,string memory symbol,uint totalSupply) ERC20(name, symbol) {
+    constructor(string memory name,string memory symbol,uint totalSupply,uint Fund_Retention_Rate) ERC20(name, symbol) {
         _mint(msg.sender, uint(totalSupply));
         supply = uint(totalSupply);
 
@@ -45,7 +66,7 @@ contract Plus is ERC20, CoinBank {
         }
     }   
     //Account of your funds in contract
-    function View_CoinBank_Ammount() public view returns(uint){
+    function View_Account() public view returns(uint){
         return accounts[msg.sender].ammount;
     }
     //call contract balance
