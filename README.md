@@ -11,9 +11,9 @@ pragma solidity ^0.8.0;
 contract DividendContract is Plus{
 	constructor() public Plus(NAME,SYMBOL,TOTAL_SUPPLY){}
 	
-	function Payment(uint _int) public payable{
+	function Payment() public payable{
 		// Code for function
-		Dividends();	
+		Plus.Dividends();	
 	}
 }
 ```

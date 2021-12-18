@@ -8,13 +8,15 @@ abstract contract CoinBank{
     uint Shard_yeild_depisit;
     uint supply;
     uint Fund_Retention_Rate;
+    address Treasury;
     // Keep track of Funds in CoinBank
     struct CoinBank_Accounting{
         uint Current_Funds_Retained;
         uint Current_Time;
     }
-    constructor(address TreasuryAddress){
+    constructor(address _Treasury){
         Bank[0] = CoinBank_Accounting(0,block.timestamp);
+        Treasury = _Treasury;
     }
     //CoinBank Index of all DAO Banks
     mapping (uint256 => CoinBank_Accounting) public Bank;
@@ -27,13 +29,13 @@ abstract contract CoinBank{
     function Incomming_Payments()public payable{
         uint min=0;
         if(min+block.timestamp>Bank[0].Current_Time){
-            Issue_To_Treasury(TreasuryAddress);
+            Issue_To_Treasury(payable(Treasury));
             // Add Math for Banks
         }
     } 
 }
 //----------------------------------------------------------------------------------------------------------------
-contract Plus is ERC20, CoinBank {
+abstract contract Plus is ERC20, CoinBank {
     uint counter =0;
     uint Account_Counter = 0;
 
