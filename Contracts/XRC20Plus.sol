@@ -3,6 +3,7 @@ pragma solidity ^0.8.10;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
+//-------------------------- CoinBank Accounting Contract --------------------------
 abstract contract CoinBank{
     uint coinbanktotal = address(this).balance;
     uint Shard_yeild_deposit;
@@ -34,10 +35,11 @@ abstract contract CoinBank{
         }
     }
 }
-//----------------------------------------------------------------------------------------------------------------
+//-------------------------- Plus Treasury Contract --------------------------
 abstract contract Plus is ERC20, CoinBank {
     uint counter =0;
     uint Account_Counter = 0;
+    address public CoinBankAddress; // When coinbank is launched add address <--Here
 
     //mappings map Account amounts and micro ledger
     mapping (address => Accounts) public accounts;
