@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 abstract contract CoinBank{
     uint coinbanktotal = address(this).balance;
-    uint Shard_yeild_depisit;
+    uint Shard_yeild_deposit;
     uint supply;
     uint Fund_Retention_Rate;
     address Treasury;
@@ -30,9 +30,9 @@ abstract contract CoinBank{
         uint min=0;
         if(min+block.timestamp>Bank[0].Current_Time){
             Issue_To_Treasury(payable(Treasury));
-            // Add Math for Banks
+            //Call Accept from CoinBank
         }
-    } 
+    }
 }
 //----------------------------------------------------------------------------------------------------------------
 abstract contract Plus is ERC20, CoinBank {
@@ -74,5 +74,14 @@ abstract contract Plus is ERC20, CoinBank {
     //call contract balance
     function Balance() public returns (uint256) {
         return address(this).balance;
+    }
+    //function Dividends(){//Run Dividends Accounting matt} 
+
+    //Accept payment from CoinBank and issue dividends to accouts
+    function Accept_From_CoinBank(uint _Total_from_Bank)external {
+        //uint single_Shard = (_Total_from_Bank/totalSupply);
+        uint i=0;
+        
+        //Dividends()
     }
 }
