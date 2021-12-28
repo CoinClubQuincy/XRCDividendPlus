@@ -13,7 +13,7 @@ abstract contract CoinBank{
     // Keep track of Funds in CoinBank
     struct CoinBank_Accounting{
         uint Current_Funds_Retained;
-        uint Current_Time;
+        uint Previous_Time;
     }
     constructor(address _Treasury){
         Bank[0] = CoinBank_Accounting(0,block.timestamp);
@@ -29,16 +29,22 @@ abstract contract CoinBank{
     // Payments to CoinBank will take account of funds
     function Incomming_Payments()public payable{
         uint min=0;
-        if(min+block.timestamp>Bank[0].Current_Time){
+        if(block.timestamp>min+Bank[0].Previous_Time){
             Issue_To_Treasury(payable(Treasury));
             //Call Accept from CoinBank
         }
     }
 }
+
+interface Accept_From_CoinBank_Interface {
+    function Accept_From_CoinBank() external payable returns(uint);
+}
+
 //-------------------------- Plus Treasury Contract --------------------------
-abstract contract Plus is ERC20, CoinBank {
+abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     uint counter =0;
     uint Account_Counter = 0;
+    
     address public CoinBankAddress; // When coinbank is launched add address <--Here
 
     //mappings map Account amounts and micro ledger
@@ -71,7 +77,11 @@ abstract contract Plus is ERC20, CoinBank {
     }   
     //Account of your funds in contract
     function View_Account() public view returns(uint){
-        return accounts[msg.sender].ammount;
+        if(accounts[msg.sender].exist == true){
+            return accounts[msg.sender].ammount;
+        } else {
+            //event to register account
+        }
     }
     //call contract balance
     function Balance() public returns (uint256) {
@@ -80,7 +90,7 @@ abstract contract Plus is ERC20, CoinBank {
     //function Dividends(){//Run Dividends Accounting matt} 
 
     //Accept payment from CoinBank and issue dividends to accouts
-    function Accept_From_CoinBank(uint _Total_from_Bank)external {
+    function Accept_From_CoinBank(uint _Total_from_Bank)external payable{
         //uint single_Shard = (_Total_from_Bank/totalSupply);
         uint i=0;
         
