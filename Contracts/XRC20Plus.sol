@@ -6,9 +6,9 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 //-------------------------- CoinBank Accounting Contract --------------------------
 abstract contract CoinBank{
     uint coinbanktotal = address(this).balance;
-    uint Shard_yeild_deposit;
+    uint Shard_yeild_deposit; //votable
     uint supply;
-    uint Fund_Retention_Rate;
+    uint Fund_Retention_Rate; //votable
     address Treasury;
     // Keep track of Funds in CoinBank
     struct CoinBank_Accounting{
@@ -23,28 +23,27 @@ abstract contract CoinBank{
     mapping (uint256 => CoinBank_Accounting) public Bank;
 
     // Send funds to Treasury Contract
-    function Issue_To_Treasury(address payable _TreasuryContract)internal{
-        _TreasuryContract.transfer(address(this).balance);
+    function Issue_To_Treasury()internal{
+       // send data through interface function
     }
     // Payments to CoinBank will take account of funds
     function Incomming_Payments()public payable{
         uint min=0;
         if(block.timestamp>min+Bank[0].Previous_Time){
-            Issue_To_Treasury(payable(Treasury));
+            //uint single_Shard = uint(_Total_from_Bank/totalSupply);
+            Issue_To_Treasury();
             //Call Accept from CoinBank
         }
     }
 }
-
 interface Accept_From_CoinBank_Interface {
-    function Accept_From_CoinBank() external payable returns(uint);
+    function Accept_From_CoinBank(uint _Total_from_Bank) external payable;
 }
-
 //-------------------------- Plus Treasury Contract --------------------------
 abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     uint counter =0;
     uint Account_Counter = 0;
-    
+
     address public CoinBankAddress; // When coinbank is launched add address <--Here
 
     //mappings map Account amounts and micro ledger
@@ -59,11 +58,11 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     struct micro_ledger{
         address account;
     }
+
     //launch Contract
     constructor(string memory name,string memory symbol,uint totalSupply,uint Fund_Retention_Rate) ERC20(name, symbol) {
         _mint(msg.sender, uint(totalSupply));
         supply = uint(totalSupply);
-
     }
     //Test logging and accounting user dividends
     function Add_to_Micro_ledger() internal{
@@ -90,10 +89,8 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     //function Dividends(){//Run Dividends Accounting matt} 
 
     //Accept payment from CoinBank and issue dividends to accouts
-    function Accept_From_CoinBank(uint _Total_from_Bank)external payable{
-        //uint single_Shard = (_Total_from_Bank/totalSupply);
+    function Accept_From_CoinBank(uint _singleShard)external payable{
         uint i=0;
-        
         //Dividends()
     }
 }
