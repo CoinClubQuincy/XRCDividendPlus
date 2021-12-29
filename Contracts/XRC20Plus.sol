@@ -57,6 +57,7 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     //Micrledger holds all accounts ever
     struct micro_ledger{
         address account;
+        bool exist;
     }
 
     //launch Contract
@@ -69,7 +70,7 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
         if(accounts[msg.sender].exist == true){
             //do nothing
         } else {
-            ledger[Account_Counter] = micro_ledger(msg.sender);
+            ledger[Account_Counter] = micro_ledger(msg.sender,true);
             accounts[msg.sender] = Accounts(0,true);
             Account_Counter++;
         }
@@ -91,6 +92,13 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     //Accept payment from CoinBank and issue dividends to accouts
     function Accept_From_CoinBank(uint _singleShard)external payable{
         uint i=0;
-        //Dividends()
+        for(i;i>=Account_Counter;i++){
+            if(ledger[Account_Counter].exist == true){
+                address Serach_result = ledger[Account_Counter].account;
+                //accounts[Serach_result].ammount += [balannceOf(ledger[Account_Counter].account) * _singleShard ];
+            } else {
+                //on to next user in micro ledger
+            }
+        }
     }
 }
