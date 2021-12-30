@@ -10,6 +10,7 @@ abstract contract CoinBank{
     uint supply;
     uint Fund_Retention_Rate; //votable
     address Treasury;
+    uint totalBanks;
     // Keep track of Funds in CoinBank
     struct CoinBank_Accounting{
         uint Current_Funds_Retained;
@@ -23,21 +24,29 @@ abstract contract CoinBank{
     mapping (uint256 => CoinBank_Accounting) public Bank;
 
     // Send funds to Treasury Contract
-    function Issue_To_Treasury()internal{
+    function Issue_To_Treasury(uint _single_Shard)internal{
        // send data through interface function
     }
     // Payments to CoinBank will take account of funds
     function Incomming_Payments()public payable{
         uint min=0;
+        uint i=0;
+        uint Total_from_Bank;
+
+        for(i;i<=totalBanks;i++){
+            Bank[totalBanks].Current_Funds_Retained += Total_from_Bank;
+        }
+        
+        Total_from_Bank = address(this).balance-Total_from_Bank;
         if(block.timestamp>min+Bank[0].Previous_Time){
-            //uint single_Shard = uint(_Total_from_Bank/totalSupply);
-            Issue_To_Treasury();
+            uint single_Shard = uint(Total_from_Bank/supply);
+            Issue_To_Treasury(single_Shard);
             //Call Accept from CoinBank
         }
     }
 }
 interface Accept_From_CoinBank_Interface {
-    function Accept_From_CoinBank(uint _Total_from_Bank) external payable;
+    function Accept_From_CoinBank(uint _singleShard) external payable;
 }
 //-------------------------- Plus Treasury Contract --------------------------
 abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
@@ -61,9 +70,16 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     }
 
     //launch Contract
-    constructor(string memory name,string memory symbol,uint totalSupply,uint Fund_Retention_Rate) ERC20(name, symbol) {
+    constructor(string memory name,string memory symbol,uint totalSupply,uint Fund_Retention_Rate,uint totalBanks) ERC20(name, symbol) {
         _mint(msg.sender, uint(totalSupply));
         supply = uint(totalSupply);
+
+        //launch Conbank Contract and store address as variable
+        //CoinBankAddress = 
+    }
+    modifier CoinBankOnly{
+        require(CoinBankAddress == msg.sender);
+        _;
     }
     //Test logging and accounting user dividends
     function Add_to_Micro_ledger() internal{
