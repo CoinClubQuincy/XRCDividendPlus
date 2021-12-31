@@ -1,7 +1,6 @@
 pragma solidity ^0.8.10;
 // SPDX-License-Identifier: MIT
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-
 //-------------------------- CoinBank Accounting Contract --------------------------
 abstract contract CoinBank{
     uint coinbanktotal = address(this).balance;
@@ -53,7 +52,6 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     uint Account_Counter = 0;
 
     address public CoinBankAddress; // When coinbank is launched add address <--Here
-
     //mappings map Account amounts and micro ledger
     mapping (address => Accounts) public accounts;
     mapping (uint => micro_ledger) public ledger;
@@ -67,7 +65,6 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
         address account;
         bool exist;
     }
-
     //launch Contract
     constructor(string memory name,string memory symbol,uint totalSupply,uint Fund_Retention_Rate,uint totalBanks) ERC20(name, symbol) {
         _mint(msg.sender, uint(totalSupply));
