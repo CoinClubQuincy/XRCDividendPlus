@@ -1,6 +1,5 @@
 pragma solidity ^0.8.10;
 // SPDX-License-Identifier: MIT
-
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 //-------------------------- CoinBank Accounting Contract --------------------------
@@ -103,8 +102,6 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     function Balance() public returns (uint256) {
         return address(this).balance;
     }
-    //function Dividends(){//Run Dividends Accounting matt} 
-
     //Accept payment from CoinBank and issue dividends to accouts
     function Accept_From_CoinBank(uint _singleShard)external payable{
         uint i=0;
@@ -112,8 +109,6 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
             if(ledger[Account_Counter].exist == true){
                 address Serach_result = ledger[Account_Counter].account;
                 //accounts[Serach_result].ammount += [balannceOf(ledger[Account_Counter].account) * _singleShard ];
-            } else {
-                //on to next user in micro ledger
             }
         }
     }
