@@ -33,7 +33,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"Bank\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"Current_Funds_Retained\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"Previous_Time\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"Incomming_Payments\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/XRC20Plus.sol\":\"CoinBank\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0x53a0bb51b8a505e04aaf065de27c0e31cadf38194f8a9a6ec92b7bcd3c5826e6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d7d7019db0d8c1256995eb44b2aabf1189120c0bd01efa653e0eabdbc8cf4742\",\"dweb:/ipfs/QmZRiFEksts7Z2r1xnHb9Jqu4udHyTM6tQVTCyFosMXQAy\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xc1452b054778f1926419196ef12ae200758a4ee728df69ae1cd13e5c16ca7df7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4cb252ec7657ba7a91be688cbd263090aa5379e504f488a62d06198e0d630322\",\"dweb:/ipfs/QmW56fDiDirhWfWiKrycXE5UY6tTNtFrYx39ipnSs8mkYb\"]},\"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol\":{\"keccak256\":\"0x842c66d5965ed0bf77f274732c2a93a7e2223d53171ec9cccc473bde75104ead\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8cc9f9a6d9c1e2ca9cd191840c0e6017d22bf99d88b368137e43c67f63d17d1c\",\"dweb:/ipfs/Qmd3vUSxY4fRi4AUFMkerjrMFEKRLGVJUGFmxazR1wnPXP\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x7736c187e6f1358c1ea9350a2a21aa8528dec1c2f43b374a9067465a3a51f5d3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4fd625dca17657403af518cc6c8ab5c54c58898cf6e912ca2e1b0f3194ad0405\",\"dweb:/ipfs/QmQVv7YeeKmaS11bg7YDTeeGDk6i7sV8LMMfohaLM4SiRu\"]},\"project:/contracts/XRC20Plus.sol\":{\"keccak256\":\"0xc62187528c58a4ee99d24b7a06e4ed1333ab34fac73749bcd6673c825961f3e1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dbdf7357562bbfc2222226c680e6a922198fad0bd4040e5b045f2292bda08bde\",\"dweb:/ipfs/QmTfNQLF7PE1DUXg9qL3w8JspUqB9ey9283xnUauXmMn2G\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"Bank\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"Current_Funds_Retained\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"Previous_Time\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"Incomming_Payments\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/XRC20Plus.sol\":\"CoinBank\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0x53a0bb51b8a505e04aaf065de27c0e31cadf38194f8a9a6ec92b7bcd3c5826e6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d7d7019db0d8c1256995eb44b2aabf1189120c0bd01efa653e0eabdbc8cf4742\",\"dweb:/ipfs/QmZRiFEksts7Z2r1xnHb9Jqu4udHyTM6tQVTCyFosMXQAy\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xc1452b054778f1926419196ef12ae200758a4ee728df69ae1cd13e5c16ca7df7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4cb252ec7657ba7a91be688cbd263090aa5379e504f488a62d06198e0d630322\",\"dweb:/ipfs/QmW56fDiDirhWfWiKrycXE5UY6tTNtFrYx39ipnSs8mkYb\"]},\"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol\":{\"keccak256\":\"0x842c66d5965ed0bf77f274732c2a93a7e2223d53171ec9cccc473bde75104ead\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8cc9f9a6d9c1e2ca9cd191840c0e6017d22bf99d88b368137e43c67f63d17d1c\",\"dweb:/ipfs/Qmd3vUSxY4fRi4AUFMkerjrMFEKRLGVJUGFmxazR1wnPXP\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x7736c187e6f1358c1ea9350a2a21aa8528dec1c2f43b374a9067465a3a51f5d3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4fd625dca17657403af518cc6c8ab5c54c58898cf6e912ca2e1b0f3194ad0405\",\"dweb:/ipfs/QmQVv7YeeKmaS11bg7YDTeeGDk6i7sV8LMMfohaLM4SiRu\"]},\"project:/contracts/XRC20Plus.sol\":{\"keccak256\":\"0x24a15d7ba421cba41678b50e6383c446a1c581080d5e052562336768b9fd7ab5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b6b0ea63f1c7c94f3daa4ff9f3da2f3a09cfd62e10d2fabbe18a2ffea625579b\",\"dweb:/ipfs/QmdHjdi6htMdnp59t5FddEjABPeTKTAh5Wz7oT1yDAJk2o\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -41,7 +41,7 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.8.10;\n// SPDX-License-Identifier: MIT\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\n//-------------------------- CoinBank Accounting Contract --------------------------\nabstract contract CoinBank{\n    uint coinbanktotal = address(this).balance;\n    uint Shard_yeild_deposit; //votable\n    uint supply;\n    uint Fund_Retention_Rate; //votable\n    address Treasury;\n    uint totalBanks;\n    // Keep track of Funds in CoinBank\n    struct CoinBank_Accounting{\n        uint Current_Funds_Retained;\n        uint Previous_Time;\n    }\n    constructor(address _Treasury){\n        Bank[0] = CoinBank_Accounting(0,block.timestamp);\n        Treasury = _Treasury;\n    }\n    //CoinBank Index of all DAO Banks\n    mapping (uint256 => CoinBank_Accounting) public Bank;\n\n    // Send funds to Treasury Contract\n    function Issue_To_Treasury(uint _single_Shard)internal{\n       // send data through interface function\n    }\n    // Payments to CoinBank will take account of funds\n    function Incomming_Payments()public payable{\n        uint min=0;\n        uint i=0;\n        uint Total_from_Bank;\n\n        for(i;i<=totalBanks;i++){\n            Bank[totalBanks].Current_Funds_Retained += Total_from_Bank;\n        }\n        \n        Total_from_Bank = address(this).balance-Total_from_Bank;\n        if(block.timestamp>min+Bank[0].Previous_Time){\n            uint single_Shard = uint(Total_from_Bank/supply);\n            Issue_To_Treasury(single_Shard);\n            //Call Accept from CoinBank\n        }\n    }\n}\ninterface Accept_From_CoinBank_Interface {\n    function Accept_From_CoinBank(uint _singleShard) external payable;\n}\n//-------------------------- Plus Treasury Contract --------------------------\nabstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {\n    uint counter =0;\n    uint Account_Counter = 0;\n\n    address public CoinBankAddress; // When coinbank is launched add address <--Here\n    //mappings map Account amounts and micro ledger\n    mapping (address => Accounts) public accounts;\n    mapping (uint => micro_ledger) public ledger;\n    //Account Details\n    struct Accounts{\n        uint ammount;\n        bool exist;\n    }\n    //Micrledger holds all accounts ever\n    struct micro_ledger{\n        address account;\n        bool exist;\n    }\n    //launch Contract\n    constructor(string memory name,string memory symbol,uint totalSupply,uint Fund_Retention_Rate,uint totalBanks) ERC20(name, symbol) {\n        _mint(msg.sender, uint(totalSupply));\n        supply = uint(totalSupply);\n\n        //launch Conbank Contract and store address as variable\n        //CoinBankAddress = \n    }\n    modifier CoinBankOnly{\n        require(CoinBankAddress == msg.sender);\n        _;\n    }\n    //Test logging and accounting user dividends\n    function Add_to_Micro_ledger() internal{\n        if(accounts[msg.sender].exist == true){\n            //do nothing\n        } else {\n            ledger[Account_Counter] = micro_ledger(msg.sender,true);\n            accounts[msg.sender] = Accounts(0,true);\n            Account_Counter++;\n        }\n    }   \n    //Account of your funds in contract\n    function View_Account() public view returns(uint){\n        if(accounts[msg.sender].exist == true){\n            return accounts[msg.sender].ammount;\n        } else {\n            //event to register account\n        }\n    }\n    //call contract balance\n    function Balance() public returns (uint256) {\n        return address(this).balance;\n    }\n    //Accept payment from CoinBank and issue dividends to accouts\n    function Accept_From_CoinBank(uint _singleShard)external payable{\n        uint i=0;\n        for(i;i>=Account_Counter;i++){\n            if(ledger[Account_Counter].exist == true){\n                address Serach_result = ledger[Account_Counter].account;\n                //accounts[Serach_result].ammount += [balannceOf(ledger[Account_Counter].account) * _singleShard ];\n            }\n        }\n    }\n}\n//metaverse code day",
+  "source": "pragma solidity ^0.8.10;\n// SPDX-License-Identifier: MIT\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\n//-------------------------- CoinBank Accounting Contract --------------------------\nabstract contract CoinBank{\n    uint coinbanktotal = address(this).balance;\n    uint Shard_yeild_deposit; //votable\n    uint supply;\n    uint Fund_Retention_Rate; //votable\n    address Treasury;\n    uint totalBanks;\n    // Keep track of Funds in CoinBank\n    struct CoinBank_Accounting{\n        uint Current_Funds_Retained;\n        uint Previous_Time;\n    }\n    constructor(address _Treasury){\n        Bank[0] = CoinBank_Accounting(0,block.timestamp);\n        Treasury = _Treasury;\n    }\n    //CoinBank Index of all DAO Banks\n    mapping (uint256 => CoinBank_Accounting) public Bank;\n\n    // Send funds to Treasury Contract\n    function Issue_To_Treasury(uint _single_Shard)internal{\n       // send data through interface function\n    }\n    // Payments to CoinBank will take account of funds\n    function Incomming_Payments()public payable{\n        uint min=0;\n        uint i=0;\n        uint Total_from_Bank;\n\n        for(i;i<=totalBanks;i++){\n            Bank[totalBanks].Current_Funds_Retained += Total_from_Bank;\n        }\n        \n        Total_from_Bank = address(this).balance-Total_from_Bank;\n        if(block.timestamp>min+Bank[0].Previous_Time){\n            uint single_Shard = uint(Total_from_Bank/supply);\n            Issue_To_Treasury(single_Shard);\n            //Call Accept from CoinBank\n        }\n    }\n}\ninterface Accept_From_CoinBank_Interface {\n    function Accept_From_CoinBank(uint _singleShard) external payable;\n}\n//-------------------------- Plus Treasury Contract --------------------------\nabstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {\n    uint counter =0;\n    uint Account_Counter = 0;\n\n    address public CoinBankAddress; // When coinbank is launched add address <--Here\n    //mappings map Account amounts and micro ledger\n    mapping (address => Accounts) public accounts;\n    mapping (uint => micro_ledger) public ledger;\n    //Account Details\n    struct Accounts{\n        uint ammount;\n        bool exist;\n    }\n    //Micrledger holds all accounts ever\n    struct micro_ledger{\n        address account;\n        bool exist;\n    }\n    //launch Contract\n    constructor(string memory name,string memory symbol,uint totalSupply,uint Fund_Retention_Rate,uint totalBanks) ERC20(name, symbol) {\n        _mint(msg.sender, uint(totalSupply));\n        supply = uint(totalSupply);\n\n        //launch Conbank Contract and store address as variable\n        //CoinBankAddress = \n    }\n    modifier CoinBankOnly{\n        require(CoinBankAddress == msg.sender);\n        _;\n    }\n    //Test logging and accounting user dividends\n    function Add_to_Micro_ledger() internal{\n        if(accounts[msg.sender].exist == true){\n            //do nothing\n        } else {\n            ledger[Account_Counter] = micro_ledger(msg.sender,true);\n            accounts[msg.sender] = Accounts(0,true);\n            Account_Counter++;\n        }\n    }   \n    //Account of your funds in contract\n    function View_Account() public view returns(uint){\n        if(accounts[msg.sender].exist == true){\n            return accounts[msg.sender].ammount;\n        } else {\n            //event to register account\n        }\n    }\n    //call contract balance\n    function Balance() public returns (uint256) {\n        return address(this).balance;\n    }\n    //Accept payment from CoinBank and issue dividends to accouts\n    function Accept_From_CoinBank(uint _singleShard)external payable{\n        uint i=0;\n        for(i;i>=Account_Counter;i++){\n            address Serach_result = ledger[Account_Counter].account;\n            if(ledger[Account_Counter].exist == true && accounts[Serach_result].ammount > 0){\n                accounts[Serach_result].ammount += balanceOf(ledger[Account_Counter].account) * _singleShard;\n            }\n        }\n    }\n    function Redeem()public {\n        address payable RedeemAddress = payable(msg.sender);\n        if(accounts[RedeemAddress].exist == true){\n            return RedeemAddress.transfer(accounts[msg.sender].ammount);\n        } else {\n            //no account registerd\n        }      \n    }\n}",
   "sourcePath": "/Users/Q/Local_Repo/Solidity_Contracts/XRC-Dividend/contracts/XRC20Plus.sol",
   "ast": {
     "absolutePath": "project:/contracts/XRC20Plus.sol",
@@ -65,10 +65,10 @@
         648
       ],
       "Plus": [
-        985
+        1036
       ]
     },
-    "id": 986,
+    "id": 1037,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -89,7 +89,7 @@
         "id": 673,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 986,
+        "scope": 1037,
         "sourceUnit": 546,
         "src": "57:55:4",
         "symbolAliases": [],
@@ -1583,7 +1583,7 @@
             "visibility": "public"
           }
         ],
-        "scope": 986,
+        "scope": 1037,
         "src": "198:1319:4",
         "usedErrors": []
       },
@@ -1658,7 +1658,7 @@
             "visibility": "external"
           }
         ],
-        "scope": 986,
+        "scope": 1037,
         "src": "1518:115:4",
         "usedErrors": []
       },
@@ -1706,9 +1706,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": false,
-        "id": 985,
+        "id": 1036,
         "linearizedBaseContracts": [
-          985,
+          1036,
           799,
           793,
           545,
@@ -1727,7 +1727,7 @@
             "name": "counter",
             "nameLocation": "1797:7:4",
             "nodeType": "VariableDeclaration",
-            "scope": 985,
+            "scope": 1036,
             "src": "1792:15:4",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1770,7 +1770,7 @@
             "name": "Account_Counter",
             "nameLocation": "1818:15:4",
             "nodeType": "VariableDeclaration",
-            "scope": 985,
+            "scope": 1036,
             "src": "1813:24:4",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1814,7 +1814,7 @@
             "name": "CoinBankAddress",
             "nameLocation": "1859:15:4",
             "nodeType": "VariableDeclaration",
-            "scope": 985,
+            "scope": 1036,
             "src": "1844:30:4",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1843,7 +1843,7 @@
             "name": "accounts",
             "nameLocation": "2018:8:4",
             "nodeType": "VariableDeclaration",
-            "scope": 985,
+            "scope": 1036,
             "src": "1981:45:4",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1897,7 +1897,7 @@
             "name": "ledger",
             "nameLocation": "2070:6:4",
             "nodeType": "VariableDeclaration",
-            "scope": 985,
+            "scope": 1036,
             "src": "2032:44:4",
             "stateVariable": true,
             "storageLocation": "default",
@@ -2005,7 +2005,7 @@
             "name": "Accounts",
             "nameLocation": "2111:8:4",
             "nodeType": "StructDefinition",
-            "scope": 985,
+            "scope": 1036,
             "src": "2104:64:4",
             "visibility": "public"
           },
@@ -2072,7 +2072,7 @@
             "name": "micro_ledger",
             "nameLocation": "2221:12:4",
             "nodeType": "StructDefinition",
-            "scope": 985,
+            "scope": 1036,
             "src": "2214:71:4",
             "visibility": "public"
           },
@@ -2493,7 +2493,7 @@
               "parameters": [],
               "src": "2443:0:4"
             },
-            "scope": 985,
+            "scope": 1036,
             "src": "2312:314:4",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -3083,7 +3083,7 @@
               "parameters": [],
               "src": "2811:0:4"
             },
-            "scope": 985,
+            "scope": 1036,
             "src": "2772:299:4",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -3335,7 +3335,7 @@
               ],
               "src": "3162:6:4"
             },
-            "scope": 985,
+            "scope": 1036,
             "src": "3119:220:4",
             "stateMutability": "view",
             "virtual": false,
@@ -3359,7 +3359,7 @@
                           "referencedDeclaration": 4294967268,
                           "src": "3441:4:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_Plus_$985",
+                            "typeIdentifier": "t_contract$_Plus_$1036",
                             "typeString": "contract Plus"
                           }
                         }
@@ -3367,7 +3367,7 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_Plus_$985",
+                            "typeIdentifier": "t_contract$_Plus_$1036",
                             "typeString": "contract Plus"
                           }
                         ],
@@ -3473,7 +3473,7 @@
               ],
               "src": "3406:9:4"
             },
-            "scope": 985,
+            "scope": 1036,
             "src": "3372:89:4",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -3484,9 +3484,9 @@
               798
             ],
             "body": {
-              "id": 983,
+              "id": 1004,
               "nodeType": "Block",
-              "src": "3596:332:4",
+              "src": "3596:361:4",
               "statements": [
                 {
                   "assignments": [
@@ -3500,7 +3500,7 @@
                       "name": "i",
                       "nameLocation": "3611:1:4",
                       "nodeType": "VariableDeclaration",
-                      "scope": 983,
+                      "scope": 1004,
                       "src": "3606:6:4",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -3543,194 +3543,487 @@
                 },
                 {
                   "body": {
-                    "id": 981,
+                    "id": 1002,
                     "nodeType": "Block",
-                    "src": "3653:269:4",
+                    "src": "3653:298:4",
                     "statements": [
+                      {
+                        "assignments": [
+                          967
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 967,
+                            "mutability": "mutable",
+                            "name": "Serach_result",
+                            "nameLocation": "3675:13:4",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 1002,
+                            "src": "3667:21:4",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            "typeName": {
+                              "id": 966,
+                              "name": "address",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "3667:7:4",
+                              "stateMutability": "nonpayable",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 972,
+                        "initialValue": {
+                          "expression": {
+                            "baseExpression": {
+                              "id": 968,
+                              "name": "ledger",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 823,
+                              "src": "3691:6:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_micro_ledger_$833_storage_$",
+                                "typeString": "mapping(uint256 => struct Plus.micro_ledger storage ref)"
+                              }
+                            },
+                            "id": 970,
+                            "indexExpression": {
+                              "id": 969,
+                              "name": "Account_Counter",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 811,
+                              "src": "3698:15:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "3691:23:4",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_micro_ledger_$833_storage",
+                              "typeString": "struct Plus.micro_ledger storage ref"
+                            }
+                          },
+                          "id": 971,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "account",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 830,
+                          "src": "3691:31:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "3667:55:4"
+                      },
                       {
                         "condition": {
                           "commonType": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           },
-                          "id": 971,
+                          "id": 985,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
-                            "expression": {
-                              "baseExpression": {
-                                "id": 966,
-                                "name": "ledger",
-                                "nodeType": "Identifier",
-                                "overloadedDeclarations": [],
-                                "referencedDeclaration": 823,
-                                "src": "3670:6:4",
+                            "commonType": {
+                              "typeIdentifier": "t_bool",
+                              "typeString": "bool"
+                            },
+                            "id": 978,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "leftExpression": {
+                              "expression": {
+                                "baseExpression": {
+                                  "id": 973,
+                                  "name": "ledger",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 823,
+                                  "src": "3739:6:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_micro_ledger_$833_storage_$",
+                                    "typeString": "mapping(uint256 => struct Plus.micro_ledger storage ref)"
+                                  }
+                                },
+                                "id": 975,
+                                "indexExpression": {
+                                  "id": 974,
+                                  "name": "Account_Counter",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 811,
+                                  "src": "3746:15:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "3739:23:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_micro_ledger_$833_storage_$",
-                                  "typeString": "mapping(uint256 => struct Plus.micro_ledger storage ref)"
+                                  "typeIdentifier": "t_struct$_micro_ledger_$833_storage",
+                                  "typeString": "struct Plus.micro_ledger storage ref"
                                 }
                               },
-                              "id": 968,
-                              "indexExpression": {
-                                "id": 967,
-                                "name": "Account_Counter",
-                                "nodeType": "Identifier",
-                                "overloadedDeclarations": [],
-                                "referencedDeclaration": 811,
-                                "src": "3677:15:4",
-                                "typeDescriptions": {
-                                  "typeIdentifier": "t_uint256",
-                                  "typeString": "uint256"
-                                }
-                              },
+                              "id": 976,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
-                              "nodeType": "IndexAccess",
-                              "src": "3670:23:4",
+                              "memberName": "exist",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 832,
+                              "src": "3739:29:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_micro_ledger_$833_storage",
-                                "typeString": "struct Plus.micro_ledger storage ref"
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
                               }
                             },
-                            "id": 969,
-                            "isConstant": false,
-                            "isLValue": true,
-                            "isPure": false,
-                            "lValueRequested": false,
-                            "memberName": "exist",
-                            "nodeType": "MemberAccess",
-                            "referencedDeclaration": 832,
-                            "src": "3670:29:4",
+                            "nodeType": "BinaryOperation",
+                            "operator": "==",
+                            "rightExpression": {
+                              "hexValue": "74727565",
+                              "id": 977,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "bool",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "3772:4:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              "value": "true"
+                            },
+                            "src": "3739:37:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
                             }
                           },
                           "nodeType": "BinaryOperation",
-                          "operator": "==",
+                          "operator": "&&",
                           "rightExpression": {
-                            "hexValue": "74727565",
-                            "id": 970,
+                            "commonType": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "id": 984,
                             "isConstant": false,
                             "isLValue": false,
-                            "isPure": true,
-                            "kind": "bool",
+                            "isPure": false,
                             "lValueRequested": false,
-                            "nodeType": "Literal",
-                            "src": "3703:4:4",
+                            "leftExpression": {
+                              "expression": {
+                                "baseExpression": {
+                                  "id": 979,
+                                  "name": "accounts",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 818,
+                                  "src": "3780:8:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accounts_$828_storage_$",
+                                    "typeString": "mapping(address => struct Plus.Accounts storage ref)"
+                                  }
+                                },
+                                "id": 981,
+                                "indexExpression": {
+                                  "id": 980,
+                                  "name": "Serach_result",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 967,
+                                  "src": "3789:13:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "3780:23:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_Accounts_$828_storage",
+                                  "typeString": "struct Plus.Accounts storage ref"
+                                }
+                              },
+                              "id": 982,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "ammount",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 825,
+                              "src": "3780:31:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "nodeType": "BinaryOperation",
+                            "operator": ">",
+                            "rightExpression": {
+                              "hexValue": "30",
+                              "id": 983,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "number",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "3814:1:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              },
+                              "value": "0"
+                            },
+                            "src": "3780:35:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
-                            },
-                            "value": "true"
+                            }
                           },
-                          "src": "3670:37:4",
+                          "src": "3739:76:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           }
                         },
-                        "id": 980,
+                        "id": 1001,
                         "nodeType": "IfStatement",
-                        "src": "3667:245:4",
+                        "src": "3736:205:4",
                         "trueBody": {
-                          "id": 979,
+                          "id": 1000,
                           "nodeType": "Block",
-                          "src": "3708:204:4",
+                          "src": "3816:125:4",
                           "statements": [
                             {
-                              "assignments": [
-                                973
-                              ],
-                              "declarations": [
-                                {
-                                  "constant": false,
-                                  "id": 973,
-                                  "mutability": "mutable",
-                                  "name": "Serach_result",
-                                  "nameLocation": "3734:13:4",
-                                  "nodeType": "VariableDeclaration",
-                                  "scope": 979,
-                                  "src": "3726:21:4",
-                                  "stateVariable": false,
-                                  "storageLocation": "default",
+                              "expression": {
+                                "id": 998,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "leftHandSide": {
+                                  "expression": {
+                                    "baseExpression": {
+                                      "id": 986,
+                                      "name": "accounts",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 818,
+                                      "src": "3834:8:4",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accounts_$828_storage_$",
+                                        "typeString": "mapping(address => struct Plus.Accounts storage ref)"
+                                      }
+                                    },
+                                    "id": 988,
+                                    "indexExpression": {
+                                      "id": 987,
+                                      "name": "Serach_result",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 967,
+                                      "src": "3843:13:4",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                      }
+                                    },
+                                    "isConstant": false,
+                                    "isLValue": true,
+                                    "isPure": false,
+                                    "lValueRequested": false,
+                                    "nodeType": "IndexAccess",
+                                    "src": "3834:23:4",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_struct$_Accounts_$828_storage",
+                                      "typeString": "struct Plus.Accounts storage ref"
+                                    }
+                                  },
+                                  "id": 989,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": true,
+                                  "memberName": "ammount",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 825,
+                                  "src": "3834:31:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_address",
-                                    "typeString": "address"
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "nodeType": "Assignment",
+                                "operator": "+=",
+                                "rightHandSide": {
+                                  "commonType": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
                                   },
-                                  "typeName": {
-                                    "id": 972,
-                                    "name": "address",
-                                    "nodeType": "ElementaryTypeName",
-                                    "src": "3726:7:4",
-                                    "stateMutability": "nonpayable",
-                                    "typeDescriptions": {
-                                      "typeIdentifier": "t_address",
-                                      "typeString": "address"
-                                    }
-                                  },
-                                  "visibility": "internal"
-                                }
-                              ],
-                              "id": 978,
-                              "initialValue": {
-                                "expression": {
-                                  "baseExpression": {
-                                    "id": 974,
-                                    "name": "ledger",
-                                    "nodeType": "Identifier",
-                                    "overloadedDeclarations": [],
-                                    "referencedDeclaration": 823,
-                                    "src": "3750:6:4",
-                                    "typeDescriptions": {
-                                      "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_micro_ledger_$833_storage_$",
-                                      "typeString": "mapping(uint256 => struct Plus.micro_ledger storage ref)"
-                                    }
-                                  },
-                                  "id": 976,
-                                  "indexExpression": {
-                                    "id": 975,
-                                    "name": "Account_Counter",
-                                    "nodeType": "Identifier",
-                                    "overloadedDeclarations": [],
-                                    "referencedDeclaration": 811,
-                                    "src": "3757:15:4",
+                                  "id": 997,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "leftExpression": {
+                                    "arguments": [
+                                      {
+                                        "expression": {
+                                          "baseExpression": {
+                                            "id": 991,
+                                            "name": "ledger",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 823,
+                                            "src": "3879:6:4",
+                                            "typeDescriptions": {
+                                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_micro_ledger_$833_storage_$",
+                                              "typeString": "mapping(uint256 => struct Plus.micro_ledger storage ref)"
+                                            }
+                                          },
+                                          "id": 993,
+                                          "indexExpression": {
+                                            "id": 992,
+                                            "name": "Account_Counter",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 811,
+                                            "src": "3886:15:4",
+                                            "typeDescriptions": {
+                                              "typeIdentifier": "t_uint256",
+                                              "typeString": "uint256"
+                                            }
+                                          },
+                                          "isConstant": false,
+                                          "isLValue": true,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "nodeType": "IndexAccess",
+                                          "src": "3879:23:4",
+                                          "typeDescriptions": {
+                                            "typeIdentifier": "t_struct$_micro_ledger_$833_storage",
+                                            "typeString": "struct Plus.micro_ledger storage ref"
+                                          }
+                                        },
+                                        "id": 994,
+                                        "isConstant": false,
+                                        "isLValue": true,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "memberName": "account",
+                                        "nodeType": "MemberAccess",
+                                        "referencedDeclaration": 830,
+                                        "src": "3879:31:4",
+                                        "typeDescriptions": {
+                                          "typeIdentifier": "t_address",
+                                          "typeString": "address"
+                                        }
+                                      }
+                                    ],
+                                    "expression": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_address",
+                                          "typeString": "address"
+                                        }
+                                      ],
+                                      "id": 990,
+                                      "name": "balanceOf",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 98,
+                                      "src": "3869:9:4",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_uint256_$",
+                                        "typeString": "function (address) view returns (uint256)"
+                                      }
+                                    },
+                                    "id": 995,
+                                    "isConstant": false,
+                                    "isLValue": false,
+                                    "isPure": false,
+                                    "kind": "functionCall",
+                                    "lValueRequested": false,
+                                    "names": [],
+                                    "nodeType": "FunctionCall",
+                                    "src": "3869:42:4",
+                                    "tryCall": false,
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_uint256",
                                       "typeString": "uint256"
                                     }
                                   },
-                                  "isConstant": false,
-                                  "isLValue": true,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "nodeType": "IndexAccess",
-                                  "src": "3750:23:4",
+                                  "nodeType": "BinaryOperation",
+                                  "operator": "*",
+                                  "rightExpression": {
+                                    "id": 996,
+                                    "name": "_singleShard",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 951,
+                                    "src": "3914:12:4",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  },
+                                  "src": "3869:57:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_micro_ledger_$833_storage",
-                                    "typeString": "struct Plus.micro_ledger storage ref"
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
                                   }
                                 },
-                                "id": 977,
-                                "isConstant": false,
-                                "isLValue": true,
-                                "isPure": false,
-                                "lValueRequested": false,
-                                "memberName": "account",
-                                "nodeType": "MemberAccess",
-                                "referencedDeclaration": 830,
-                                "src": "3750:31:4",
+                                "src": "3834:92:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_address",
-                                  "typeString": "address"
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
                                 }
                               },
-                              "nodeType": "VariableDeclarationStatement",
-                              "src": "3726:55:4"
+                              "id": 999,
+                              "nodeType": "ExpressionStatement",
+                              "src": "3834:92:4"
                             }
                           ]
                         }
@@ -3779,7 +4072,7 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 982,
+                  "id": 1003,
                   "initializationExpression": {
                     "expression": {
                       "id": 958,
@@ -3830,12 +4123,12 @@
                     "src": "3649:3:4"
                   },
                   "nodeType": "ForStatement",
-                  "src": "3624:298:4"
+                  "src": "3624:327:4"
                 }
               ]
             },
             "functionSelector": "9a29e6aa",
-            "id": 984,
+            "id": 1005,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -3853,7 +4146,7 @@
                   "name": "_singleShard",
                   "nameLocation": "3567:12:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 984,
+                  "scope": 1005,
                   "src": "3562:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3882,19 +4175,388 @@
               "parameters": [],
               "src": "3596:0:4"
             },
-            "scope": 985,
-            "src": "3532:396:4",
+            "scope": 1036,
+            "src": "3532:425:4",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 1034,
+              "nodeType": "Block",
+              "src": "3986:260:4",
+              "statements": [
+                {
+                  "assignments": [
+                    1009
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 1009,
+                      "mutability": "mutable",
+                      "name": "RedeemAddress",
+                      "nameLocation": "4012:13:4",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 1034,
+                      "src": "3996:29:4",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      },
+                      "typeName": {
+                        "id": 1008,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "3996:15:4",
+                        "stateMutability": "payable",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 1015,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "expression": {
+                          "id": 1012,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4294967281,
+                          "src": "4036:3:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 1013,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "src": "4036:10:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 1011,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "ElementaryTypeNameExpression",
+                      "src": "4028:8:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_address_payable_$",
+                        "typeString": "type(address payable)"
+                      },
+                      "typeName": {
+                        "id": 1010,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "4028:8:4",
+                        "stateMutability": "payable",
+                        "typeDescriptions": {}
+                      }
+                    },
+                    "id": 1014,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "4028:19:4",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "3996:51:4"
+                },
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "id": 1021,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "expression": {
+                        "baseExpression": {
+                          "id": 1016,
+                          "name": "accounts",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 818,
+                          "src": "4060:8:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accounts_$828_storage_$",
+                            "typeString": "mapping(address => struct Plus.Accounts storage ref)"
+                          }
+                        },
+                        "id": 1018,
+                        "indexExpression": {
+                          "id": 1017,
+                          "name": "RedeemAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1009,
+                          "src": "4069:13:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "4060:23:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Accounts_$828_storage",
+                          "typeString": "struct Plus.Accounts storage ref"
+                        }
+                      },
+                      "id": 1019,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "exist",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 827,
+                      "src": "4060:29:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "hexValue": "74727565",
+                      "id": 1020,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "4093:4:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "4060:37:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": {
+                    "id": 1032,
+                    "nodeType": "Block",
+                    "src": "4188:46:4",
+                    "statements": []
+                  },
+                  "id": 1033,
+                  "nodeType": "IfStatement",
+                  "src": "4057:177:4",
+                  "trueBody": {
+                    "id": 1031,
+                    "nodeType": "Block",
+                    "src": "4098:84:4",
+                    "statements": [
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "expression": {
+                                "baseExpression": {
+                                  "id": 1024,
+                                  "name": "accounts",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 818,
+                                  "src": "4142:8:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accounts_$828_storage_$",
+                                    "typeString": "mapping(address => struct Plus.Accounts storage ref)"
+                                  }
+                                },
+                                "id": 1027,
+                                "indexExpression": {
+                                  "expression": {
+                                    "id": 1025,
+                                    "name": "msg",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 4294967281,
+                                    "src": "4151:3:4",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_magic_message",
+                                      "typeString": "msg"
+                                    }
+                                  },
+                                  "id": 1026,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "sender",
+                                  "nodeType": "MemberAccess",
+                                  "src": "4151:10:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "4142:20:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_Accounts_$828_storage",
+                                  "typeString": "struct Plus.Accounts storage ref"
+                                }
+                              },
+                              "id": 1028,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "ammount",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 825,
+                              "src": "4142:28:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            ],
+                            "expression": {
+                              "id": 1022,
+                              "name": "RedeemAddress",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 1009,
+                              "src": "4119:13:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address_payable",
+                                "typeString": "address payable"
+                              }
+                            },
+                            "id": 1023,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "transfer",
+                            "nodeType": "MemberAccess",
+                            "src": "4119:22:4",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
+                              "typeString": "function (uint256)"
+                            }
+                          },
+                          "id": 1029,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "4119:52:4",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "functionReturnParameters": 1007,
+                        "id": 1030,
+                        "nodeType": "Return",
+                        "src": "4112:59:4"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "functionSelector": "d95402e7",
+            "id": 1035,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Redeem",
+            "nameLocation": "3971:6:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1006,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3977:2:4"
+            },
+            "returnParameters": {
+              "id": 1007,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3986:0:4"
+            },
+            "scope": 1036,
+            "src": "3962:284:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
           }
         ],
-        "scope": 986,
-        "src": "1713:2217:4",
+        "scope": 1037,
+        "src": "1713:2535:4",
         "usedErrors": []
       }
     ],
-    "src": "0:3951:4"
+    "src": "0:4248:4"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/XRC20Plus.sol",
@@ -3918,10 +4580,10 @@
         648
       ],
       "Plus": [
-        985
+        1036
       ]
     },
-    "id": 986,
+    "id": 1037,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -3942,7 +4604,7 @@
         "id": 673,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 986,
+        "scope": 1037,
         "sourceUnit": 546,
         "src": "57:55:4",
         "symbolAliases": [],
@@ -5436,7 +6098,7 @@
             "visibility": "public"
           }
         ],
-        "scope": 986,
+        "scope": 1037,
         "src": "198:1319:4",
         "usedErrors": []
       },
@@ -5511,7 +6173,7 @@
             "visibility": "external"
           }
         ],
-        "scope": 986,
+        "scope": 1037,
         "src": "1518:115:4",
         "usedErrors": []
       },
@@ -5559,9 +6221,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": false,
-        "id": 985,
+        "id": 1036,
         "linearizedBaseContracts": [
-          985,
+          1036,
           799,
           793,
           545,
@@ -5580,7 +6242,7 @@
             "name": "counter",
             "nameLocation": "1797:7:4",
             "nodeType": "VariableDeclaration",
-            "scope": 985,
+            "scope": 1036,
             "src": "1792:15:4",
             "stateVariable": true,
             "storageLocation": "default",
@@ -5623,7 +6285,7 @@
             "name": "Account_Counter",
             "nameLocation": "1818:15:4",
             "nodeType": "VariableDeclaration",
-            "scope": 985,
+            "scope": 1036,
             "src": "1813:24:4",
             "stateVariable": true,
             "storageLocation": "default",
@@ -5667,7 +6329,7 @@
             "name": "CoinBankAddress",
             "nameLocation": "1859:15:4",
             "nodeType": "VariableDeclaration",
-            "scope": 985,
+            "scope": 1036,
             "src": "1844:30:4",
             "stateVariable": true,
             "storageLocation": "default",
@@ -5696,7 +6358,7 @@
             "name": "accounts",
             "nameLocation": "2018:8:4",
             "nodeType": "VariableDeclaration",
-            "scope": 985,
+            "scope": 1036,
             "src": "1981:45:4",
             "stateVariable": true,
             "storageLocation": "default",
@@ -5750,7 +6412,7 @@
             "name": "ledger",
             "nameLocation": "2070:6:4",
             "nodeType": "VariableDeclaration",
-            "scope": 985,
+            "scope": 1036,
             "src": "2032:44:4",
             "stateVariable": true,
             "storageLocation": "default",
@@ -5858,7 +6520,7 @@
             "name": "Accounts",
             "nameLocation": "2111:8:4",
             "nodeType": "StructDefinition",
-            "scope": 985,
+            "scope": 1036,
             "src": "2104:64:4",
             "visibility": "public"
           },
@@ -5925,7 +6587,7 @@
             "name": "micro_ledger",
             "nameLocation": "2221:12:4",
             "nodeType": "StructDefinition",
-            "scope": 985,
+            "scope": 1036,
             "src": "2214:71:4",
             "visibility": "public"
           },
@@ -6346,7 +7008,7 @@
               "parameters": [],
               "src": "2443:0:4"
             },
-            "scope": 985,
+            "scope": 1036,
             "src": "2312:314:4",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -6936,7 +7598,7 @@
               "parameters": [],
               "src": "2811:0:4"
             },
-            "scope": 985,
+            "scope": 1036,
             "src": "2772:299:4",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -7188,7 +7850,7 @@
               ],
               "src": "3162:6:4"
             },
-            "scope": 985,
+            "scope": 1036,
             "src": "3119:220:4",
             "stateMutability": "view",
             "virtual": false,
@@ -7212,7 +7874,7 @@
                           "referencedDeclaration": 4294967268,
                           "src": "3441:4:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_Plus_$985",
+                            "typeIdentifier": "t_contract$_Plus_$1036",
                             "typeString": "contract Plus"
                           }
                         }
@@ -7220,7 +7882,7 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_Plus_$985",
+                            "typeIdentifier": "t_contract$_Plus_$1036",
                             "typeString": "contract Plus"
                           }
                         ],
@@ -7326,7 +7988,7 @@
               ],
               "src": "3406:9:4"
             },
-            "scope": 985,
+            "scope": 1036,
             "src": "3372:89:4",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -7337,9 +7999,9 @@
               798
             ],
             "body": {
-              "id": 983,
+              "id": 1004,
               "nodeType": "Block",
-              "src": "3596:332:4",
+              "src": "3596:361:4",
               "statements": [
                 {
                   "assignments": [
@@ -7353,7 +8015,7 @@
                       "name": "i",
                       "nameLocation": "3611:1:4",
                       "nodeType": "VariableDeclaration",
-                      "scope": 983,
+                      "scope": 1004,
                       "src": "3606:6:4",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -7396,194 +8058,487 @@
                 },
                 {
                   "body": {
-                    "id": 981,
+                    "id": 1002,
                     "nodeType": "Block",
-                    "src": "3653:269:4",
+                    "src": "3653:298:4",
                     "statements": [
+                      {
+                        "assignments": [
+                          967
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 967,
+                            "mutability": "mutable",
+                            "name": "Serach_result",
+                            "nameLocation": "3675:13:4",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 1002,
+                            "src": "3667:21:4",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            "typeName": {
+                              "id": 966,
+                              "name": "address",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "3667:7:4",
+                              "stateMutability": "nonpayable",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 972,
+                        "initialValue": {
+                          "expression": {
+                            "baseExpression": {
+                              "id": 968,
+                              "name": "ledger",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 823,
+                              "src": "3691:6:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_micro_ledger_$833_storage_$",
+                                "typeString": "mapping(uint256 => struct Plus.micro_ledger storage ref)"
+                              }
+                            },
+                            "id": 970,
+                            "indexExpression": {
+                              "id": 969,
+                              "name": "Account_Counter",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 811,
+                              "src": "3698:15:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "3691:23:4",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_micro_ledger_$833_storage",
+                              "typeString": "struct Plus.micro_ledger storage ref"
+                            }
+                          },
+                          "id": 971,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "account",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 830,
+                          "src": "3691:31:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "3667:55:4"
+                      },
                       {
                         "condition": {
                           "commonType": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           },
-                          "id": 971,
+                          "id": 985,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
-                            "expression": {
-                              "baseExpression": {
-                                "id": 966,
-                                "name": "ledger",
-                                "nodeType": "Identifier",
-                                "overloadedDeclarations": [],
-                                "referencedDeclaration": 823,
-                                "src": "3670:6:4",
+                            "commonType": {
+                              "typeIdentifier": "t_bool",
+                              "typeString": "bool"
+                            },
+                            "id": 978,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "leftExpression": {
+                              "expression": {
+                                "baseExpression": {
+                                  "id": 973,
+                                  "name": "ledger",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 823,
+                                  "src": "3739:6:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_micro_ledger_$833_storage_$",
+                                    "typeString": "mapping(uint256 => struct Plus.micro_ledger storage ref)"
+                                  }
+                                },
+                                "id": 975,
+                                "indexExpression": {
+                                  "id": 974,
+                                  "name": "Account_Counter",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 811,
+                                  "src": "3746:15:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "3739:23:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_micro_ledger_$833_storage_$",
-                                  "typeString": "mapping(uint256 => struct Plus.micro_ledger storage ref)"
+                                  "typeIdentifier": "t_struct$_micro_ledger_$833_storage",
+                                  "typeString": "struct Plus.micro_ledger storage ref"
                                 }
                               },
-                              "id": 968,
-                              "indexExpression": {
-                                "id": 967,
-                                "name": "Account_Counter",
-                                "nodeType": "Identifier",
-                                "overloadedDeclarations": [],
-                                "referencedDeclaration": 811,
-                                "src": "3677:15:4",
-                                "typeDescriptions": {
-                                  "typeIdentifier": "t_uint256",
-                                  "typeString": "uint256"
-                                }
-                              },
+                              "id": 976,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
-                              "nodeType": "IndexAccess",
-                              "src": "3670:23:4",
+                              "memberName": "exist",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 832,
+                              "src": "3739:29:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_micro_ledger_$833_storage",
-                                "typeString": "struct Plus.micro_ledger storage ref"
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
                               }
                             },
-                            "id": 969,
-                            "isConstant": false,
-                            "isLValue": true,
-                            "isPure": false,
-                            "lValueRequested": false,
-                            "memberName": "exist",
-                            "nodeType": "MemberAccess",
-                            "referencedDeclaration": 832,
-                            "src": "3670:29:4",
+                            "nodeType": "BinaryOperation",
+                            "operator": "==",
+                            "rightExpression": {
+                              "hexValue": "74727565",
+                              "id": 977,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "bool",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "3772:4:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              "value": "true"
+                            },
+                            "src": "3739:37:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
                             }
                           },
                           "nodeType": "BinaryOperation",
-                          "operator": "==",
+                          "operator": "&&",
                           "rightExpression": {
-                            "hexValue": "74727565",
-                            "id": 970,
+                            "commonType": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "id": 984,
                             "isConstant": false,
                             "isLValue": false,
-                            "isPure": true,
-                            "kind": "bool",
+                            "isPure": false,
                             "lValueRequested": false,
-                            "nodeType": "Literal",
-                            "src": "3703:4:4",
+                            "leftExpression": {
+                              "expression": {
+                                "baseExpression": {
+                                  "id": 979,
+                                  "name": "accounts",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 818,
+                                  "src": "3780:8:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accounts_$828_storage_$",
+                                    "typeString": "mapping(address => struct Plus.Accounts storage ref)"
+                                  }
+                                },
+                                "id": 981,
+                                "indexExpression": {
+                                  "id": 980,
+                                  "name": "Serach_result",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 967,
+                                  "src": "3789:13:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "3780:23:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_Accounts_$828_storage",
+                                  "typeString": "struct Plus.Accounts storage ref"
+                                }
+                              },
+                              "id": 982,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "ammount",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 825,
+                              "src": "3780:31:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "nodeType": "BinaryOperation",
+                            "operator": ">",
+                            "rightExpression": {
+                              "hexValue": "30",
+                              "id": 983,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "number",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "3814:1:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              },
+                              "value": "0"
+                            },
+                            "src": "3780:35:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
-                            },
-                            "value": "true"
+                            }
                           },
-                          "src": "3670:37:4",
+                          "src": "3739:76:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           }
                         },
-                        "id": 980,
+                        "id": 1001,
                         "nodeType": "IfStatement",
-                        "src": "3667:245:4",
+                        "src": "3736:205:4",
                         "trueBody": {
-                          "id": 979,
+                          "id": 1000,
                           "nodeType": "Block",
-                          "src": "3708:204:4",
+                          "src": "3816:125:4",
                           "statements": [
                             {
-                              "assignments": [
-                                973
-                              ],
-                              "declarations": [
-                                {
-                                  "constant": false,
-                                  "id": 973,
-                                  "mutability": "mutable",
-                                  "name": "Serach_result",
-                                  "nameLocation": "3734:13:4",
-                                  "nodeType": "VariableDeclaration",
-                                  "scope": 979,
-                                  "src": "3726:21:4",
-                                  "stateVariable": false,
-                                  "storageLocation": "default",
+                              "expression": {
+                                "id": 998,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "leftHandSide": {
+                                  "expression": {
+                                    "baseExpression": {
+                                      "id": 986,
+                                      "name": "accounts",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 818,
+                                      "src": "3834:8:4",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accounts_$828_storage_$",
+                                        "typeString": "mapping(address => struct Plus.Accounts storage ref)"
+                                      }
+                                    },
+                                    "id": 988,
+                                    "indexExpression": {
+                                      "id": 987,
+                                      "name": "Serach_result",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 967,
+                                      "src": "3843:13:4",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                      }
+                                    },
+                                    "isConstant": false,
+                                    "isLValue": true,
+                                    "isPure": false,
+                                    "lValueRequested": false,
+                                    "nodeType": "IndexAccess",
+                                    "src": "3834:23:4",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_struct$_Accounts_$828_storage",
+                                      "typeString": "struct Plus.Accounts storage ref"
+                                    }
+                                  },
+                                  "id": 989,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": true,
+                                  "memberName": "ammount",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 825,
+                                  "src": "3834:31:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_address",
-                                    "typeString": "address"
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "nodeType": "Assignment",
+                                "operator": "+=",
+                                "rightHandSide": {
+                                  "commonType": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
                                   },
-                                  "typeName": {
-                                    "id": 972,
-                                    "name": "address",
-                                    "nodeType": "ElementaryTypeName",
-                                    "src": "3726:7:4",
-                                    "stateMutability": "nonpayable",
-                                    "typeDescriptions": {
-                                      "typeIdentifier": "t_address",
-                                      "typeString": "address"
-                                    }
-                                  },
-                                  "visibility": "internal"
-                                }
-                              ],
-                              "id": 978,
-                              "initialValue": {
-                                "expression": {
-                                  "baseExpression": {
-                                    "id": 974,
-                                    "name": "ledger",
-                                    "nodeType": "Identifier",
-                                    "overloadedDeclarations": [],
-                                    "referencedDeclaration": 823,
-                                    "src": "3750:6:4",
-                                    "typeDescriptions": {
-                                      "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_micro_ledger_$833_storage_$",
-                                      "typeString": "mapping(uint256 => struct Plus.micro_ledger storage ref)"
-                                    }
-                                  },
-                                  "id": 976,
-                                  "indexExpression": {
-                                    "id": 975,
-                                    "name": "Account_Counter",
-                                    "nodeType": "Identifier",
-                                    "overloadedDeclarations": [],
-                                    "referencedDeclaration": 811,
-                                    "src": "3757:15:4",
+                                  "id": 997,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "leftExpression": {
+                                    "arguments": [
+                                      {
+                                        "expression": {
+                                          "baseExpression": {
+                                            "id": 991,
+                                            "name": "ledger",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 823,
+                                            "src": "3879:6:4",
+                                            "typeDescriptions": {
+                                              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_micro_ledger_$833_storage_$",
+                                              "typeString": "mapping(uint256 => struct Plus.micro_ledger storage ref)"
+                                            }
+                                          },
+                                          "id": 993,
+                                          "indexExpression": {
+                                            "id": 992,
+                                            "name": "Account_Counter",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 811,
+                                            "src": "3886:15:4",
+                                            "typeDescriptions": {
+                                              "typeIdentifier": "t_uint256",
+                                              "typeString": "uint256"
+                                            }
+                                          },
+                                          "isConstant": false,
+                                          "isLValue": true,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "nodeType": "IndexAccess",
+                                          "src": "3879:23:4",
+                                          "typeDescriptions": {
+                                            "typeIdentifier": "t_struct$_micro_ledger_$833_storage",
+                                            "typeString": "struct Plus.micro_ledger storage ref"
+                                          }
+                                        },
+                                        "id": 994,
+                                        "isConstant": false,
+                                        "isLValue": true,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "memberName": "account",
+                                        "nodeType": "MemberAccess",
+                                        "referencedDeclaration": 830,
+                                        "src": "3879:31:4",
+                                        "typeDescriptions": {
+                                          "typeIdentifier": "t_address",
+                                          "typeString": "address"
+                                        }
+                                      }
+                                    ],
+                                    "expression": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_address",
+                                          "typeString": "address"
+                                        }
+                                      ],
+                                      "id": 990,
+                                      "name": "balanceOf",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 98,
+                                      "src": "3869:9:4",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_uint256_$",
+                                        "typeString": "function (address) view returns (uint256)"
+                                      }
+                                    },
+                                    "id": 995,
+                                    "isConstant": false,
+                                    "isLValue": false,
+                                    "isPure": false,
+                                    "kind": "functionCall",
+                                    "lValueRequested": false,
+                                    "names": [],
+                                    "nodeType": "FunctionCall",
+                                    "src": "3869:42:4",
+                                    "tryCall": false,
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_uint256",
                                       "typeString": "uint256"
                                     }
                                   },
-                                  "isConstant": false,
-                                  "isLValue": true,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "nodeType": "IndexAccess",
-                                  "src": "3750:23:4",
+                                  "nodeType": "BinaryOperation",
+                                  "operator": "*",
+                                  "rightExpression": {
+                                    "id": 996,
+                                    "name": "_singleShard",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 951,
+                                    "src": "3914:12:4",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  },
+                                  "src": "3869:57:4",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_micro_ledger_$833_storage",
-                                    "typeString": "struct Plus.micro_ledger storage ref"
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
                                   }
                                 },
-                                "id": 977,
-                                "isConstant": false,
-                                "isLValue": true,
-                                "isPure": false,
-                                "lValueRequested": false,
-                                "memberName": "account",
-                                "nodeType": "MemberAccess",
-                                "referencedDeclaration": 830,
-                                "src": "3750:31:4",
+                                "src": "3834:92:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_address",
-                                  "typeString": "address"
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
                                 }
                               },
-                              "nodeType": "VariableDeclarationStatement",
-                              "src": "3726:55:4"
+                              "id": 999,
+                              "nodeType": "ExpressionStatement",
+                              "src": "3834:92:4"
                             }
                           ]
                         }
@@ -7632,7 +8587,7 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 982,
+                  "id": 1003,
                   "initializationExpression": {
                     "expression": {
                       "id": 958,
@@ -7683,12 +8638,12 @@
                     "src": "3649:3:4"
                   },
                   "nodeType": "ForStatement",
-                  "src": "3624:298:4"
+                  "src": "3624:327:4"
                 }
               ]
             },
             "functionSelector": "9a29e6aa",
-            "id": 984,
+            "id": 1005,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -7706,7 +8661,7 @@
                   "name": "_singleShard",
                   "nameLocation": "3567:12:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 984,
+                  "scope": 1005,
                   "src": "3562:17:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -7735,19 +8690,388 @@
               "parameters": [],
               "src": "3596:0:4"
             },
-            "scope": 985,
-            "src": "3532:396:4",
+            "scope": 1036,
+            "src": "3532:425:4",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 1034,
+              "nodeType": "Block",
+              "src": "3986:260:4",
+              "statements": [
+                {
+                  "assignments": [
+                    1009
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 1009,
+                      "mutability": "mutable",
+                      "name": "RedeemAddress",
+                      "nameLocation": "4012:13:4",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 1034,
+                      "src": "3996:29:4",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      },
+                      "typeName": {
+                        "id": 1008,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "3996:15:4",
+                        "stateMutability": "payable",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 1015,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "expression": {
+                          "id": 1012,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4294967281,
+                          "src": "4036:3:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 1013,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "src": "4036:10:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 1011,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "ElementaryTypeNameExpression",
+                      "src": "4028:8:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_address_payable_$",
+                        "typeString": "type(address payable)"
+                      },
+                      "typeName": {
+                        "id": 1010,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "4028:8:4",
+                        "stateMutability": "payable",
+                        "typeDescriptions": {}
+                      }
+                    },
+                    "id": 1014,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "4028:19:4",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "3996:51:4"
+                },
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "id": 1021,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "expression": {
+                        "baseExpression": {
+                          "id": 1016,
+                          "name": "accounts",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 818,
+                          "src": "4060:8:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accounts_$828_storage_$",
+                            "typeString": "mapping(address => struct Plus.Accounts storage ref)"
+                          }
+                        },
+                        "id": 1018,
+                        "indexExpression": {
+                          "id": 1017,
+                          "name": "RedeemAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1009,
+                          "src": "4069:13:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "4060:23:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Accounts_$828_storage",
+                          "typeString": "struct Plus.Accounts storage ref"
+                        }
+                      },
+                      "id": 1019,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "exist",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 827,
+                      "src": "4060:29:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "hexValue": "74727565",
+                      "id": 1020,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "4093:4:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "4060:37:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": {
+                    "id": 1032,
+                    "nodeType": "Block",
+                    "src": "4188:46:4",
+                    "statements": []
+                  },
+                  "id": 1033,
+                  "nodeType": "IfStatement",
+                  "src": "4057:177:4",
+                  "trueBody": {
+                    "id": 1031,
+                    "nodeType": "Block",
+                    "src": "4098:84:4",
+                    "statements": [
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "expression": {
+                                "baseExpression": {
+                                  "id": 1024,
+                                  "name": "accounts",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 818,
+                                  "src": "4142:8:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Accounts_$828_storage_$",
+                                    "typeString": "mapping(address => struct Plus.Accounts storage ref)"
+                                  }
+                                },
+                                "id": 1027,
+                                "indexExpression": {
+                                  "expression": {
+                                    "id": 1025,
+                                    "name": "msg",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 4294967281,
+                                    "src": "4151:3:4",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_magic_message",
+                                      "typeString": "msg"
+                                    }
+                                  },
+                                  "id": 1026,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "sender",
+                                  "nodeType": "MemberAccess",
+                                  "src": "4151:10:4",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "4142:20:4",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_Accounts_$828_storage",
+                                  "typeString": "struct Plus.Accounts storage ref"
+                                }
+                              },
+                              "id": 1028,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "ammount",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 825,
+                              "src": "4142:28:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            ],
+                            "expression": {
+                              "id": 1022,
+                              "name": "RedeemAddress",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 1009,
+                              "src": "4119:13:4",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address_payable",
+                                "typeString": "address payable"
+                              }
+                            },
+                            "id": 1023,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "transfer",
+                            "nodeType": "MemberAccess",
+                            "src": "4119:22:4",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
+                              "typeString": "function (uint256)"
+                            }
+                          },
+                          "id": 1029,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "4119:52:4",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "functionReturnParameters": 1007,
+                        "id": 1030,
+                        "nodeType": "Return",
+                        "src": "4112:59:4"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "functionSelector": "d95402e7",
+            "id": 1035,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "Redeem",
+            "nameLocation": "3971:6:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1006,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3977:2:4"
+            },
+            "returnParameters": {
+              "id": 1007,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3986:0:4"
+            },
+            "scope": 1036,
+            "src": "3962:284:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
           }
         ],
-        "scope": 986,
-        "src": "1713:2217:4",
+        "scope": 1037,
+        "src": "1713:2535:4",
         "usedErrors": []
       }
     ],
-    "src": "0:3951:4"
+    "src": "0:4248:4"
   },
   "compiler": {
     "name": "solc",
@@ -7755,7 +9079,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-01-04T03:27:01.313Z",
+  "updatedAt": "2022-01-04T16:07:27.397Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

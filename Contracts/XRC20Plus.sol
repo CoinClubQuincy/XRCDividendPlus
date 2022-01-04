@@ -105,8 +105,16 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
         for(i;i>=Account_Counter;i++){
             address Serach_result = ledger[Account_Counter].account;
             if(ledger[Account_Counter].exist == true && accounts[Serach_result].ammount > 0){
-                //accounts[Serach_result].ammount += [balannceOf(ledger[Account_Counter].account) * _singleShard ];
+                accounts[Serach_result].ammount += balanceOf(ledger[Account_Counter].account) * _singleShard;
             }
         }
+    }
+    function Redeem()public {
+        address payable RedeemAddress = payable(msg.sender);
+        if(accounts[RedeemAddress].exist == true){
+            return RedeemAddress.transfer(accounts[msg.sender].ammount);
+        } else {
+            //no account registerd
+        }      
     }
 }
