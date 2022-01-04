@@ -29,7 +29,7 @@ abstract contract CoinBank{
     function Incomming_Payments()public payable{
         uint min=0;
         uint i=0;
-        uint Total_from_Bank;
+        uint Total_from_Bank =0;
 
         for(i;i<=totalBanks;i++){
             Bank[totalBanks].Current_Funds_Retained += Total_from_Bank;
@@ -73,6 +73,7 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
         //launch Conbank Contract and store address as variable
         //CoinBankAddress = 
     }
+    //require coinbank 
     modifier CoinBankOnly{
         require(CoinBankAddress == msg.sender);
         _;
@@ -100,7 +101,7 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
         return address(this).balance;
     }
     //Accept payment from CoinBank and issue dividends to accouts
-    function Accept_From_CoinBank(uint _singleShard)external payable{
+    function Accept_From_CoinBank(uint _singleShard)external payable CoinBankOnly{
         uint i=0;
         for(i;i>=Account_Counter;i++){
             address Serach_result = ledger[Account_Counter].account;
@@ -109,6 +110,7 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
             }
         }
     }
+    //Redeem Dividends from treasury
     function Redeem()public {
         address payable RedeemAddress = payable(msg.sender);
         if(accounts[RedeemAddress].exist == true){
