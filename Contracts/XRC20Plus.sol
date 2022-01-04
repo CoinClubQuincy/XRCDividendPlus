@@ -103,8 +103,8 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     function Accept_From_CoinBank(uint _singleShard)external payable{
         uint i=0;
         for(i;i>=Account_Counter;i++){
-            if(ledger[Account_Counter].exist == true){
-                address Serach_result = ledger[Account_Counter].account;
+            address Serach_result = ledger[Account_Counter].account;
+            if(ledger[Account_Counter].exist == true && accounts[Serach_result].ammount > 0){
                 //accounts[Serach_result].ammount += [balannceOf(ledger[Account_Counter].account) * _singleShard ];
             }
         }
