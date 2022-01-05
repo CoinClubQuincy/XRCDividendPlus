@@ -54,7 +54,7 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     uint counter =0;
     uint Account_Counter = 0;
 
-    address public CoinBankAddress; // When coinbank is launched add address <--Here
+    address public CoinBankAddress=address(this); // When coinbank is launched add address <--Here
     //mappings map Account amounts and micro ledger
     mapping (address => Accounts) public accounts;
     mapping (uint => micro_ledger) public ledger;
@@ -73,8 +73,8 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
         _mint(msg.sender, uint(totalSupply));
         supply = uint(totalSupply);
 
-        //launch Conbank Contract and store address as variable
-        //CoinBankAddress = 
+        //--------------------launch Conbank Contract--------------------
+        CoinBank_Contract = new CoinBank(CoinBankAddress);
     }
     //require coinbank 
     modifier CoinBankOnly{
