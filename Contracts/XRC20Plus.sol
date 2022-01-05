@@ -24,12 +24,15 @@ abstract contract CoinBank{
     // Send funds to Treasury Contract
     function Issue_To_Treasury(uint _single_Shard)internal{
        // send data through interface function
+        Accept_From_CoinBank_Interface exeInterface = Accept_From_CoinBank_Interface(Treasury); //place treasury contract address here
+        exeInterface.Accept_From_CoinBank(_single_Shard);      
     }
     // Payments to CoinBank will take account of funds
     function Incomming_Payments()public payable{
         uint min=0;
         uint i=0;
         uint Total_from_Bank =0;
+        address TreasuryContract;
 
         for(i;i<=totalBanks;i++){
             Bank[totalBanks].Current_Funds_Retained += Total_from_Bank;
