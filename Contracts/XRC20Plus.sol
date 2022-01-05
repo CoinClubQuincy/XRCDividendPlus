@@ -58,6 +58,7 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     //mappings map Account amounts and micro ledger
     mapping (address => Accounts) public accounts;
     mapping (uint => micro_ledger) public ledger;
+    
     //Account Details
     struct Accounts{
         uint ammount;
