@@ -74,7 +74,7 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
         _mint(msg.sender, uint(totalSupply));
         supply = uint(totalSupply);
 
-        //--------------------launch Conbank Contract--------------------
+        //------------------launch Conbank Contract------------------
         CoinBank_Contract = new CoinBank(CoinBankAddress);
     }
     //require coinbank 
