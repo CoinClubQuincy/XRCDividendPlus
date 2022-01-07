@@ -2,7 +2,7 @@ pragma solidity ^0.8.10;
 // SPDX-License-Identifier: MIT
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 //-------------------------- CoinBank Accounting Contract --------------------------
-abstract contract CoinBank{
+contract CoinBank{
     uint coinbanktotal = address(this).balance;
     uint Shard_yeild_deposit; //votable
     uint supply;
@@ -59,6 +59,8 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     mapping (address => Accounts) public accounts;
     mapping (uint => micro_ledger) public ledger;
     
+    //CoinBank Contract
+    CoinBank public CoinBank_Contract;
     //Account Details
     struct Accounts{
         uint ammount;
