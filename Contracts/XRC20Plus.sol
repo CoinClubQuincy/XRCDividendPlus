@@ -29,7 +29,7 @@ contract CoinBank{
     }
     // Payments to CoinBank will take account of funds
     function Incomming_Payments()public payable{
-        uint min=0;
+        uint min=0; // add one min ro the int
         uint i=0;
         uint Total_from_Bank =0;
         address TreasuryContract;
