@@ -85,7 +85,7 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
         _;
     }
     //Test logging and accounting user dividends
-    function Add_to_Micro_ledger() internal{
+    function Register_Account() internal{
         if(accounts[msg.sender].exist == true){
             //do nothing
         } else {
