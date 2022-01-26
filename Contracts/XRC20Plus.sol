@@ -44,7 +44,6 @@ contract CoinBank{
             uint single_Shard = uint(Total_from_Bank/supply);
             Issue_To_Treasury(single_Shard);
             //Call Accept from CoinBank
-
         }
     }
 }
@@ -120,12 +119,11 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
                 ShardCounter += balanceOf(ledger[Account_Counter].account) * _singleShard;
             }
         }
-        //refactor leftovers from unregisterd account & assimilate funds into treasury
+        //refactor leftovers from unregisterd account & assimilate additional funds into treasury
         if(ShardCounter != value){
             uint leftovers = value - ShardCounter;
             Accept_From_CoinBank(leftovers);
         }
-
     }
     //Redeem Dividends from treasury
     function Redeem()public {
