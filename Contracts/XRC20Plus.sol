@@ -55,7 +55,8 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     uint counter =0;
     uint Account_Counter = 0;
 
-    
+    uint dust_min = 100; //min amount of dust allowed in treasury per refreash
+
     //mappings map Account amounts and micro ledger
     mapping (address => Accounts) public accounts;
     mapping (uint => micro_ledger) public ledger;
@@ -120,7 +121,7 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
             }
         }
         //refactor leftovers from unregisterd account & assimilate additional funds into treasury
-        if(ShardCounter != value){
+        if(ShardCounter != value && value<=dust_min){
             uint leftovers = value - ShardCounter;
             Accept_From_CoinBank(leftovers);
         }
@@ -132,6 +133,7 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
             return RedeemAddress.transfer(accounts[msg.sender].ammount);
         } else {
             //no account registerd
+
         }      
     }
 }
