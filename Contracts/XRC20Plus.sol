@@ -89,11 +89,13 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     //Test logging and accounting user dividends
     function Register_Account() internal{
         if(accounts[msg.sender].exist == true){
-            //do nothing
+            //do nothing Event
+            //already registerd
         } else {
             ledger[Account_Counter] = micro_ledger(msg.sender,true);
             accounts[msg.sender] = Accounts(0,true);
             Account_Counter++;
+            //account registerd event
         }
     }   
     //Account of your funds in contract
@@ -132,8 +134,7 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
         if(accounts[RedeemAddress].exist == true){
             return RedeemAddress.transfer(accounts[msg.sender].ammount);
         } else {
-            //no account registerd
-
+            //no account registerd Event
         }      
     }
 }
