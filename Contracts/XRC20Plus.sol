@@ -99,15 +99,16 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
         }
     }   
     //Account of your funds in contract
-    function View_Account() public view returns(uint){
+    function View_Account() public view returns(bool){
         if(accounts[msg.sender].exist == true){
-            return accounts[msg.sender].ammount;
-        } else {
-            //event to register account
+            accounts[msg.sender].ammount;
+            return true;
+        }else{
+            return false;
         }
     }
     //call contract balance
-    function Balance() public returns (uint256) {
+    function Balance() public returns(uint256) {
         return address(this).balance;
     }
     //Accept payment from CoinBank and issue dividends to accouts
@@ -129,11 +130,13 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
         }
     }
     //Redeem Dividends from treasury
-    function Redeem()public {
+    function Redeem()public returns(bool){
         address payable RedeemAddress = payable(msg.sender);
         if(accounts[RedeemAddress].exist == true){
-            return RedeemAddress.transfer(accounts[msg.sender].ammount);
+            RedeemAddress.transfer(accounts[msg.sender].ammount);
+            return true;
         } else {
+            return false;
             //no account registerd Event
         }      
     }
