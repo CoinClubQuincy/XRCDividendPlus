@@ -52,7 +52,6 @@
 			"Accept_From_CoinBank(uint256)": "9a29e6aa",
 			"Balance()": "0ef67887",
 			"Bank(uint256)": "b0128f6d",
-			"CoinBankAddress()": "393bc1d9",
 			"CoinBank_Contract()": "28ef0e02",
 			"Incomming_Payments()": "82add361",
 			"Redeem()": "d95402e7",
@@ -146,7 +145,7 @@
 					"type": "uint256"
 				}
 			],
-			"stateMutability": "nonpayable",
+			"stateMutability": "view",
 			"type": "function"
 		},
 		{
@@ -168,19 +167,6 @@
 					"internalType": "uint256",
 					"name": "Previous_Time",
 					"type": "uint256"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "CoinBankAddress",
-			"outputs": [
-				{
-					"internalType": "address",
-					"name": "",
-					"type": "address"
 				}
 			],
 			"stateMutability": "view",

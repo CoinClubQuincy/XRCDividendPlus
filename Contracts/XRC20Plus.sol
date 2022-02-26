@@ -3,11 +3,10 @@ pragma solidity ^0.8.10;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 //-------------------------- CoinBank Accounting Contract --------------------------
 contract CoinBank{
-    address public CoinBankAddress=address(this); // When coinbank is launched add address <--Here
-    uint coinbanktotal = address(this).balance;
-    uint Shard_yeild_deposit; //votable
-    uint supply;
-    uint Fund_Retention_Rate; //votable
+    uint TotalCoinbanks;
+    uint Shard_yeild_deposit; 
+    uint Supply;
+    uint Fund_Retention_Rate; 
     address Treasury;
     uint totalBanks;
     // Keep track of Funds in CoinBank
@@ -15,9 +14,11 @@ contract CoinBank{
         uint Current_Funds_Retained;
         uint Previous_Time;
     }
-    constructor(address _Treasury){
+    constructor(address _Treasury,uint _totalBanks,uint _supply){
         Bank[0] = CoinBank_Accounting(0,block.timestamp);
         Treasury = _Treasury;
+        TotalCoinbanks = _totalBanks;
+        Supply = _supply;
     }
     //CoinBank Index of all DAO Banks
     mapping (uint256 => CoinBank_Accounting) public Bank;
@@ -33,7 +34,6 @@ contract CoinBank{
         uint min=0; // add one min ro the int
         uint i=0;
         uint Total_from_Bank =0;
-        address TreasuryContract;
 
         for(i;i<=totalBanks;i++){
             Bank[totalBanks].Current_Funds_Retained += Total_from_Bank;
@@ -41,7 +41,7 @@ contract CoinBank{
         
         Total_from_Bank = address(this).balance-Total_from_Bank;
         if(block.timestamp>min+Bank[0].Previous_Time){
-            uint single_Shard = uint(Total_from_Bank/supply);
+            uint single_Shard = uint(Total_from_Bank/Supply);
             Issue_To_Treasury(single_Shard);
             //Call Accept from CoinBank
         }
@@ -74,16 +74,15 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
         bool exist;
     }
     //launch Contract
-    constructor(string memory name,string memory symbol,uint totalSupply,uint Fund_Retention_Rate,uint totalBanks) ERC20(name, symbol) {
+    constructor(string memory name,string memory symbol,uint totalSupply,uint totalBanks) ERC20(name, symbol) {        
         _mint(msg.sender, uint(totalSupply));
-        supply = uint(totalSupply);
 
         //------------------launch Conbank Contract------------------
-        CoinBank_Contract = new CoinBank(CoinBankAddress);
+        CoinBank_Contract = new CoinBank(address(this),totalBanks,totalSupply);
     }
     //require coinbank 
     modifier CoinBankOnly{
-        require(CoinBankAddress == msg.sender);
+        require(keccak256(abi.encodePacked(CoinBank_Contract)) == keccak256(abi.encodePacked(msg.sender)));
         _;
     }
     //Test logging and accounting user dividends
@@ -108,7 +107,7 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
         }
     }
     //call contract balance
-    function Balance() public returns(uint256) {
+    function Balance() public view returns(uint256) {
         return address(this).balance;
     }
     //Accept payment from CoinBank and issue dividends to accouts
