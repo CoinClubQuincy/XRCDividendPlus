@@ -52,6 +52,14 @@ interface Accept_From_CoinBank_Interface {
 }
 //-------------------------- Plus Treasury Contract --------------------------
 abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
+    //uint public totalSupply;
+    //mapping(address => uint) public balanceOf;
+    //mapping(address => mapping(address => uint)) public allowance;
+    //string public name;
+    //string public symbol;
+    //uint8 public decimals = 18;
+    // reorganize atributes 
+
     uint counter =0;
     uint Account_Counter = 0;
 
