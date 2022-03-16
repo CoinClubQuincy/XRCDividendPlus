@@ -4,11 +4,7 @@ So most dapps will have Owners and each owner may have shards in the dapp This s
 
 The XRC20 + standard is a token dividend standard for the XDC Network this standard is for smart contracts that require dividends to their token holders or for developers to sell stake in their contracts.
 
-
-To issue dividends you can call the Dividends() function and all tokens held in contract address  will will be issued to shard holders
-
 ### **Diagram:**
-
 This contract standard is for contracts that will yield profits for the token holders based on contract performance
 ![XRC20+ Architecture  (1)](https://user-images.githubusercontent.com/16103963/148665680-d8e74403-cbdc-44aa-9a04-33b88f329f5e.png)
 
