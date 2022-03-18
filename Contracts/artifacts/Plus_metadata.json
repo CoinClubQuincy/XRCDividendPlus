@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.12+commit.f00d7308"
+		"version": "0.8.13+commit.abaa5c0e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -514,11 +514,11 @@
 			]
 		},
 		"Documents/GitHub/XRC-20Plus/Contracts/XRC20Plus.sol": {
-			"keccak256": "0xd7aae51591b6812398695a616e145ae74161575ff51dea9d9e2d0e68972c949f",
+			"keccak256": "0x18db32c55e21d45649a72ae8408fbd8b7959c8281b8d063db568e9b38adee7d8",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e232ea2163133760f5e3a1a7152741c5cd134bad4dd19f9f80b13efe5f5c9b23",
-				"dweb:/ipfs/QmNzTLzijEpKaLowymXNsivJrvPRvbhCERpypjo8wUmzgb"
+				"bzz-raw://6131bc6b0bfc438ef18608e4cdd4b3bf79ffbabe480480a0704c8b6739caa79f",
+				"dweb:/ipfs/QmP4q8Q1FnnBX994rrAmpSkTKvZGniqfByzhwQFfSF8KSW"
 			]
 		}
 	},

@@ -49,63 +49,15 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"Accept_From_CoinBank(uint256)": "9a29e6aa",
-			"Balance()": "0ef67887",
-			"Redeem()": "d95402e7",
-			"View_Account()": "8ac8bbca"
+			"Incomming_Payments()": "82add361"
 		}
 	},
 	"abi": [
 		{
-			"inputs": [
-				{
-					"internalType": "uint256",
-					"name": "_singleShard",
-					"type": "uint256"
-				}
-			],
-			"name": "Accept_From_CoinBank",
+			"inputs": [],
+			"name": "Incomming_Payments",
 			"outputs": [],
 			"stateMutability": "payable",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "Balance",
-			"outputs": [
-				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "Redeem",
-			"outputs": [
-				{
-					"internalType": "bool",
-					"name": "",
-					"type": "bool"
-				}
-			],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "View_Account",
-			"outputs": [
-				{
-					"internalType": "bool",
-					"name": "",
-					"type": "bool"
-				}
-			],
-			"stateMutability": "view",
 			"type": "function"
 		}
 	]

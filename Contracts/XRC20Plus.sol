@@ -2,7 +2,10 @@ pragma solidity ^0.8.10;
 // SPDX-License-Identifier: MIT
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 //-------------------------- CoinBank Accounting Contract --------------------------
-contract CoinBank{
+interface CoinBank_Interface{
+    function Incomming_Payments()external payable;
+}
+contract CoinBank is CoinBank_Interface{
     uint TotalCoinbanks;
     uint Shard_yeild_deposit; 
     uint Supply;
@@ -48,7 +51,10 @@ contract CoinBank{
     }
 }
 interface Accept_From_CoinBank_Interface {
-    function Accept_From_CoinBank(uint _singleShard) external payable;
+    function View_Account() external view returns(bool);
+    function Balance() external view returns(uint256);
+    function Accept_From_CoinBank(uint _singleShard)external payable;
+    function Redeem()external returns(bool);
 }
 //-------------------------- Plus Treasury Contract --------------------------
 abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
