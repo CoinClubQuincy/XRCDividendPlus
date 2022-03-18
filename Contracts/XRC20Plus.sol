@@ -50,11 +50,11 @@ contract CoinBank is CoinBank_Interface{
     }
 }
 interface Plus_Interface {
-    function View_Account() external view returns(bool);
-    function Balance() external view returns(uint256);
+    function View_Account() external view returns(uint); // -- ✓
+    function Balance() external view returns(uint256);   // -- ✓
     function Accept_From_CoinBank(uint)external payable;
-    function Redeem()external returns(bool);
-    function Register_Account() external;
+    function Redeem()external returns(bool);            // -- ✓
+    function Register_Account() external;               // -- ✓
 }
 //-------------------------- Plus Treasury Contract --------------------------
 abstract contract Plus is ERC20, CoinBank,Plus_Interface {
@@ -82,7 +82,6 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
     constructor(string memory name,string memory symbol,uint totalSupply,uint totalBanks,uint8 decimals) ERC20(name, symbol) {        
         totalSupply = totalSupply**decimals;
         _mint(msg.sender, uint(totalSupply));
-
         //------------------launch Conbank Contract------------------
         CoinBank_Contract = new CoinBank(address(this),totalBanks,totalSupply);
     }
@@ -93,24 +92,16 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
     }
     //Test logging and accounting user dividends
     function Register_Account() public{
-        if(accounts[msg.sender].exist == true){
-            //do nothing Event
-            //already registerd
-        } else {
-            ledger[Account_Counter] = micro_ledger(msg.sender,true);
-            accounts[msg.sender] = Accounts(0,true);
-            Account_Counter++;
-            //account registerd event
-        }
+        require(accounts[msg.sender].exist == false,"user already exist");
+        ledger[Account_Counter] = micro_ledger(msg.sender,true);
+        accounts[msg.sender] = Accounts(0,true);
+        Account_Counter++;
+        //account registerd event
     }   
     //Account of your funds in contract
-    function View_Account() public view returns(bool){
-        if(accounts[msg.sender].exist == true){
-            accounts[msg.sender].ammount;
-            return true;
-        }else{
-            return false;
-        }
+    function View_Account() public view returns(uint){
+        require(accounts[msg.sender].exist == true,"user not registerd");
+        return accounts[msg.sender].ammount;
     }
     //call contract balance
     function Balance() public view returns(uint256) {
@@ -137,13 +128,9 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
     //Redeem Dividends from treasury
     function Redeem()public returns(bool){
         address payable RedeemAddress = payable(msg.sender);
-        if(accounts[RedeemAddress].exist == true){
-            RedeemAddress.transfer(accounts[msg.sender].ammount);
-            accounts[msg.sender].ammount=0;
-            return true;
-        } else {
-            return false;
-            //no account registerd Event
-        }      
+        require(accounts[RedeemAddress].exist == true,"User does not exist");
+        RedeemAddress.transfer(accounts[msg.sender].ammount);
+        accounts[msg.sender].ammount=0;
+        return true;     
     }
 }

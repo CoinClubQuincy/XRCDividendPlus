@@ -71,7 +71,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Documents/GitHub/XRC-20Plus/Contracts/XRC20Plus.sol": "CoinBank"
+			"Documents/GitHub/XRC-20Plus/contracts/XRC20Plus.sol": "CoinBank"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -117,12 +117,12 @@
 				"dweb:/ipfs/QmQVv7YeeKmaS11bg7YDTeeGDk6i7sV8LMMfohaLM4SiRu"
 			]
 		},
-		"Documents/GitHub/XRC-20Plus/Contracts/XRC20Plus.sol": {
-			"keccak256": "0x318cab8621d4a507912a6a73fa0bd50ee169fef2b37f648cbd9133dcb8498222",
+		"Documents/GitHub/XRC-20Plus/contracts/XRC20Plus.sol": {
+			"keccak256": "0x1e517ce0f721a20be075cccd5da1bfd6d4316ca375519ec31c3b31aefd2b0d73",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1d2a7365802be4a641f89cdc9b299c94643f765d99e9c6058b98639554b9ca1b",
-				"dweb:/ipfs/QmUoinqmvcNTEjrdYSMj27NZUm6ZTtpzU2kPmDwnDPDE7V"
+				"bzz-raw://633350a166b7158da0423fc8b5d5aab942cfb683a5aff41a7df45d971a83970b",
+				"dweb:/ipfs/QmePgaxRHHY1WywrNJVZXvM9kEGXpmJiMNfimbbzKe7M27"
 			]
 		}
 	},
