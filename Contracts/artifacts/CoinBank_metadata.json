@@ -118,11 +118,11 @@
 			]
 		},
 		"Documents/GitHub/XRC-20Plus/Contracts/XRC20Plus.sol": {
-			"keccak256": "0x39c1915b4f82b5499ca816c7ac8742b5f326f4a041b9b61f46360c1e3c452f91",
+			"keccak256": "0x318cab8621d4a507912a6a73fa0bd50ee169fef2b37f648cbd9133dcb8498222",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2f7be32ba0f5645bdb51a1fc3485e7c02d62dfe812ea0035172317433d1a6860",
-				"dweb:/ipfs/QmXVSKJ4DM9nES2NjSxuHxA6kZZDj365kd4XnzyDXitVy9"
+				"bzz-raw://1d2a7365802be4a641f89cdc9b299c94643f765d99e9c6058b98639554b9ca1b",
+				"dweb:/ipfs/QmUoinqmvcNTEjrdYSMj27NZUm6ZTtpzU2kPmDwnDPDE7V"
 			]
 		}
 	},

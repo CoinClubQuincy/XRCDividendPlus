@@ -34,7 +34,7 @@ contract CoinBank is CoinBank_Interface{
     }
     // Payments to CoinBank will take account of funds
     function Incomming_Payments()public payable{
-        uint min=0; // add one min ro the int
+        uint min=0; // add one min to the int
         uint i=0;
         uint Total_from_Bank =0;
 
@@ -45,8 +45,7 @@ contract CoinBank is CoinBank_Interface{
         Total_from_Bank = address(this).balance-Total_from_Bank;
         if(block.timestamp>min+Bank[0].Previous_Time){
             uint single_Shard = uint(Total_from_Bank/Supply);
-            Issue_To_Treasury(single_Shard);
-            //Call Accept from CoinBank
+            Issue_To_Treasury(single_Shard); //Call Accept from CoinBank
         }
     }
 }
@@ -61,7 +60,6 @@ interface Plus_Interface {
 abstract contract Plus is ERC20, CoinBank,Plus_Interface {
     uint counter =0;
     uint Account_Counter = 0;
-
     uint dust_min = 100; //min amount of dust allowed in treasury per refreash
 
     //mappings map Account amounts and micro ledger
@@ -141,6 +139,7 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
         address payable RedeemAddress = payable(msg.sender);
         if(accounts[RedeemAddress].exist == true){
             RedeemAddress.transfer(accounts[msg.sender].ammount);
+            accounts[msg.sender].ammount=0;
             return true;
         } else {
             return false;
