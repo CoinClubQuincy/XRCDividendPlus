@@ -29,7 +29,7 @@ contract CoinBank is CoinBank_Interface{
     // Send funds to Treasury Contract
     function Issue_To_Treasury(uint _single_Shard)internal{
        // send data through interface function
-        Accept_From_CoinBank_Interface exeInterface = Accept_From_CoinBank_Interface(Treasury); //place treasury contract address here
+        Plus_Interface exeInterface = Plus_Interface(Treasury); //place treasury contract address here
         exeInterface.Accept_From_CoinBank(_single_Shard);      
     }
     // Payments to CoinBank will take account of funds
@@ -50,22 +50,15 @@ contract CoinBank is CoinBank_Interface{
         }
     }
 }
-interface Accept_From_CoinBank_Interface {
+interface Plus_Interface {
     function View_Account() external view returns(bool);
     function Balance() external view returns(uint256);
-    function Accept_From_CoinBank(uint _singleShard)external payable;
+    function Accept_From_CoinBank(uint)external payable;
     function Redeem()external returns(bool);
+    function Register_Account() external;
 }
 //-------------------------- Plus Treasury Contract --------------------------
-abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
-    //uint public totalSupply;
-    //mapping(address => uint) public balanceOf;
-    //mapping(address => mapping(address => uint)) public allowance;
-    //string public name;
-    //string public symbol;
-    //uint8 public decimals = 18;
-    // reorganize atributes 
-
+abstract contract Plus is ERC20, CoinBank,Plus_Interface {
     uint counter =0;
     uint Account_Counter = 0;
 
@@ -88,7 +81,8 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
         bool exist;
     }
     //launch Contract
-    constructor(string memory name,string memory symbol,uint totalSupply,uint totalBanks) ERC20(name, symbol) {        
+    constructor(string memory name,string memory symbol,uint totalSupply,uint totalBanks,uint8 decimals) ERC20(name, symbol) {        
+        totalSupply = totalSupply**decimals;
         _mint(msg.sender, uint(totalSupply));
 
         //------------------launch Conbank Contract------------------
@@ -96,11 +90,11 @@ abstract contract Plus is ERC20, CoinBank,Accept_From_CoinBank_Interface {
     }
     //require coinbank 
     modifier CoinBankOnly{
-        require(keccak256(abi.encodePacked(CoinBank_Contract)) == keccak256(abi.encodePacked(msg.sender)));
+        require(keccak256(abi.encodePacked(CoinBank_Contract)) == keccak256(abi.encodePacked(msg.sender)),"Only Contract coinbanks can execute this function");
         _;
     }
     //Test logging and accounting user dividends
-    function Register_Account() internal{
+    function Register_Account() public{
         if(accounts[msg.sender].exist == true){
             //do nothing Event
             //already registerd

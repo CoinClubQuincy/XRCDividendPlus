@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_singleShard",
+						"name": "",
 						"type": "uint256"
 					}
 				],
@@ -41,6 +41,13 @@
 						"type": "bool"
 					}
 				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Register_Account",
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -118,11 +125,11 @@
 			]
 		},
 		"Documents/GitHub/XRC-20Plus/Contracts/XRC20Plus.sol": {
-			"keccak256": "0x18db32c55e21d45649a72ae8408fbd8b7959c8281b8d063db568e9b38adee7d8",
+			"keccak256": "0x560cc9245b40e59bc265451260cc71a4c15ea442d69f9fb34b08a1541450f9f4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6131bc6b0bfc438ef18608e4cdd4b3bf79ffbabe480480a0704c8b6739caa79f",
-				"dweb:/ipfs/QmP4q8Q1FnnBX994rrAmpSkTKvZGniqfByzhwQFfSF8KSW"
+				"bzz-raw://ada96e0bcc373e5c11ceb0e0b0f3c669d4757bc22be3f8dacc9dc561cebe838e",
+				"dweb:/ipfs/QmYXgYiPryQDpRVrktv2uY4oxUeTxmxpjCfQZQUMYvVuYp"
 			]
 		}
 	},

@@ -140,6 +140,13 @@
 			},
 			{
 				"inputs": [],
+				"name": "Register_Account",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "View_Account",
 				"outputs": [
 					{
@@ -514,11 +521,11 @@
 			]
 		},
 		"Documents/GitHub/XRC-20Plus/Contracts/XRC20Plus.sol": {
-			"keccak256": "0x18db32c55e21d45649a72ae8408fbd8b7959c8281b8d063db568e9b38adee7d8",
+			"keccak256": "0x39c1915b4f82b5499ca816c7ac8742b5f326f4a041b9b61f46360c1e3c452f91",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6131bc6b0bfc438ef18608e4cdd4b3bf79ffbabe480480a0704c8b6739caa79f",
-				"dweb:/ipfs/QmP4q8Q1FnnBX994rrAmpSkTKvZGniqfByzhwQFfSF8KSW"
+				"bzz-raw://2f7be32ba0f5645bdb51a1fc3485e7c02d62dfe812ea0035172317433d1a6860",
+				"dweb:/ipfs/QmXVSKJ4DM9nES2NjSxuHxA6kZZDj365kd4XnzyDXitVy9"
 			]
 		}
 	},

@@ -8,42 +8,23 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_Treasury",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_totalBanks",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_supply",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
 				],
-				"name": "Bank",
+				"name": "Accept_From_CoinBank",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Balance",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "Current_Funds_Retained",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "Previous_Time",
+						"name": "",
 						"type": "uint256"
 					}
 				],
@@ -52,9 +33,35 @@
 			},
 			{
 				"inputs": [],
-				"name": "Incomming_Payments",
+				"name": "Redeem",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Register_Account",
 				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "View_Account",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -71,7 +78,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Documents/GitHub/XRC-20Plus/Contracts/XRC20Plus.sol": "CoinBank"
+			"Documents/GitHub/XRC-20Plus/Contracts/XRC20Plus.sol": "Plus_Interface"
 		},
 		"evmVersion": "london",
 		"libraries": {},
