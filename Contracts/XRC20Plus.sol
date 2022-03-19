@@ -122,7 +122,7 @@ abstract contract Plus is ERC20, Plus_Interface {
             if(dustSpread<=dust_min){
                 CoinBank_Interface(address(CoinBank_Contract)).Incomming_Payments{value:dustSpread}();
                 i=i;
-            }else if(i != Account_Counter){
+            }else if(i >= Account_Counter){
                 i = i;
             }else{
                 i = 0;
