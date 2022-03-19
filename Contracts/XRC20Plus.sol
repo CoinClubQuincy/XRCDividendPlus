@@ -97,8 +97,7 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
     function Balance() public view returns(uint256) {
         return address(this).balance;
     }
-    //Accept payment from CoinBank and issue dividends to accouts ---------------------------------------------------
-    //Recurive Riddle? self loop for extra funds not alocated in contract
+    //Accept payment from CoinBank and issue dividends to accouts
     function Accept_From_CoinBank(uint _singleShard)public payable CoinBankOnly{
         uint value = msg.value;
         uint totalAllocated=0;
@@ -127,8 +126,6 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
         }
         return (i,accounts[Serach_result].ammount);      
     }
-        // ------------------------------------------------------------------------------------------------------------
-
     //Redeem Dividends from treasury
     function Redeem()public returns(bool){
         address payable RedeemAddress = payable(msg.sender);
