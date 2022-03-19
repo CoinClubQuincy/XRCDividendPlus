@@ -112,6 +112,8 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
             if(dustSpread<=dust_min){
                 CoinBank_Interface(address(CoinBank_Contract)).Incomming_Payments{value:dustSpread}();
                 i = Account_Counter +1;
+            }else if(i != Account_Counter){
+                i = i;
             }else{
                 i = 0;
             }
@@ -120,10 +122,8 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
     }
     function InternalAccounting(uint i,uint _singleShard)internal returns(uint,uint){
         address Serach_result = ledger[Account_Counter].account;
-        for(i;i>=Account_Counter;i++){
-            if(ledger[Account_Counter].exist == true && accounts[Serach_result].ammount > 0){
-                accounts[Serach_result].ammount += balanceOf(ledger[Account_Counter].account) * _singleShard;
-            }
+        if(ledger[i].exist == true && accounts[Serach_result].ammount > 0){
+            accounts[Serach_result].ammount += balanceOf(ledger[Account_Counter].account) * _singleShard;
         }
         return (i,accounts[Serach_result].ammount);      
     }
