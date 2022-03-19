@@ -103,18 +103,20 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
         uint value = msg.value;
         uint totalAllocated=0;
         uint amountAllocated;
+        uint dustSpread = value-totalAllocated;
         uint i=0;
         for(i;i<=Account_Counter;i++){
             (i,amountAllocated) = InternalAccounting(i,_singleShard);
             totalAllocated += amountAllocated;
+            //refactor leftovers from unregisterd account & assimilate additional funds into treasury
+            if(dustSpread<=dust_min){
+                CoinBank_Interface(address(CoinBank_Contract)).Incomming_Payments{value:dustSpread}();
+                i = Account_Counter +1;
+            }else{
+                i = 0;
+            }
         }
-        //refactor leftovers from unregisterd account & assimilate additional funds into treasury
-        uint dustSpread = totalAllocated-value;
-        if(dustSpread>=dust_min && i > Account_Counter){
-            payable(address(CoinBank_Contract)).transfer(dustSpread); // add interface for incoming payment
-        }else{
-            Accept_From_CoinBank(_singleShard);
-        }
+        //Event for treasury clock
     }
     function InternalAccounting(uint i,uint _singleShard)internal returns(uint,uint){
         address Serach_result = ledger[Account_Counter].account;
