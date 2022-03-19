@@ -99,6 +99,7 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
     }
     //Accept payment from CoinBank and issue dividends to accouts
     function Accept_From_CoinBank(uint _singleShard)public payable CoinBankOnly{
+        require(msg.sender==address(CoinBank_Contract),"Only Conbank can execute this function");
         uint value = msg.value;
         uint ShardCounter=0;
         uint i=0;
@@ -106,7 +107,7 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
             address Serach_result = ledger[Account_Counter].account;
             if(ledger[Account_Counter].exist == true && accounts[Serach_result].ammount > 0){
                 accounts[Serach_result].ammount += balanceOf(ledger[Account_Counter].account) * _singleShard;
-                ShardCounter += balanceOf(ledger[Account_Counter].account) * _singleShard;
+                //ShardCounter += balanceOf(ledger[Account_Counter].account) * _singleShard;
             }
         }
         //refactor leftovers from unregisterd account & assimilate additional funds into treasury
