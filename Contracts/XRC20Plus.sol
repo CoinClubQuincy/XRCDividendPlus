@@ -77,7 +77,7 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
     }
     //require coinbank 
     modifier CoinBankOnly{
-        require(keccak256(abi.encodePacked(CoinBank_Contract)) == keccak256(abi.encodePacked(msg.sender)) || keccak256(abi.encodePacked(address(this))) == keccak256(abi.encodePacked(msg.sender)),"Only Contract coinbank can execute this function");
+        require(keccak256(abi.encodePacked(CoinBank_Contract)) == keccak256(abi.encodePacked(msg.sender)),"Only Contract coinbank can execute this function");
         _;
     }
     //Test logging and accounting user dividends
