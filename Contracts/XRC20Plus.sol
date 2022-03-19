@@ -100,25 +100,30 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
     //Accept payment from CoinBank and issue dividends to accouts ---------------------------------------------------
     //Recurive Riddle? self loop for extra funds not alocated in contract
     function Accept_From_CoinBank(uint _singleShard)public payable CoinBankOnly{
-        uint value = address(this).balance;
+        uint value = msg.value;
+        uint totalAllocated=0;
+        uint amountAllocated;
         uint i=0;
         for(i;i<=Account_Counter;i++){
-            i = InternalAccounting(i,_singleShard);
+            (i,amountAllocated) = InternalAccounting(i,_singleShard);
+            totalAllocated += amountAllocated;
         }
         //refactor leftovers from unregisterd account & assimilate additional funds into treasury
-        if(value>=dust_min){
-            Accept_From_CoinBank(value);
+        uint dustSpread = totalAllocated-value;
+        if(dustSpread>=dust_min && i > Account_Counter){
+            payable(address(CoinBank_Contract)).transfer(dustSpread); // add interface for incoming payment
+        }else{
+            Accept_From_CoinBank(_singleShard);
         }
     }
-    function InternalAccounting(uint i,uint _singleShard)internal returns(uint){
+    function InternalAccounting(uint i,uint _singleShard)internal returns(uint,uint){
+        address Serach_result = ledger[Account_Counter].account;
         for(i;i>=Account_Counter;i++){
-            address Serach_result = ledger[Account_Counter].account;
             if(ledger[Account_Counter].exist == true && accounts[Serach_result].ammount > 0){
                 accounts[Serach_result].ammount += balanceOf(ledger[Account_Counter].account) * _singleShard;
-                return i;
             }
         }
-        return 0;        
+        return (i,accounts[Serach_result].ammount);      
     }
         // ------------------------------------------------------------------------------------------------------------
 
