@@ -60,6 +60,7 @@ abstract contract Plus is ERC20, Plus_Interface {
     uint counter =0;
     uint Account_Counter = 0;
     uint dust_min = 100; //min amount of dust allowed in treasury per refreash
+    uint i=0; // -- change to CurrentUserCount
     event TreasuryClock( uint256,bool);
 
     //mappings map Account amounts and micro ledger
@@ -113,28 +114,29 @@ abstract contract Plus is ERC20, Plus_Interface {
         uint totalAllocated=0;
         uint amountAllocated;
         uint dustSpread = value-totalAllocated;
-        uint i=0;
+
         for(i;i<=Account_Counter;i++){
             (i,amountAllocated) = InternalAccounting(i,_singleShard);
             totalAllocated += amountAllocated;
             //refactor leftovers from unregisterd account & assimilate additional funds into treasury
             if(dustSpread<=dust_min){
                 CoinBank_Interface(address(CoinBank_Contract)).Incomming_Payments{value:dustSpread}();
-                i = Account_Counter +1;
+                i=i;
             }else if(i != Account_Counter){
                 i = i;
             }else{
                 i = 0;
             }
+            require(dustSpread>=dust_min); // if Dust Spread falls bellow dust min the loo ends
         }
            emit TreasuryClock(block.timestamp,true); 
     }
-    function InternalAccounting(uint i,uint _singleShard)internal returns(uint,uint){
+    function InternalAccounting(uint _shardHolder,uint _singleShard)internal returns(uint,uint){
         address Serach_result = ledger[Account_Counter].account;
-        if(ledger[i].exist == true && accounts[Serach_result].ammount > 0){
+        if(ledger[_shardHolder].exist == true && accounts[Serach_result].ammount > 0){
             accounts[Serach_result].ammount += balanceOf(ledger[Account_Counter].account) * _singleShard;
         }
-        return (i,accounts[Serach_result].ammount);      
+        return (_shardHolder,accounts[Serach_result].ammount);      
     }
     //Redeem Dividends from treasury
     function Redeem()public returns(bool){
