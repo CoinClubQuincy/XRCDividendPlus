@@ -31,7 +31,6 @@ contract CoinBank is CoinBank_Interface{
        // send data through interface function
         Plus_Interface exeInterface = Plus_Interface(Treasury); //place treasury contract address here
         exeInterface.Accept_From_CoinBank(_single_Shard);
-        
         emit CoinBankClock(block.timestamp,true); 
     }
     // Payments to CoinBank will take account of funds and alocat them to the treasury
@@ -49,14 +48,14 @@ contract CoinBank is CoinBank_Interface{
         }
     }
 }
+//-------------------------- Plus Treasury Contract --------------------------
 interface Plus_Interface {
     function View_Account() external view returns(uint); // -- ✓
     function Balance() external view returns(uint256);   // -- ✓
     function Accept_From_CoinBank(uint)external payable;
     function Redeem()external returns(bool);            // -- ✓
-    function Register_Account()external returns(bool);               // -- ✓
+    function Register_Account()external returns(bool);  // -- ✓
 }
-//-------------------------- Plus Treasury Contract --------------------------
 abstract contract Plus is ERC20, Plus_Interface {
     uint counter =0;
     uint Account_Counter = 0;
