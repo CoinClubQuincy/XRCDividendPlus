@@ -77,7 +77,7 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
     }
     //require coinbank 
     modifier CoinBankOnly{
-        require(keccak256(abi.encodePacked(CoinBank_Contract)) == keccak256(abi.encodePacked(msg.sender)),"Only Contract coinbanks can execute this function");
+        require(keccak256(abi.encodePacked(CoinBank_Contract)) == keccak256(abi.encodePacked(msg.sender)) || keccak256(abi.encodePacked(address(this))) == keccak256(abi.encodePacked(msg.sender)),"Only Contract coinbank can execute this function");
         _;
     }
     //Test logging and accounting user dividends
@@ -97,25 +97,31 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
     function Balance() public view returns(uint256) {
         return address(this).balance;
     }
-    //Accept payment from CoinBank and issue dividends to accouts
+    //Accept payment from CoinBank and issue dividends to accouts ---------------------------------------------------
+    //Recurive Riddle? self loop for extra funds not alocated in contract
     function Accept_From_CoinBank(uint _singleShard)public payable CoinBankOnly{
-        require(msg.sender==address(CoinBank_Contract),"Only Conbank can execute this function");
-        uint value = msg.value;
-        uint ShardCounter=0;
+        uint value = address(this).balance;
         uint i=0;
+        for(i;i<=Account_Counter;i++){
+            i = InternalAccounting(i,_singleShard);
+        }
+        //refactor leftovers from unregisterd account & assimilate additional funds into treasury
+        if(value>=dust_min){
+            Accept_From_CoinBank(value);
+        }
+    }
+    function InternalAccounting(uint i,uint _singleShard)internal returns(uint){
         for(i;i>=Account_Counter;i++){
             address Serach_result = ledger[Account_Counter].account;
             if(ledger[Account_Counter].exist == true && accounts[Serach_result].ammount > 0){
                 accounts[Serach_result].ammount += balanceOf(ledger[Account_Counter].account) * _singleShard;
-                //ShardCounter += balanceOf(ledger[Account_Counter].account) * _singleShard;
+                return i;
             }
         }
-        //refactor leftovers from unregisterd account & assimilate additional funds into treasury
-        if(ShardCounter != value && value<=dust_min){
-            uint leftovers = value - ShardCounter;
-            Accept_From_CoinBank(leftovers);
-        }
+        return 0;        
     }
+        // ------------------------------------------------------------------------------------------------------------
+
     //Redeem Dividends from treasury
     function Redeem()public returns(bool){
         address payable RedeemAddress = payable(msg.sender);
