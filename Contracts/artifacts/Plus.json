@@ -51,9 +51,7 @@
 		"methodIdentifiers": {
 			"Accept_From_CoinBank(uint256)": "9a29e6aa",
 			"Balance()": "0ef67887",
-			"Bank(uint256)": "b0128f6d",
 			"CoinBank_Contract()": "28ef0e02",
-			"Incomming_Payments()": "82add361",
 			"Redeem()": "d95402e7",
 			"Register_Account()": "948dec44",
 			"View_Account()": "8ac8bbca",
@@ -124,6 +122,29 @@
 			"type": "event"
 		},
 		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"name": "TreasuryClock",
+			"type": "event"
+		},
+		{
+			"stateMutability": "payable",
+			"type": "fallback"
+		},
+		{
 			"inputs": [
 				{
 					"internalType": "uint256",
@@ -150,30 +171,6 @@
 			"type": "function"
 		},
 		{
-			"inputs": [
-				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
-				}
-			],
-			"name": "Bank",
-			"outputs": [
-				{
-					"internalType": "uint256",
-					"name": "Current_Funds_Retained",
-					"type": "uint256"
-				},
-				{
-					"internalType": "uint256",
-					"name": "Previous_Time",
-					"type": "uint256"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
 			"inputs": [],
 			"name": "CoinBank_Contract",
 			"outputs": [
@@ -184,13 +181,6 @@
 				}
 			],
 			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "Incomming_Payments",
-			"outputs": [],
-			"stateMutability": "payable",
 			"type": "function"
 		},
 		{
@@ -209,7 +199,13 @@
 		{
 			"inputs": [],
 			"name": "Register_Account",
-			"outputs": [],
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
 			"stateMutability": "nonpayable",
 			"type": "function"
 		},
@@ -493,6 +489,10 @@
 			],
 			"stateMutability": "nonpayable",
 			"type": "function"
+		},
+		{
+			"stateMutability": "payable",
+			"type": "receive"
 		}
 	]
 }

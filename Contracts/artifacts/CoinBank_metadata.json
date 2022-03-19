@@ -22,6 +22,29 @@
 				"type": "constructor"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"name": "CoinBankClock",
+				"type": "event"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -51,6 +74,10 @@
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
 			}
 		],
 		"devdoc": {
@@ -113,11 +140,11 @@
 			]
 		},
 		"Documents/GitHub/XRC-20Plus/contracts/XRC20Plus.sol": {
-			"keccak256": "0x514ffb5d9e34c5facdca44c7c40e1c6002842b3bab30434a85ef4770eb73eca5",
+			"keccak256": "0xfd0d49b7e4742e92335b433cc878af553b3de8e1a9e1a6ec6e1eb0a20911c7a8",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e163eeaa2c3f190eaeee32863ef7602add4e2ca6681ebced9ee24972da6dec14",
-				"dweb:/ipfs/QmenESxvjNpyZoTh4qwctaBgTxtajne4QpkHcrDYAukGFS"
+				"bzz-raw://8240f5a948c1dc00b6fcf38d2fb62fa175ef10c7ca93de5eb976e3e7471659f5",
+				"dweb:/ipfs/QmSxJzgnBkyai6j4iZuS2z9Ykbuqzeo7psQpognDzVYM1N"
 			]
 		}
 	},

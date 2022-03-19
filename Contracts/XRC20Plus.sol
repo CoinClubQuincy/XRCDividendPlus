@@ -11,6 +11,8 @@ contract CoinBank is CoinBank_Interface{
     uint Fund_Retention_Rate; 
     address Treasury;
     uint totalBanks;
+    event CoinBankClock(uint256,bool);
+
     // Keep track of Funds in CoinBank
     struct CoinBank_Accounting{
         uint Current_Funds_Retained;
@@ -28,7 +30,9 @@ contract CoinBank is CoinBank_Interface{
     function Issue_To_Treasury(uint _single_Shard)internal{
        // send data through interface function
         Plus_Interface exeInterface = Plus_Interface(Treasury); //place treasury contract address here
-        exeInterface.Accept_From_CoinBank(_single_Shard);      
+        exeInterface.Accept_From_CoinBank(_single_Shard);
+        
+        emit CoinBankClock(block.timestamp,true); 
     }
     // Payments to CoinBank will take account of funds and alocat them to the treasury
     function Incomming_Payments()public payable{
@@ -38,19 +42,26 @@ contract CoinBank is CoinBank_Interface{
             Issue_To_Treasury(single_Shard); //Call Accept from CoinBank
         }
     }
+    fallback() external payable {}
+    receive() external payable {
+        if(msg.value>0){
+            payable(address(this)).transfer(msg.value);
+        }
+    }
 }
 interface Plus_Interface {
     function View_Account() external view returns(uint); // -- ✓
     function Balance() external view returns(uint256);   // -- ✓
     function Accept_From_CoinBank(uint)external payable;
     function Redeem()external returns(bool);            // -- ✓
-    function Register_Account() external;               // -- ✓
+    function Register_Account()external returns(bool);               // -- ✓
 }
 //-------------------------- Plus Treasury Contract --------------------------
-abstract contract Plus is ERC20, CoinBank,Plus_Interface {
+abstract contract Plus is ERC20, Plus_Interface {
     uint counter =0;
     uint Account_Counter = 0;
     uint dust_min = 100; //min amount of dust allowed in treasury per refreash
+    event TreasuryClock( uint256,bool);
 
     //mappings map Account amounts and micro ledger
     mapping (address => Accounts) public accounts;
@@ -81,12 +92,12 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
         _;
     }
     //Test logging and accounting user dividends
-    function Register_Account() public{
+    function Register_Account() public returns(bool){
         require(accounts[msg.sender].exist == false,"user already exist");
         ledger[Account_Counter] = micro_ledger(msg.sender,true);
         accounts[msg.sender] = Accounts(0,true);
         Account_Counter++;
-        //account registerd event
+        return true;
     }   
     //Account of your funds in contract
     function View_Account() public view returns(uint){
@@ -117,7 +128,7 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
                 i = 0;
             }
         }
-        //Event for treasury clock
+           emit TreasuryClock(block.timestamp,true); 
     }
     function InternalAccounting(uint i,uint _singleShard)internal returns(uint,uint){
         address Serach_result = ledger[Account_Counter].account;
@@ -133,5 +144,13 @@ abstract contract Plus is ERC20, CoinBank,Plus_Interface {
         RedeemAddress.transfer(accounts[msg.sender].ammount);
         accounts[msg.sender].ammount=0;
         return true;     
+    }
+    fallback() external payable {
+        if(msg.value>0){
+            payable(address(this)).transfer(msg.value);
+        }
+    }
+    receive() external payable {
+
     }
 }
