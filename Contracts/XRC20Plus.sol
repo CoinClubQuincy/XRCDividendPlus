@@ -89,7 +89,6 @@ contract Plus is ERC20, Plus_Interface {
         //------------------launch Conbank Contract------------------
         CoinBank incomingbank = new CoinBank(address(this),totalSupply);
         CoinBank_Contract.push(incomingbank);
-
     }
     //require coinbank 
     modifier CoinBankOnly{
@@ -136,9 +135,9 @@ contract Plus is ERC20, Plus_Interface {
            emit TreasuryClock(block.timestamp,true); 
     }
     function InternalAccounting(uint _shardHolder,uint _singleShard)internal returns(uint,uint){
-        address Serach_result = ledger[Account_Counter].account;
+        address Serach_result = ledger[i].account;
         if(ledger[_shardHolder].exist == true && accounts[Serach_result].ammount > 0){
-            accounts[Serach_result].ammount += balanceOf(ledger[Account_Counter].account) * _singleShard;
+            accounts[Serach_result].ammount += balanceOf(ledger[i].account) * _singleShard;
         }
         return (_shardHolder,accounts[Serach_result].ammount);      
     }
