@@ -6,6 +6,32 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalSupply",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "decimals",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -523,11 +549,11 @@
 			]
 		},
 		"Documents/GitHub/XRC-20Plus/contracts/XRC20Plus.sol": {
-			"keccak256": "0x115a9d74ded33b3457d05349de25a3e70f0f8c5feec72b819a07f63a988637dc",
+			"keccak256": "0x95086b6d16ef989ace82053450510c373cf6f3b5d626da6ab53108d5e7d55870",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://10acbb5333626e15eedad408e663e22b4d6dd1f6f6dc65994fb524b0bfdf4276",
-				"dweb:/ipfs/QmZPMPapPbA9ni6V1rdgSXYbv9eC6XEmF1451tTdTk6SnN"
+				"bzz-raw://e5194c29d3d4b3374ae40a0ebbac38cf8e6c1d81979d6b57f715bacb51cb269a",
+				"dweb:/ipfs/QmYaYYuWNtV38edzoH7iM9sjkrGHYWVHTBrMJ1uEiGo8jc"
 			]
 		}
 	},

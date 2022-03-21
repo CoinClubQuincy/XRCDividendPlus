@@ -56,7 +56,7 @@ interface Plus_Interface {
     function Redeem()external returns(bool);            // -- ✓
     function Register_Account()external returns(bool);  // -- ✓
 }
-abstract contract Plus is ERC20, Plus_Interface {
+contract Plus is ERC20, Plus_Interface {
     uint counter =0;
     uint Account_Counter = 0;
     uint dust_min = 100; //min amount of dust allowed in treasury per refreash
