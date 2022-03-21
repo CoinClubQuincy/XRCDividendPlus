@@ -135,9 +135,9 @@ contract Plus is ERC20, Plus_Interface {
            emit TreasuryClock(block.timestamp,true); 
     }
     function InternalAccounting(uint _shardHolder,uint _singleShard)internal returns(uint,uint){
-        address Serach_result = ledger[i].account;
+        address Serach_result = ledger[_shardHolder].account;
         if(ledger[_shardHolder].exist == true && accounts[Serach_result].ammount > 0){
-            accounts[Serach_result].ammount += balanceOf(ledger[i].account) * _singleShard;
+            accounts[Serach_result].ammount += balanceOf(ledger[_shardHolder].account) * _singleShard;
         }
         return (_shardHolder,accounts[Serach_result].ammount);      
     }
