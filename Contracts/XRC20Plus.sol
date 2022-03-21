@@ -121,13 +121,12 @@ contract Plus is ERC20, Plus_Interface {
             //refactor leftovers from unregisterd account & assimilate additional funds into treasury
             if(dustSpread<=dust_min){
                 CoinBank_Interface(address(CoinBank_Contract)).Incomming_Payments{value:dustSpread}();
-                i=i;
-            }else if(i >= Account_Counter){
+                break;
+            }else if(i <= Account_Counter){
                 i = i;
             }else{
                 i = 0;
             }
-            require(dustSpread>=dust_min); // if Dust Spread falls bellow dust min the loo ends
         }
            emit TreasuryClock(block.timestamp,true); 
     }
