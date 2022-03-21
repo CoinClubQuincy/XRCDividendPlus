@@ -83,7 +83,7 @@ contract Plus is ERC20, Plus_Interface {
     }
     //launch Contract
     constructor(string memory name,string memory symbol,uint totalSupply,uint8 decimals) ERC20(name, symbol) {        
-        totalSupply = totalSupply**decimals;
+        totalSupply = totalSupply*(10**decimals);
         _mint(msg.sender, uint(totalSupply));
         Register_Account();
         //------------------launch Conbank Contract------------------
