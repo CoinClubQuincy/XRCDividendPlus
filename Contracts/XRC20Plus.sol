@@ -14,11 +14,10 @@ contract CoinBank is CoinBank_Interface{
 
     // Keep track of Funds in CoinBank
     struct CoinBank_Accounting{
-        uint Current_Funds_Retained;
         uint Previous_Time;
     }
     constructor(address _Treasury,uint _supply){
-        Bank[_Treasury] = CoinBank_Accounting(0,block.timestamp);
+        Bank[_Treasury] = CoinBank_Accounting(block.timestamp);
         Treasury = _Treasury;
         Supply = _supply;
     }
@@ -34,8 +33,8 @@ contract CoinBank is CoinBank_Interface{
     }
     // Payments to CoinBank will take account of funds and alocat them to the treasury
     function Incomming_Payments()public payable returns(bool){
-        uint min=0; // add one min to the int
-        if(block.timestamp>=min+Bank[Treasury].Previous_Time){
+        uint timeInterval=0; // add one timeInterval to the int 60
+        if(block.timestamp>=timeInterval+Bank[Treasury].Previous_Time){
             uint single_Shard = uint(address(this).balance/Supply);
             Issue_To_Treasury(single_Shard); //Call Accept from CoinBank
             Bank[Treasury].Previous_Time = block.timestamp;
@@ -62,7 +61,7 @@ interface Plus_Interface {
 contract Plus is ERC20, Plus_Interface {
     uint counter =0;
     uint Account_Counter = 0;
-    uint dust_min = 100; //min amount of dust allowed in treasury per refreash
+    uint dust_min = 100; // amount of dust allowed in treasury per refreash
     uint i=0; // -- change to CurrentUserCount
     event TreasuryClock( uint256,bool);
 
