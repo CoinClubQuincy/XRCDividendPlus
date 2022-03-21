@@ -47,9 +47,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "address",
 						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
 				"name": "Bank",
@@ -71,8 +71,40 @@
 			{
 				"inputs": [],
 				"name": "Incomming_Payments",
-				"outputs": [],
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
 				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Supply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Treasury",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -140,11 +172,11 @@
 			]
 		},
 		"Documents/GitHub/XRC-20Plus/contracts/XRC20Plus.sol": {
-			"keccak256": "0x211b30411537d72d6b0cc90c4253a952bbf06d86722c04be273cc036f06806ae",
+			"keccak256": "0xac5183a88fd8c002a63bb2c78c597105e2a7ecb5d00a0a22178fdd4f1ab665f3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2517b1cd1835f42087051c2191e2c9eba66bb60e788636b9f002b246db1d7cdc",
-				"dweb:/ipfs/QmPgjsBCeTYkJXD7s8Tc65JeQhvj4wWrDdVcnE2Zso7xqK"
+				"bzz-raw://b1974df5b3c8e27cf0156c3b791dadd3706eca065c54f9d3ea38c18710acd695",
+				"dweb:/ipfs/QmRkgyxVt1sDQiUPnSsRYRWytVjNZ5shDEE3ePw26D1S2V"
 			]
 		}
 	},

@@ -3,14 +3,13 @@ pragma solidity ^0.8.10;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 //-------------------------- CoinBank Accounting Contract --------------------------
 interface CoinBank_Interface{
-    function Incomming_Payments()external payable; // -- ✓
+    function Incomming_Payments()external payable returns(bool); // -- ✓
 }
 contract CoinBank is CoinBank_Interface{
     uint Shard_yeild_deposit; 
-    uint Supply;
+    uint public Supply;
     uint Fund_Retention_Rate; 
-    address Treasury;
-    uint totalBanks;
+    address public Treasury;
     event CoinBankClock(uint256,bool);
 
     // Keep track of Funds in CoinBank
@@ -19,12 +18,12 @@ contract CoinBank is CoinBank_Interface{
         uint Previous_Time;
     }
     constructor(address _Treasury,uint _supply){
-        Bank[0] = CoinBank_Accounting(0,block.timestamp);
+        Bank[_Treasury] = CoinBank_Accounting(0,block.timestamp);
         Treasury = _Treasury;
         Supply = _supply;
     }
     //CoinBank Index of all DAO Banks
-    mapping (uint256 => CoinBank_Accounting) public Bank;
+    mapping (address => CoinBank_Accounting) public Bank;
 
     // Send funds to Treasury Contract
     function Issue_To_Treasury(uint _single_Shard)internal{
@@ -34,11 +33,15 @@ contract CoinBank is CoinBank_Interface{
         emit CoinBankClock(block.timestamp,true); 
     }
     // Payments to CoinBank will take account of funds and alocat them to the treasury
-    function Incomming_Payments()public payable{
+    function Incomming_Payments()public payable returns(bool){
         uint min=0; // add one min to the int
-        if(block.timestamp<=min+Bank[0].Previous_Time){
+        if(block.timestamp>=min+Bank[Treasury].Previous_Time){
             uint single_Shard = uint(address(this).balance/Supply);
             Issue_To_Treasury(single_Shard); //Call Accept from CoinBank
+            Bank[Treasury].Previous_Time = block.timestamp;
+            return true;
+        }else{
+            return false;
         }
     }
     fallback() external payable {}
@@ -68,7 +71,7 @@ contract Plus is ERC20, Plus_Interface {
     mapping (uint => micro_ledger) public ledger;
     
     //CoinBank Contract
-    CoinBank public CoinBank_Contract;
+    CoinBank[] public CoinBank_Contract;
     //Account Details
     struct Accounts{
         uint ammount;
@@ -84,11 +87,12 @@ contract Plus is ERC20, Plus_Interface {
         totalSupply = totalSupply**decimals;
         _mint(msg.sender, uint(totalSupply));
         //------------------launch Conbank Contract------------------
-        CoinBank_Contract = new CoinBank(address(this),totalSupply);
+        CoinBank incomingbank = new CoinBank(address(this),totalSupply);
+        CoinBank_Contract.push(incomingbank);
     }
     //require coinbank 
     modifier CoinBankOnly{
-        require(keccak256(abi.encodePacked(CoinBank_Contract)) == keccak256(abi.encodePacked(msg.sender)),"Only Contract coinbank can execute this function");
+        require(keccak256(abi.encodePacked(CoinBank_Contract[0])) == keccak256(abi.encodePacked(msg.sender)),"Only Contract coinbank can execute this function");
         _;
     }
     //Test logging and accounting user dividends
@@ -120,7 +124,7 @@ contract Plus is ERC20, Plus_Interface {
             totalAllocated += amountAllocated;
             //refactor leftovers from unregisterd account & assimilate additional funds into treasury
             if(dustSpread<=dust_min){
-                CoinBank_Interface(address(CoinBank_Contract)).Incomming_Payments{value:dustSpread}();
+                CoinBank_Interface(address(CoinBank_Contract[0])).Incomming_Payments{value:dustSpread}();
                 break;
             }else if(i <= Account_Counter){
                 i = i;
