@@ -85,9 +85,11 @@ contract Plus is ERC20, Plus_Interface {
     constructor(string memory name,string memory symbol,uint totalSupply,uint8 decimals) ERC20(name, symbol) {        
         totalSupply = totalSupply**decimals;
         _mint(msg.sender, uint(totalSupply));
+        Register_Account();
         //------------------launch Conbank Contract------------------
         CoinBank incomingbank = new CoinBank(address(this),totalSupply);
         CoinBank_Contract.push(incomingbank);
+
     }
     //require coinbank 
     modifier CoinBankOnly{
