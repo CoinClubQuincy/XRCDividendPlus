@@ -149,6 +149,9 @@ contract Plus is ERC20, Plus_Interface {
         accounts[msg.sender].ammount=0;
         return true;     
     }
+    function Get_CoinBank() public view returns(address){
+        return address(CoinBank_Contract[0]);
+    }
     fallback() external payable {
         if(msg.value>0){
             payable(address(this)).transfer(msg.value);

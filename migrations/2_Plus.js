@@ -1,5 +1,5 @@
 const Plus = artifacts.require("Plus");
 
 module.exports = function (deployer) {
-  deployer.deploy(Plus, "Test","TST",10000000);
+  deployer.deploy(Plus, "Q-Shards","QSHD",100,18);
 };
