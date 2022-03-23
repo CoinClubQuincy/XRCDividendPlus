@@ -57,6 +57,7 @@ interface Plus_Interface {
     function Accept_From_CoinBank(uint)external payable;
     function Redeem()external returns(bool);            // -- ✓
     function Register_Account()external returns(bool);  // -- ✓
+    function Get_CoinBank() external view returns(address); // -- ✓
 }
 contract Plus is ERC20, Plus_Interface {
     uint counter =0;
