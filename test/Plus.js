@@ -1,5 +1,5 @@
 const Plus = artifacts.require("Plus");
-
+//test Treasury
 contract(Plus, accounts => {
     it("Launch Plus contract and Coinbank", async() =>  {
         let instance = await Plus.deployed("Q-Shards","QSHD",100,18);
@@ -9,6 +9,7 @@ contract(Plus, accounts => {
     })
 })
 
+//Test CoinBank
 contract(Plus, accounts => {
     it("Launch Plus contract and Coinbank", async() =>  {
         let instance = await Plus.deployed("Q-Shards","QSHD",100,18);
