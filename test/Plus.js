@@ -15,5 +15,11 @@ contract(Plus, accounts => {
         let Balance = await instance.Balance();
         //assert(await Balance, "Coinbank Address Expected");
         console.log(Balance);
+
+        coinbank = await Plus.deployed();
+        let bank = await coinbank.Get_CoinBank()
+
+        console.log(bank)
     })
 })
+
