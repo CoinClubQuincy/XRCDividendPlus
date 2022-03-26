@@ -4,6 +4,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 //-------------------------- CoinBank Accounting Contract --------------------------
 interface CoinBank_Interface{
     function Incomming_Payments()external payable returns(bool); // -- ✓
+     function Balance() external view returns(uint256);
 }
 contract CoinBank is CoinBank_Interface{
     uint Shard_yeild_deposit; 
@@ -42,6 +43,10 @@ contract CoinBank is CoinBank_Interface{
         }else{
             return false;
         }
+    }
+    //call contract balance
+    function Balance() public view returns(uint256) {
+        return address(this).balance;
     }
     fallback() external payable {}
     receive() external payable {
@@ -153,6 +158,7 @@ contract Plus is ERC20, Plus_Interface {
     function Get_CoinBank() public view returns(address){
         return address(CoinBank_Contract[0]);
     }
+    
     fallback() external payable {
         if(msg.value>0){
             payable(address(this)).transfer(msg.value);
