@@ -9,7 +9,7 @@ contract(Plus, accounts => {
         assert(await CoinBank_Contract, "Coinbank Address Expected");
         console.log(CoinBank_Contract);
 
-        let new = await CoinBank_Contract.deployed();
+        
 
         web3.eth.sendTransaction({
             to:accounts[1], 
@@ -21,6 +21,8 @@ contract(Plus, accounts => {
 
         let balance = await web3.eth.getBalance(Abstract_Bank.address);
         console.log(balance);
+
+
 
 
     })
