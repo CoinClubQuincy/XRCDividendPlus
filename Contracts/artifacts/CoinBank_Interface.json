@@ -49,10 +49,24 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
+			"Balance()": "0ef67887",
 			"Incomming_Payments()": "82add361"
 		}
 	},
 	"abi": [
+		{
+			"inputs": [],
+			"name": "Balance",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
 		{
 			"inputs": [],
 			"name": "Incomming_Payments",

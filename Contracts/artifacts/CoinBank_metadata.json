@@ -45,6 +45,19 @@
 				"type": "fallback"
 			},
 			{
+				"inputs": [],
+				"name": "Balance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -167,11 +180,11 @@
 			]
 		},
 		"Documents/GitHub/XRC-20Plus/contracts/XRC20Plus.sol": {
-			"keccak256": "0x46f455917bb4ad1e3560de74f8f55b8acbcba9a2a1a214ae6c6f5b7afbff369e",
+			"keccak256": "0x942c5f5c3bc4952a6c9ebddaef8473984fc2965308f804845736936a840511b7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e06b502b810d68a5fadeaf61cb87b4d19594a6ac8665fde90a3fafd74dfebe2f",
-				"dweb:/ipfs/QmY2PZSvhH1d6bE9L5Dt3M6CgbY7rmNkgtZNkdVkCCLJ2z"
+				"bzz-raw://64a1c215393ba56442ed371d368d9e35400d2072b2336a38513dacaf1c8addef",
+				"dweb:/ipfs/QmPdpT4gpVmQezgQvJW5hntdJddE77NWnKfRM9t8PHVPsg"
 			]
 		}
 	},

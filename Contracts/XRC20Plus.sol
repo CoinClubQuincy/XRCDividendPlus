@@ -49,11 +49,7 @@ contract CoinBank is CoinBank_Interface{
         return address(this).balance;
     }
     fallback() external payable {}
-    receive() external payable {
-        if(msg.value>0){
-            payable(address(this)).transfer(msg.value);
-        }
-    }
+    receive() external payable {}
 }
 //-------------------------- Plus Treasury Contract --------------------------
 interface Plus_Interface {

@@ -9,19 +9,28 @@ contract(Plus, accounts => {
         assert(await CoinBank_Contract, "Coinbank Address Expected");
         console.log(CoinBank_Contract);
 
+        let new = await CoinBank_Contract.deployed();
+
+        web3.eth.sendTransaction({
+            to:accounts[1], 
+            from:accounts[0], 
+            value: web3.utils.toWei('1')}) 
 
         let trigger = await Abstract_Bank.at(CoinBank_Contract);
         let release = await trigger.Balance();
-        console.log(release);
-    })
-})
 
+        let balance = await web3.eth.getBalance(Abstract_Bank.address);
+        console.log(balance);
+
+
+    })
+    
+})
 
 // test abstract bank
 contract(Abstract_Bank, accounts => {
     it("Launch Abstract Bank contract the Coinbank", async() =>  {
         let abstract = await Abstract_Bank.deployed();
         let bank = await abstract.Balance();
-        console.log(bank);
     })
 })
