@@ -9,17 +9,15 @@ contract(Plus, accounts => {
         assert(await CoinBank_Contract, "Coinbank Address Expected");
         console.log(CoinBank_Contract);
 
-        let trigger = await Abstract_Bank.at(CoinBank_Contract);
-
+        let trigger = await Abstract_Bank.at(CoinBank_Contract); 
         web3.eth.sendTransaction({
-            to:accounts[trigger], 
+            to:accounts[String(trigger)], 
             from:accounts[0], 
-            value: web3.utils.toWei('1')}) 
+            value: web3.utils.toWei('1.0001','ether')}) 
 
-        
         let release = await trigger.Balance();
 
-        let balance = await web3.eth.getBalance(Abstract_Bank.address);
+        let balance = await web3.eth.getBalance(trigger.address);
         console.log(balance);
 
 
