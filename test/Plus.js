@@ -1,5 +1,5 @@
 const Plus = artifacts.require("Plus");
-const Abstract_Bank = artifacts.require("Plus");
+const Abstract_Bank = artifacts.require("CoinBank");
 
 //test Treasury
 contract(Plus, accounts => {
@@ -9,14 +9,14 @@ contract(Plus, accounts => {
         assert(await CoinBank_Contract, "Coinbank Address Expected");
         console.log(CoinBank_Contract);
 
-        
+        let trigger = await Abstract_Bank.at(CoinBank_Contract);
 
         web3.eth.sendTransaction({
-            to:accounts[1], 
+            to:accounts[trigger], 
             from:accounts[0], 
             value: web3.utils.toWei('1')}) 
 
-        let trigger = await Abstract_Bank.at(CoinBank_Contract);
+        
         let release = await trigger.Balance();
 
         let balance = await web3.eth.getBalance(Abstract_Bank.address);
