@@ -19,6 +19,7 @@ contract(Plus, accounts => {
 
         let balance = await web3.eth.getBalance(trigger.address);
         console.log(balance);
+        console.log(trigger);
 
 
 
