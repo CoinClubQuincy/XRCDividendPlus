@@ -17,7 +17,7 @@ contract CoinBank is CoinBank_Interface{
     struct CoinBank_Accounting{
         uint Previous_Time;
     }
-    constructor(address _Treasury,uint _supply){
+    constructor(address _Treasury,uint _supply) payable{
         Bank[_Treasury] = CoinBank_Accounting(block.timestamp);
         Treasury = _Treasury;
         Supply = _supply;
