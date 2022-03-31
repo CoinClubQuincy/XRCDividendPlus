@@ -7,11 +7,12 @@ contract(Plus, accounts => {
         let instance = await Plus.deployed("Q-Shards","QSHD",100,18);
         let CoinBank_Contract = await instance.Get_CoinBank();
         assert(await CoinBank_Contract, "Coinbank Address Expected");
-        console.log(CoinBank_Contract);
+        console.log(instance.address);
 
         let trigger = await Abstract_Bank.at(CoinBank_Contract); 
+        //----
         web3.eth.sendTransaction({
-            to:accounts[String(trigger)], 
+            to:accounts[String(trigger.address)], 
             from:accounts[0], 
             value: web3.utils.toWei('1.0001','ether')}) 
 
@@ -19,7 +20,7 @@ contract(Plus, accounts => {
 
         let balance = await web3.eth.getBalance(trigger.address);
         console.log(balance);
-        console.log(trigger);
+        console.log(trigger.address);
 
 
 
