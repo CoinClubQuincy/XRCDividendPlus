@@ -8,7 +8,7 @@ contract(Plus, accounts => {
         let CoinBank_Contract = await instance.Get_CoinBank();
         assert(await CoinBank_Contract, "Coinbank Address Expected");
         
-        console.log(instance.address);           //Treasury
+        //console.log(instance.address);           //Treasury
 
         let trigger = await Abstract_Bank.at(CoinBank_Contract); 
         //---- payment
@@ -21,10 +21,12 @@ contract(Plus, accounts => {
         let release = await trigger.Balance();
 
         let balance = await web3.utils.fromWei(release,'ether');
-        console.log(balance);  
+        //console.log(balance);  
         
-        let actualBalance = await web3.utils.fromWei(accounts[0],'babbage');
-        console.log(actualBalance);        //CoinBank_Contract
+        //let actualBalance = await web3.utils.fromWei(accounts[0],'babbage');
+        
+        //console.log(actualBalance);        //CoinBank_Contract
+        
         //console.log(web3.utils.fromWei(balance, "ether"));
         console.log(accounts[0]);
     })
