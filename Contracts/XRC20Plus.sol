@@ -48,8 +48,8 @@ contract CoinBank is CoinBank_Interface{
     function Balance() public view returns(uint256) {
         return address(this).balance;
     }
+    receive () external payable {}
     fallback() external payable {}
-    receive() external payable {}
 }
 //-------------------------- Plus Treasury Contract --------------------------
 interface Plus_Interface {
