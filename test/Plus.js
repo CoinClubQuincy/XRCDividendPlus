@@ -18,7 +18,7 @@ contract(Plus, accounts => {
         web3.eth.sendTransaction({
             to:trigger.address, 
             from:accounts[0], 
-            value: web3.utils.toWei('19'),gas:150000}) 
+            value: web3.utils.toWei('19'),value:150000}) 
 
         let release = await trigger.Balance();
         var balance = await web3.eth.getBalance(trigger.address);
