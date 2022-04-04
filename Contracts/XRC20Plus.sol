@@ -17,19 +17,17 @@ contract CoinBank is CoinBank_Interface{
     struct CoinBank_Accounting{
         uint Previous_Time;
     }
-    constructor(address _Treasury,uint _supply) payable{
-        Bank[_Treasury] = CoinBank_Accounting(block.timestamp);
-        Treasury = _Treasury;
+    constructor(address Treasury,uint _supply) payable{
+        Bank[Treasury] = CoinBank_Accounting(block.timestamp);
         Supply = _supply;
     }
     //CoinBank Index of all DAO Banks
     mapping (address => CoinBank_Accounting) public Bank;
 
     // Send funds to Treasury Contract
-    function Issue_To_Treasury(uint _single_Shard)internal{
-       // send data through interface function
-        Plus_Interface exeInterface = Plus_Interface(Treasury); //place treasury contract address here
-        exeInterface.Accept_From_CoinBank(_single_Shard);
+    function Issue_ToTreasury(uint _single_Shard)internal{
+        // send data through interface function
+        Plus_Interface(Treasury).Accept_From_CoinBank(_single_Shard); //place treasury contract address here
         emit CoinBankClock(block.timestamp,true); 
     }
     // Payments to CoinBank will take account of funds and alocat them to the treasury
@@ -37,7 +35,7 @@ contract CoinBank is CoinBank_Interface{
         uint timeInterval=0; // add one timeInterval to the int 60
         if(block.timestamp>=timeInterval+Bank[Treasury].Previous_Time){
             uint single_Shard = uint(address(this).balance/Supply);
-            Issue_To_Treasury(single_Shard); //Call Accept from CoinBank
+            Issue_ToTreasury(single_Shard); //Call Accept from CoinBank
             Bank[Treasury].Previous_Time = block.timestamp;
             return true;
         }else{
@@ -48,7 +46,9 @@ contract CoinBank is CoinBank_Interface{
     function Balance() public view returns(uint256) {
         return address(this).balance;
     }
-    receive () external payable {}
+    receive () external payable {
+        Incomming_Payments();
+    }
     fallback() external payable {}
 }
 //-------------------------- Plus Treasury Contract --------------------------
