@@ -1,56 +1,7 @@
 pragma solidity ^0.8.10;
 // SPDX-License-Identifier: MIT
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-//-------------------------- CoinBank Accounting Contract --------------------------
-interface CoinBank_Interface{
-    function Incomming_Payments()external payable returns(bool); // -- ✓
-     function Balance() external view returns(uint256);
-}
-contract CoinBank is CoinBank_Interface{
-    uint Shard_yeild_deposit; 
-    uint public Supply;
-    uint Fund_Retention_Rate; 
-    address public Treasury;
-    event CoinBankClock(uint256,bool);
 
-    // Keep track of Funds in CoinBank
-    struct CoinBank_Accounting{
-        uint Previous_Time;
-    }
-    constructor(address Treasury,uint _supply) payable{
-        Bank[Treasury] = CoinBank_Accounting(block.timestamp);
-        Supply = _supply;
-    }
-    //CoinBank Index of all DAO Banks
-    mapping (address => CoinBank_Accounting) public Bank;
-
-    // Send funds to Treasury Contract
-    function Issue_ToTreasury(uint _single_Shard)internal{
-        // send data through interface function
-        Plus_Interface(Treasury).Accept_From_CoinBank(_single_Shard); //place treasury contract address here
-        emit CoinBankClock(block.timestamp,true); 
-    }
-    // Payments to CoinBank will take account of funds and alocat them to the treasury
-    function Incomming_Payments()public payable returns(bool){
-        uint timeInterval=0; // add one timeInterval to the int 60
-        if(block.timestamp>=timeInterval+Bank[Treasury].Previous_Time){
-            uint single_Shard = uint(address(this).balance/Supply);
-            Issue_ToTreasury(single_Shard); //Call Accept from CoinBank
-            Bank[Treasury].Previous_Time = block.timestamp;
-            return true;
-        }else{
-            return false;
-        }
-    }
-    //call contract balance
-    function Balance() public view returns(uint256) {
-        return address(this).balance;
-    }
-    receive () external payable {
-        Incomming_Payments();
-    }
-    fallback() external payable {}
-}
 //-------------------------- Plus Treasury Contract --------------------------
 interface Plus_Interface {
     function View_Account() external view returns(uint); // -- ✓
@@ -163,4 +114,58 @@ contract Plus is ERC20, Plus_Interface {
     receive() external payable {
 
     }
+}
+
+//-------------------------- CoinBank Accounting Contract --------------------------
+interface CoinBank_Interface{
+    function Incomming_Payments()external payable returns(bool); // -- ✓
+     function Balance() external view returns(uint256);
+}
+contract CoinBank is CoinBank_Interface{
+    uint Shard_yeild_deposit; 
+    uint public Supply;
+    uint Fund_Retention_Rate; 
+    event CoinBankClock(uint256,bool);
+    address Treasury;
+    address private TresuryContract;
+    // Keep track of Funds in CoinBank
+    struct CoinBank_Accounting{
+        uint Previous_Time;
+    }
+    
+    constructor(address _Treasury,uint _supply) payable{
+        Bank[Treasury] = CoinBank_Accounting(block.timestamp);   
+        Treasury = _Treasury;
+        Supply = _supply;
+        TresuryContract = payable(Treasury);
+    }
+    //CoinBank Index of all DAO Banks
+    mapping (address => CoinBank_Accounting) public Bank;
+
+    // Send funds to Treasury Contract
+    function Issue_ToTreasury(uint _single_Shard)internal {
+        // send data through interface function {value: address(this).balance}
+        Plus_Interface(TresuryContract).Accept_From_CoinBank(_single_Shard); //place treasury contract address here
+        emit CoinBankClock(block.timestamp,true); 
+    }
+    // Payments to CoinBank will take account of funds and alocat them to the treasury
+    function Incomming_Payments()public payable returns(bool){
+        uint timeInterval=0; // add one timeInterval to the int 60
+        if(block.timestamp>=timeInterval+Bank[Treasury].Previous_Time){
+            uint single_Shard = uint(address(this).balance/Supply);
+            Issue_ToTreasury(single_Shard); //Call Accept from CoinBank
+            Bank[Treasury].Previous_Time = block.timestamp;
+            return true;
+        }else{
+            return false;
+        }
+    }
+    //call contract balance
+    function Balance() public view returns(uint256) {
+        return address(this).balance;
+    }
+    receive () external payable {
+        Incomming_Payments();
+    }
+    fallback() external payable {}
 }
