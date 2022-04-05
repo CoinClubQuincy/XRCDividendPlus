@@ -134,8 +134,8 @@ contract CoinBank is CoinBank_Interface{
     }
     
     constructor(address _Treasury,uint _supply) payable{
-        Bank[Treasury] = CoinBank_Accounting(block.timestamp);   
         Treasury = _Treasury;
+        Bank[Treasury] = CoinBank_Accounting(block.timestamp);   
         Supply = _supply;
         TresuryContract = payable(Treasury);
     }
@@ -145,7 +145,8 @@ contract CoinBank is CoinBank_Interface{
     // Send funds to Treasury Contract
     function Issue_ToTreasury(uint _single_Shard)internal {
         // send data through interface function {value: address(this).balance}
-        Plus_Interface(TresuryContract).Accept_From_CoinBank(_single_Shard); //place treasury contract address here
+        //Plus_Interface(TresuryContract).Accept_From_CoinBank(_single_Shard); //place treasury contract address here
+        //payable(Treasury).transfer(address(this).balance);
         emit CoinBankClock(block.timestamp,true); 
     }
     // Payments to CoinBank will take account of funds and alocat them to the treasury

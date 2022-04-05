@@ -10,6 +10,8 @@ contract(Plus, accounts => {
         
         console.log("tresury address");
         console.log(instance.address);           //Treasury
+        var Tbalance = await web3.eth.getBalance(instance.address);
+        console.log(Tbalance);
 
         let trigger = await Abstract_Bank.at(CoinBank_Contract); 
         //---- payment
@@ -20,7 +22,7 @@ contract(Plus, accounts => {
             from:accounts[0], 
             value: web3.utils.toWei('19'),value:150000}) 
 
-        let release = await trigger.Balance();
+        //let release = await trigger.Balance();
         var balance = await web3.eth.getBalance(trigger.address);
         //let balance = await web3.utils.fromWei(release,'ether');
         console.log("Print bank Balance");
@@ -31,6 +33,8 @@ contract(Plus, accounts => {
         console.log("print test account");
         console.log(actualBalance);        //CoinBank_Contract
         
+        console.log("Treasury Balance");
+        console.log(Tbalance);
         //console.log(web3.utils.fromWei(balance, "ether"));
         //console.log(accounts[0].balance);
     })
