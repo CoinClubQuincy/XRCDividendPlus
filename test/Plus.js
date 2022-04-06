@@ -20,32 +20,23 @@ contract(Plus, accounts => {
         web3.eth.sendTransaction({
             to:trigger.address, 
             from:accounts[0], 
-            value: web3.utils.toWei('19'),value:150000}) 
+            value: web3.utils.toWei('19'),value:"15000000"}) 
 
-        //let release = await trigger.Balance();
+        let release = await trigger.Balance();
         var balance = await web3.eth.getBalance(trigger.address);
-        //let balance = await web3.utils.fromWei(release,'ether');
+        //let balance = await web3.utils.fromWei(trigger,'ether');
         console.log("Print bank Balance");
         console.log(balance);  
         
-        let actualBalance = await web3.utils.fromWei(accounts[0],'babbage');
+        //let actualBalance = await web3.utils.fromWei(accounts[0],'babbage');
         
-        console.log("print test account");
-        console.log(actualBalance);        //CoinBank_Contract
+        //console.log("print test account");
+        //console.log(actualBalance);        //CoinBank_Contract
         
-        console.log("Treasury Balance");
-        console.log(Tbalance);
+        //console.log("Treasury Balance");
+        //console.log(Tbalance);
+        
         //console.log(web3.utils.fromWei(balance, "ether"));
         //console.log(accounts[0].balance);
-    })
-})
-
-// test abstract bank
-contract(Abstract_Bank, accounts => {
-    it("Launch Abstract Bank contract the Coinbank", async() =>  {
-        let abstract = await Abstract_Bank.deployed();
-        let bank = await abstract.Balance();
-        assert(await abstract, "Abstract Coinbank Address Expected");
-        //console.log(abstract.address);        //Abstract CoinBank_Contract
     })
 })

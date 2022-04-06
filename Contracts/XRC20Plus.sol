@@ -144,7 +144,7 @@ contract CoinBank is CoinBank_Interface{
 
     // Send funds to Treasury Contract
     function Issue_ToTreasury(uint _single_Shard)internal {
-        // send data through interface function {value: address(this).balance}
+        // send data through interface function 
         //Plus_Interface(TresuryContract).Accept_From_CoinBank(_single_Shard); //place treasury contract address here
         //payable(Treasury).transfer(address(this).balance);
         emit CoinBankClock(block.timestamp,true); 
@@ -166,7 +166,7 @@ contract CoinBank is CoinBank_Interface{
         return address(this).balance;
     }
     receive () external payable {
-        Incomming_Payments();
+        //Incomming_Payments();
     }
     fallback() external payable {}
 }
