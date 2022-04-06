@@ -106,14 +106,8 @@ contract Plus is ERC20, Plus_Interface {
         return address(CoinBank_Contract[0]);
     }
     
-    fallback() external payable {
-        if(msg.value>0){
-            payable(address(this)).transfer(msg.value);
-        }
-    }
-    receive() external payable {
-
-    }
+    fallback() external payable {}
+    receive() external payable {}
 }
 
 //-------------------------- CoinBank Accounting Contract --------------------------
@@ -145,8 +139,8 @@ contract CoinBank is CoinBank_Interface{
     // Send funds to Treasury Contract
     function Issue_ToTreasury(uint _single_Shard)internal {
         // send data through interface function 
-        //Plus_Interface(TresuryContract).Accept_From_CoinBank(_single_Shard); //place treasury contract address here
-        //payable(Treasury).transfer(address(this).balance);
+        //Plus_Interface(Treasury).Accept_From_CoinBank(_single_Shard); //place treasury contract address here
+        payable(Treasury).transfer(address(this).balance); // << -- consolidate this payment with the function above
         emit CoinBankClock(block.timestamp,true); 
     }
     // Payments to CoinBank will take account of funds and alocat them to the treasury
@@ -166,7 +160,7 @@ contract CoinBank is CoinBank_Interface{
         return address(this).balance;
     }
     receive () external payable {
-        //Incomming_Payments();
+        Incomming_Payments();
     }
     fallback() external payable {}
 }
