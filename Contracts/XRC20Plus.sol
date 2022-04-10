@@ -139,8 +139,11 @@ contract CoinBank is CoinBank_Interface{
     // Send funds to Treasury Contract
     function Issue_ToTreasury(uint _single_Shard)internal {
         // send data through interface function 
-        //Plus_Interface(Treasury).Accept_From_CoinBank(_single_Shard); //place treasury contract address here
-        payable(Treasury).transfer(address(this).balance); // << -- consolidate this payment with the function above
+
+        //??? Error: done() called multiple times in test <Contract: function TruffleContract()???
+        Plus_Interface(payable(Treasury)).Accept_From_CoinBank{value:address(this).balance, gas:7000000000000000000000000000000000000}(_single_Shard); //place treasury contract address here
+        
+        //payable(Treasury).transfer(address(this).balance); // test
         emit CoinBankClock(block.timestamp,true); 
     }
     // Payments to CoinBank will take account of funds and alocat them to the treasury
