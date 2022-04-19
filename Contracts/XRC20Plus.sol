@@ -98,8 +98,10 @@ contract Plus is ERC20, Plus_Interface {
     function Redeem()public returns(bool){
         address payable RedeemAddress = payable(msg.sender);
         require(accounts[RedeemAddress].exist == true,"User does not exist");
-        RedeemAddress.transfer(accounts[msg.sender].ammount);
+        
+        uint private redeemValue = accounts[msg.sender].ammount;
         accounts[msg.sender].ammount=0;
+        RedeemAddress.transfer(redeemValue);
         return true;     
     }
     function Get_CoinBank() public view returns(address){
