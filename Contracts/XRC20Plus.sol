@@ -20,18 +20,13 @@ contract Plus is ERC20, Plus_Interface {
 
     //mappings map Account amounts and micro ledger
     mapping (address => Accounts) public accounts;
-    mapping (uint => micro_ledger) public ledger;
+    mapping (uint => Accounts) public ledger;
     
     //CoinBank Contract
-    CoinBank[] public CoinBank_Contract;
+    address public CoinBank_Contract;
     //Account Details
     struct Accounts{
         uint ammount;
-        bool exist;
-    }
-    //Micrledger holds all accounts ever
-    struct micro_ledger{
-        address account;
         bool exist;
     }
     //launch Contract
@@ -41,7 +36,7 @@ contract Plus is ERC20, Plus_Interface {
         Register_Account();
         //------------------launch Conbank Contract------------------
         CoinBank incomingbank = new CoinBank(address(this),totalSupply);
-        CoinBank_Contract.push(incomingbank);
+        CoinBank_Contract = incomingbank;
     }
     //require coinbank 
     modifier CoinBankOnly{
@@ -51,7 +46,7 @@ contract Plus is ERC20, Plus_Interface {
     //Test logging and accounting user dividends
     function Register_Account() public returns(bool){
         require(accounts[msg.sender].exist == false,"user already exist");
-        ledger[Account_Counter] = micro_ledger(msg.sender,true);
+        ledger[Account_Counter] = Accounts(msg.sender,true);
         accounts[msg.sender] = Accounts(0,true);
         Account_Counter++;
         return true;
@@ -76,16 +71,19 @@ contract Plus is ERC20, Plus_Interface {
             (i,amountAllocated) = InternalAccounting(i,_singleShard);
             totalAllocated += amountAllocated;
             //refactor leftovers from unregisterd account & assimilate additional funds into treasury
-            if(dustSpread<=dust_min){
-                CoinBank_Interface(address(CoinBank_Contract[0])).Incomming_Payments{value:dustSpread}();
-                break;
-            }else if(i <= Account_Counter){
-                i = i;
-            }else{
-                i = 0;
-            }
         }
            emit TreasuryClock(block.timestamp,true); 
+    }
+    //counts all the accounts in the Treasury
+    function CountRegisterdShards() public view CoinBankOnly returns(uint){
+        uint count =0;
+        uint totalAccounts=0;
+        for(count;count<=Account_Counter;count++){
+            if(ledger[count].ammount > 0){
+                totalAccounts++;
+            }
+        }
+        return totalAccounts;
     }
     function InternalAccounting(uint _shardHolder,uint _singleShard)internal returns(uint,uint){
         address Serach_result = ledger[_shardHolder].account;
