@@ -9,7 +9,6 @@ interface Plus_Interface {
     function Accept_From_CoinBank(uint)external payable;
     function Redeem()external returns(bool);            // -- ✓
     function Register_Account()external returns(bool);  // -- ✓
-    function Get_CoinBank() external view returns(address); // -- ✓
 }
 contract Plus is ERC20, Plus_Interface {
     uint counter =0;
@@ -65,17 +64,15 @@ contract Plus is ERC20, Plus_Interface {
         uint value = msg.value;
         uint totalAllocated=0;
         uint amountAllocated;
-        uint dustSpread = value-totalAllocated;
 
         for(i;i<=Account_Counter;i++){
             (i,amountAllocated) = InternalAccounting(i,_singleShard);
             totalAllocated += amountAllocated;
-            //refactor leftovers from unregisterd account & assimilate additional funds into treasury
         }
-           emit TreasuryClock(block.timestamp,true); 
+        emit TreasuryClock(block.timestamp,true); 
     }
     //counts all the accounts in the Treasury
-    function CountRegisterdShards() public view CoinBankOnly returns(uint){
+    function CountRegisterdShards() public view returns(uint){
         uint count =0;
         uint totalAccounts=0;
         for(count;count<=Account_Counter;count++){
@@ -85,10 +82,13 @@ contract Plus is ERC20, Plus_Interface {
         }
         return totalAccounts;
     }
+    //
     function InternalAccounting(uint _shardHolder,uint _singleShard)internal returns(uint,uint){
         address Serach_result = ledger[_shardHolder].account;
-        if(ledger[_shardHolder].exist == true && accounts[Serach_result].ammount > 0){
+        if(balanceOf(ledger[_shardHolder].account) > 0){
             accounts[Serach_result].ammount += balanceOf(ledger[_shardHolder].account) * _singleShard;
+        } else{
+            InternalAccounting(_shardHolder++,_singleShard);
         }
         return (_shardHolder,accounts[Serach_result].ammount);      
     }
@@ -101,11 +101,9 @@ contract Plus is ERC20, Plus_Interface {
         RedeemAddress.transfer(redeemValue);
         return true;     
     }
-    function Get_CoinBank() public view returns(address){
-        return address(CoinBank_Contract[0]);
+    fallback() external payable {
+        //return funds
     }
-    
-    fallback() external payable {}
     receive() external payable {}
 }
 
@@ -115,39 +113,32 @@ interface CoinBank_Interface{
      function Balance() external view returns(uint256);
 }
 contract CoinBank is CoinBank_Interface{
-    uint Shard_yeild_deposit; 
-    uint public Supply;
-    uint Fund_Retention_Rate; 
+    uint timeInterval;  
     event CoinBankClock(uint256,bool);
-    address Treasury;
-    address private TresuryContract;
+    address public Treasury;
     // Keep track of Funds in CoinBank
     struct CoinBank_Accounting{
         uint Previous_Time;
     }
     
-    constructor(address _Treasury,uint _supply) payable{
+    constructor(address _Treasury,uint _timeInterval) payable{
         Treasury = _Treasury;
         Bank[Treasury] = CoinBank_Accounting(block.timestamp);   
-        Supply = _supply;
-        TresuryContract = payable(Treasury);
+        Treasury = payable(Treasury);
+        timeInterval = _timeInterval;
     }
     //CoinBank Index of all DAO Banks
     mapping (address => CoinBank_Accounting) public Bank;
 
     // Send funds to Treasury Contract
     function Issue_ToTreasury(uint _single_Shard)internal {
-        // send data through interface function 
-
-        //??? Error: done() called multiple times in test <Contract: function TruffleContract()???
-        Plus_Interface(payable(Treasury)).Accept_From_CoinBank{value:address(this).balance, gas:7000000000000000000000000000000000000}(_single_Shard); //place treasury contract address here
-        
-        //payable(Treasury).transfer(address(this).balance); // test
+        Plus_Interface(payable(Treasury)).Accept_From_CoinBank{value:address(this).balance}(_single_Shard); //place treasury contract address here
         emit CoinBankClock(block.timestamp,true); 
     }
     // Payments to CoinBank will take account of funds and alocat them to the treasury
     function Incomming_Payments()public payable returns(bool){
-        uint timeInterval=0; // add one timeInterval to the int 60
+        uint Supply = Plus_Interface(Treasury).CountRegisterdShards();
+        // add one timeInterval to the int 60
         if(block.timestamp>=timeInterval+Bank[Treasury].Previous_Time){
             uint single_Shard = uint(address(this).balance/Supply);
             Issue_ToTreasury(single_Shard); //Call Accept from CoinBank
