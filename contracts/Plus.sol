@@ -5,7 +5,6 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 //-------------------------- Plus Treasury Contract --------------------------
 interface Plus_Interface {
     function View_Account() external view returns(uint); // -- ✓
-    function Balance() external view returns(uint256);   // -- ✓
     function Accept_From_CoinBank(uint)external payable;
     function Redeem()external returns(bool);            // -- ✓
     function Register_Account()external returns(bool);  // -- ✓
@@ -15,6 +14,7 @@ contract Plus is ERC20, Plus_Interface {
     uint public Account_Counter = 0;
     uint public totalAllocated;
     uint public CurrentCount=0;
+    address public CoinBank_Contract;
     //every period a time event will be placecd
     event TreasuryClock( uint256,bool);
 
@@ -22,8 +22,6 @@ contract Plus is ERC20, Plus_Interface {
     mapping (address => Accounts) public accounts;
     mapping (uint => Accounts) public ledger;
     
-    //CoinBank Contract
-    address public CoinBank_Contract;
     //Account Details
     struct Accounts{
         uint ammount;
@@ -35,18 +33,18 @@ contract Plus is ERC20, Plus_Interface {
         _mint(msg.sender, uint(totalSupply));
         Register_Account();
         //------------------launch Conbank Contract------------------
-        CoinBank incomingbank = new CoinBank(address(this),totalSupply,_Interval);
-        CoinBank_Contract = incomingbank;
+        CoinBank incomingbank = new CoinBank(address(this),_Interval);
+        CoinBank_Contract = address(incomingbank);
     }
     //require coinbank 
     modifier CoinBankOnly{
-        require(keccak256(abi.encodePacked(CoinBank_Contract[0])) == keccak256(abi.encodePacked(msg.sender)),"Only Contract coinbank can execute this function");
+        require(keccak256(abi.encodePacked(CoinBank_Contract)) == keccak256(abi.encodePacked(msg.sender)),"Only Contract coinbank can execute this function");
         _;
     }
     //Test logging and accounting user dividends
     function Register_Account() public returns(bool){
         require(accounts[msg.sender].exist == false,"user already exist");
-        ledger[Account_Counter] = Accounts(msg.sender,true);
+        ledger[Account_Counter] = Accounts(0,true);
         accounts[msg.sender] = Accounts(0,true);
         Account_Counter++;
         return true;
@@ -55,10 +53,6 @@ contract Plus is ERC20, Plus_Interface {
     function View_Account() public view returns(uint){
         require(accounts[msg.sender].exist == true,"user not registerd");
         return accounts[msg.sender].ammount;
-    }
-    //call contract balance
-    function Balance() public view returns(uint256) {
-        return address(this).balance;
     }
     //Accept payment from CoinBank and issue dividends to accouts
     function Accept_From_CoinBank(uint _singleShard)public payable CoinBankOnly{
@@ -87,11 +81,11 @@ contract Plus is ERC20, Plus_Interface {
     function InternalAccounting(uint _shardHolder,uint _singleShard)internal returns(uint,uint){
         address Serach_result = ledger[_shardHolder].account;
         if(balanceOf(ledger[_shardHolder].account) > 0){
-            accounts[Serach_result].ammount += balanceOf(ledger[_shardHolder].account) * _singleShard;
+            accounts[_shardHolder].ammount += balanceOf(ledger[_shardHolder].account) * _singleShard;
         } else{
             InternalAccounting(_shardHolder++,_singleShard);
         }
-        return (_shardHolder,accounts[Serach_result].ammount);      
+        return (_shardHolder,accounts[_shardHolder].ammount);      
     }
     //Redeem Dividends from treasury
     function Redeem()public returns(bool){
@@ -102,15 +96,14 @@ contract Plus is ERC20, Plus_Interface {
         RedeemAddress.transfer(redeemValue);
         return true;     
     }
-    fallback() external payable {
-        //return funds
-    }
+    //fallback() external payable {
+        //route funds to coinbank
+    //}
 }
 
 //-------------------------- CoinBank Accounting Contract --------------------------
 interface CoinBank_Interface{
-    function Incomming_Payments()external payable returns(bool); // -- ✓
-     function Balance() external view returns(uint256);
+    function Incoming_Payments()external payable returns(bool); // -- ✓
 }
 contract CoinBank is CoinBank_Interface{
     uint timeInterval;  
@@ -136,7 +129,7 @@ contract CoinBank is CoinBank_Interface{
         emit CoinBankClock(block.timestamp,true); 
     }
     // Payments to CoinBank will take account of funds and alocat them to the treasury
-    function Incomming_Payments()public payable returns(bool){
+    function Incoming_Payments()public payable returns(bool){
         uint Supply = Plus_Interface(Treasury).CountRegisterdShards();
         // add one timeInterval to the int 60
         if(block.timestamp>=timeInterval+Bank[Treasury].Previous_Time){
@@ -148,11 +141,7 @@ contract CoinBank is CoinBank_Interface{
             return false;
         }
     }
-    //call contract balance
-    function Balance() public view returns(uint256) {
-        return address(this).balance;
-    }
-    fallback() external payable {
-        Incomming_Payments();
-    }
+    //fallback() external payable {
+    //    Incoming_Payments();
+    //}
 }
