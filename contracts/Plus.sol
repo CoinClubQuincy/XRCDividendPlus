@@ -12,9 +12,10 @@ interface Plus_Interface {
 }
 contract Plus is ERC20, Plus_Interface {
     uint counter =0;
-    uint Account_Counter = 0;
-    uint dust_min = 100; // amount of dust allowed in treasury per refreash
-    uint i=0; // -- change to CurrentUserCount
+    uint public Account_Counter = 0;
+    uint public totalAllocated;
+    uint public CurrentCount=0;
+    //every period a time event will be placecd
     event TreasuryClock( uint256,bool);
 
     //mappings map Account amounts and micro ledger
@@ -29,12 +30,12 @@ contract Plus is ERC20, Plus_Interface {
         bool exist;
     }
     //launch Contract
-    constructor(string memory name,string memory symbol,uint totalSupply,uint8 decimals) ERC20(name, symbol) {        
+    constructor(string memory name,string memory symbol,uint totalSupply,uint8 decimals,uint _Interval) ERC20(name, symbol) {        
         totalSupply = totalSupply*(10**decimals);
         _mint(msg.sender, uint(totalSupply));
         Register_Account();
         //------------------launch Conbank Contract------------------
-        CoinBank incomingbank = new CoinBank(address(this),totalSupply);
+        CoinBank incomingbank = new CoinBank(address(this),totalSupply,_Interval);
         CoinBank_Contract = incomingbank;
     }
     //require coinbank 
@@ -62,11 +63,11 @@ contract Plus is ERC20, Plus_Interface {
     //Accept payment from CoinBank and issue dividends to accouts
     function Accept_From_CoinBank(uint _singleShard)public payable CoinBankOnly{
         uint value = msg.value;
-        uint totalAllocated=0;
+        totalAllocated=0;
         uint amountAllocated;
 
-        for(i;i<=Account_Counter;i++){
-            (i,amountAllocated) = InternalAccounting(i,_singleShard);
+        for(CurrentCount;CurrentCount<=Account_Counter;CurrentCount++){
+            (CurrentCount,amountAllocated) = InternalAccounting(CurrentCount,_singleShard);
             totalAllocated += amountAllocated;
         }
         emit TreasuryClock(block.timestamp,true); 
@@ -82,7 +83,7 @@ contract Plus is ERC20, Plus_Interface {
         }
         return totalAccounts;
     }
-    //
+    //Sorts funds into accounts
     function InternalAccounting(uint _shardHolder,uint _singleShard)internal returns(uint,uint){
         address Serach_result = ledger[_shardHolder].account;
         if(balanceOf(ledger[_shardHolder].account) > 0){
@@ -104,7 +105,6 @@ contract Plus is ERC20, Plus_Interface {
     fallback() external payable {
         //return funds
     }
-    receive() external payable {}
 }
 
 //-------------------------- CoinBank Accounting Contract --------------------------
@@ -120,7 +120,7 @@ contract CoinBank is CoinBank_Interface{
     struct CoinBank_Accounting{
         uint Previous_Time;
     }
-    
+    //when crontract is created
     constructor(address _Treasury,uint _timeInterval) payable{
         Treasury = _Treasury;
         Bank[Treasury] = CoinBank_Accounting(block.timestamp);   
@@ -152,8 +152,7 @@ contract CoinBank is CoinBank_Interface{
     function Balance() public view returns(uint256) {
         return address(this).balance;
     }
-    receive () external payable {
+    fallback() external payable {
         Incomming_Payments();
     }
-    fallback() external payable {}
 }
