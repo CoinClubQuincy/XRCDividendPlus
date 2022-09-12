@@ -4,10 +4,11 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 //-------------------------- Plus Treasury Contract --------------------------
 interface Plus_Interface {
-    function View_Account() external view returns(uint); // -- ✓
+    function View_Account() external view returns(uint);  // -- ✓
     function Accept_From_CoinBank(uint)external payable;
-    function Redeem()external returns(bool);            // -- ✓
-    function Register_Account()external returns(bool);  // -- ✓
+    function Redeem()external returns(bool);              // -- ✓
+    function Register_Account()external returns(bool);    // -- ✓
+    function CountRegisterdShards()external returns(uint);//
 }
 contract Plus is ERC20, Plus_Interface {
     uint counter =0;
@@ -20,11 +21,16 @@ contract Plus is ERC20, Plus_Interface {
 
     //mappings map Account amounts and micro ledger
     mapping (address => Accounts) public accounts;
-    mapping (uint => Accounts) public ledger;
+    mapping (uint => Ledger) public ledger;
     
     //Account Details
     struct Accounts{
-        uint ammount;
+        uint amount;
+        bool exist;
+    }
+    //Ledger
+    struct Ledger{
+        address account;
         bool exist;
     }
     //launch Contract
@@ -44,7 +50,7 @@ contract Plus is ERC20, Plus_Interface {
     //Test logging and accounting user dividends
     function Register_Account() public returns(bool){
         require(accounts[msg.sender].exist == false,"user already exist");
-        ledger[Account_Counter] = Accounts(0,true);
+        ledger[Account_Counter] = Ledger(msg.sender,true);
         accounts[msg.sender] = Accounts(0,true);
         Account_Counter++;
         return true;
@@ -52,7 +58,7 @@ contract Plus is ERC20, Plus_Interface {
     //Account of your funds in contract
     function View_Account() public view returns(uint){
         require(accounts[msg.sender].exist == true,"user not registerd");
-        return accounts[msg.sender].ammount;
+        return accounts[msg.sender].amount;
     }
     //Accept payment from CoinBank and issue dividends to accouts
     function Accept_From_CoinBank(uint _singleShard)public payable CoinBankOnly{
@@ -71,7 +77,7 @@ contract Plus is ERC20, Plus_Interface {
         uint count =0;
         uint totalAccounts=0;
         for(count;count<=Account_Counter;count++){
-            if(ledger[count].ammount > 0){
+            if(accounts[ledger[count].account].amount >0){
                 totalAccounts++;
             }
         }
@@ -81,18 +87,18 @@ contract Plus is ERC20, Plus_Interface {
     function InternalAccounting(uint _shardHolder,uint _singleShard)internal returns(uint,uint){
         address Serach_result = ledger[_shardHolder].account;
         if(balanceOf(ledger[_shardHolder].account) > 0){
-            accounts[_shardHolder].ammount += balanceOf(ledger[_shardHolder].account) * _singleShard;
+            accounts[ledger[_shardHolder].account].amount += balanceOf(ledger[_shardHolder].account) * _singleShard;
         } else{
             InternalAccounting(_shardHolder++,_singleShard);
         }
-        return (_shardHolder,accounts[_shardHolder].ammount);      
+        return (_shardHolder,accounts[Serach_result].amount);      
     }
     //Redeem Dividends from treasury
     function Redeem()public returns(bool){
         address payable RedeemAddress = payable(msg.sender);
         require(accounts[RedeemAddress].exist == true,"User does not exist");
-        uint redeemValue = accounts[msg.sender].ammount;
-        accounts[msg.sender].ammount=0;
+        uint redeemValue = accounts[msg.sender].amount;
+        accounts[msg.sender].amount=0;
         RedeemAddress.transfer(redeemValue);
         return true;     
     }
