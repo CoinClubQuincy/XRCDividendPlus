@@ -2,7 +2,7 @@ pragma solidity ^0.8.10;
 // SPDX-License-Identifier: MIT
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-//-------------------------- Plus Treasury Contract --------------------------
+//-------------------------- Treasury Contract --------------------------
 interface Plus_Interface {
     function View_Account() external view returns(uint);  // -- ✓
     function Accept_From_CoinBank(uint)external payable;
@@ -10,11 +10,10 @@ interface Plus_Interface {
     function Register_Account()external returns(bool);    // -- ✓
     function CountRegisterdShards()external returns(uint);//
 }
-contract Plus is ERC20, Plus_Interface {
+contract MainTreasury is ERC20, Plus_Interface {
     uint counter =0;
     uint public Account_Counter = 0;
     uint public totalAllocated;
-    uint public CurrentCount=0;
     address public CoinBank_Contract;
     //every period a time event will be placecd
     event TreasuryClock( uint256,bool);
@@ -60,13 +59,13 @@ contract Plus is ERC20, Plus_Interface {
         require(accounts[msg.sender].exist == true,"user not registerd");
         return accounts[msg.sender].amount;
     }
-    //Accept payment from CoinBank and issue dividends to accouts
+    //Accept payment from CoinBank and issue dividends to accounts
     function Accept_From_CoinBank(uint _singleShard)public payable CoinBankOnly{
-        uint value = msg.value;
         totalAllocated=0;
         uint amountAllocated;
+        uint CurrentCount=0;
 
-        for(CurrentCount;CurrentCount<=Account_Counter;CurrentCount++){
+        for(CurrentCount;CurrentCount<Account_Counter;CurrentCount++){
             (CurrentCount,amountAllocated) = InternalAccounting(CurrentCount,_singleShard);
             totalAllocated += amountAllocated;
         }
@@ -126,7 +125,7 @@ contract CoinBank is CoinBank_Interface{
         Treasury = payable(Treasury);
         timeInterval = _timeInterval;
     }
-    //CoinBank Index of all DAO Banks
+    //CoinBank Index of all Banks
     mapping (address => CoinBank_Accounting) public Bank;
 
     // Send funds to Treasury Contract
