@@ -101,6 +101,9 @@ contract MainTreasury is ERC20, Plus_Interface {
         RedeemAddress.transfer(redeemValue);
         return true;     
     }
+    function Balance() public view returns(uint){
+        return address(this).balance;
+    }
     //fallback() external payable {
         //route funds to coinbank
     //}
@@ -145,6 +148,9 @@ contract CoinBank is CoinBank_Interface{
         }else{
             return false;
         }
+    }
+    function Balance() public view returns(uint){
+        return address(this).balance;
     }
     fallback() external payable {
         Incoming_Payments();
