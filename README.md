@@ -6,5 +6,6 @@ The XRC20 + standard is a token dividend standard for the XDC Network this stand
 
 ### **Diagram:**
 This contract standard is for contracts that will yield profits for the token holders based on contract performance
-![XRC20+ Architecture  (1)](https://user-images.githubusercontent.com/16103963/148665680-d8e74403-cbdc-44aa-9a04-33b88f329f5e.png)
 
+
+![XRCDividend+ Architecture ](https://user-images.githubusercontent.com/16103963/190693097-c0356827-12cd-4298-a815-1c88b9607471.png)
