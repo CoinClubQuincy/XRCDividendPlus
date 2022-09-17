@@ -11,7 +11,7 @@ interface Treasury_Interface {
 contract Treasury is ERC20, Treasury_Interface {
     uint counter =0;
     uint public Account_Counter = 0;
-    uint public totalAllocated;
+    uint public totalAllocated=0;
     //mappings map Account amounts and micro ledger
     mapping (address => Accounts) public accounts;
     mapping (uint => Ledger) public ledger;
@@ -31,6 +31,7 @@ contract Treasury is ERC20, Treasury_Interface {
         _mint(msg.sender, uint(totalSupply));
         Register_Account();
     }
+    //Only Token Holders can use contract
     modifier TokenHolder{
         require(balanceOf(msg.sender) > 0, "only token holders can access");
         _;
@@ -50,7 +51,6 @@ contract Treasury is ERC20, Treasury_Interface {
     }
     //Accept payment from CoinBank and issue dividends to accounts
     function callFromFallback(uint _singleShard)internal{
-        totalAllocated=0;
         uint amountAllocated;
         uint CurrentCount=0;
 
@@ -91,7 +91,7 @@ contract Treasury is ERC20, Treasury_Interface {
         return true;     
     }
     //Payments made to the contract
-    fallback() external payable {
+    receive() external payable {
         uint Supply = CountRegisterdShards();
         // add one timeInterval to the int 60
         uint single_Shard = msg.value/Supply;
