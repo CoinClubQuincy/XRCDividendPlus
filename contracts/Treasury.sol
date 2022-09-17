@@ -5,7 +5,6 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 //-------------------------- Treasury Contract --------------------------
 interface Plus_Interface {
     function View_Account() external view returns(uint);  // -- ✓
-    function Accept_From_CoinBank(uint)external payable;
     function Redeem()external returns(bool);              // -- ✓
     function Register_Account()external returns(bool);    // -- ✓
     function CountRegisterdShards()external returns(uint);//
@@ -37,13 +36,10 @@ contract MainTreasury is ERC20, Plus_Interface {
         totalSupply = totalSupply*(10**decimals);
         _mint(msg.sender, uint(totalSupply));
         Register_Account();
-        //------------------launch Conbank Contract------------------
-        CoinBank incomingbank = new CoinBank(address(this),_Interval);
-        CoinBank_Contract = address(incomingbank);
     }
     //require coinbank 
-    modifier CoinBankOnly{
-        require(keccak256(abi.encodePacked(CoinBank_Contract)) == keccak256(abi.encodePacked(msg.sender)),"Only Contract coinbank can execute this function");
+    modifier FallbackOnly{
+        require(msg.sender == address(this), "only contract can call this");
         _;
     }
     //Test logging and accounting user dividends
@@ -60,7 +56,7 @@ contract MainTreasury is ERC20, Plus_Interface {
         return accounts[msg.sender].amount;
     }
     //Accept payment from CoinBank and issue dividends to accounts
-    function Accept_From_CoinBank(uint _singleShard)public payable CoinBankOnly{
+    function Accept_From_CoinBank(uint _singleShard)internal{
         totalAllocated=0;
         uint amountAllocated;
         uint CurrentCount=0;
@@ -101,59 +97,13 @@ contract MainTreasury is ERC20, Plus_Interface {
         RedeemAddress.transfer(redeemValue);
         return true;     
     }
-    function Balance() public view returns(uint){
-        return address(this).balance;
-    }
-    //fallback() external payable {
-        //route funds to coinbank
-    //}
-}
-
-//-------------------------- CoinBank Accounting Contract --------------------------
-interface CoinBank_Interface{
-    function Incoming_Payments()external payable returns(bool); // -- ✓
-}
-contract CoinBank is CoinBank_Interface{
-    uint timeInterval;  
-    event CoinBankClock(uint256,bool);
-    address public Treasury;
-    // Keep track of Funds in CoinBank
-    struct CoinBank_Accounting{
-        uint Previous_Time;
-    }
-    //when crontract is created
-    constructor(address _Treasury,uint _timeInterval) payable{
-        Treasury = _Treasury;
-        Bank[Treasury] = CoinBank_Accounting(block.timestamp);   
-        Treasury = payable(Treasury);
-        timeInterval = _timeInterval;
-    }
-    //CoinBank Index of all Banks
-    mapping (address => CoinBank_Accounting) public Bank;
-
-    // Send funds to Treasury Contract
-    function Issue_ToTreasury(uint _single_Shard)internal {
-        Plus_Interface(payable(Treasury)).Accept_From_CoinBank{value:address(this).balance}(_single_Shard); //place treasury contract address here
-        emit CoinBankClock(block.timestamp,true); 
-    }
-    // Payments to CoinBank will take account of funds and alocat them to the treasury
-    function Incoming_Payments()public payable returns(bool){
-        uint Supply = Plus_Interface(Treasury).CountRegisterdShards();
-        // add one timeInterval to the int 60
-        if(block.timestamp>=timeInterval+Bank[Treasury].Previous_Time){
-            uint single_Shard = uint(address(this).balance/Supply);
-            Issue_ToTreasury(single_Shard); //Call Accept from CoinBank
-            Bank[Treasury].Previous_Time = block.timestamp;
-            return true;
-        }else{
-            return false;
-        }
-    }
-    function Balance() public view returns(uint){
-        return address(this).balance;
+    function Issue_ToTreasury(uint _single_Shard)internal{
+        Accept_From_CoinBank(_single_Shard); //place treasury contract address here
     }
     fallback() external payable {
-        Incoming_Payments();
+        uint Supply = CountRegisterdShards();
+        // add one timeInterval to the int 60
+        uint single_Shard = msg.value/Supply;
+        Issue_ToTreasury(single_Shard); //Call Accept from CoinBank
     }
-    
 }
