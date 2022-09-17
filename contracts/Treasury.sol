@@ -6,7 +6,7 @@ interface Treasury_Interface {
     function View_Account() external view returns(uint);  // -- ✓
     function Redeem()external returns(bool);              // -- ✓
     function Register_Account()external returns(bool);    // -- ✓
-    function CountRegisterdShards()external returns(uint);//
+    function CountRegisterdShards()external returns(uint);// -- ✓
 }
 contract Treasury is ERC20, Treasury_Interface {
     uint counter =0;
@@ -26,13 +26,17 @@ contract Treasury is ERC20, Treasury_Interface {
         bool exist;
     }
     //launch Contract
-    constructor(string memory name,string memory symbol,uint totalSupply,uint8 decimals,uint _Interval) ERC20(name, symbol) {
+    constructor(string memory name,string memory symbol,uint totalSupply,uint8 decimals) ERC20(name, symbol) {
         totalSupply = totalSupply*(10**decimals);
         _mint(msg.sender, uint(totalSupply));
         Register_Account();
     }
+    modifier TokenHolder{
+        require(balanceOf(msg.sender) > 0, "only token holders can access");
+        _;
+    }
     //Test logging and accounting user dividends
-    function Register_Account() public returns(bool){
+    function Register_Account() public TokenHolder returns(bool){
         require(accounts[msg.sender].exist == false,"user already exist");
         ledger[Account_Counter] = Ledger(msg.sender,true);
         accounts[msg.sender] = Accounts(0,true);
@@ -40,7 +44,7 @@ contract Treasury is ERC20, Treasury_Interface {
         return true;
     }   
     //Account of your funds in contract
-    function View_Account() public view returns(uint){
+    function View_Account() TokenHolder public view returns(uint){
         require(accounts[msg.sender].exist == true,"user not registerd");
         return accounts[msg.sender].amount;
     }
@@ -80,6 +84,7 @@ contract Treasury is ERC20, Treasury_Interface {
     function Redeem()public returns(bool){
         address payable RedeemAddress = payable(msg.sender);
         require(accounts[RedeemAddress].exist == true,"User does not exist");
+        require(accounts[msg.sender].amount > 0, "account value 0");
         uint redeemValue = accounts[msg.sender].amount;
         accounts[msg.sender].amount=0;
         RedeemAddress.transfer(redeemValue);
