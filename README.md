@@ -97,6 +97,8 @@ Contracts already deployed are unaffected and keep the old behaviour.
 | Paying with Solidity's `transfer` or `send` fails | These forward 2,300 gas, and recording a payment writes to storage, which costs more than that. Pay with `call` instead. This is an EVM limit | `test_KnownLimit_LowGasSendersCannotPay` |
 | Rounding can hold back a little | A holder can be up to 1 wei short. The amount stays in the contract | The fuzz test |
 | Dividends on tokens sent to this contract are stuck | The contract counts as a holder and cannot redeem for itself | Read from the code |
+| A holder contract that cannot call `Redeem` loses its share | Its dividends stay in this contract for good, so check before sending tokens to a contract | Read from the code |
+| Buying just before a payment | Anyone can buy after seeing a payment coming, collect the dividend and sell afterwards. Dividends go to whoever holds at the moment of payment | Read from the code |
 | Burn addresses keep earning | Tokens at an address nobody controls still earn dividends that nobody can claim | Read from the code |
 
 <details>
