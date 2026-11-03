@@ -13,7 +13,7 @@
   <text x="124.5" y="254" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#e2e8f0">payment</text>
   <path d="M192 247H210" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/><path d="M204 241l7 6-7 6" fill="none" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
   <rect x="217" y="222" width="248" height="50" rx="10" fill="#ffffff" fill-opacity=".06" stroke="#60a5fa" stroke-opacity=".45"/>
-  <text x="341.0" y="254" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#e2e8f0">registered holders</text>
+  <text x="341.0" y="254" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#e2e8f0">all holders</text>
   <path d="M472 247H490" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/><path d="M484 241l7 6-7 6" fill="none" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
   <rect x="497" y="222" width="132" height="50" rx="10" fill="#ffffff" fill-opacity=".06" stroke="#60a5fa" stroke-opacity=".45"/>
   <text x="563.0" y="254" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="19" fill="#e2e8f0">Redeem()</text>

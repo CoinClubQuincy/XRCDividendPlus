@@ -3,98 +3,86 @@ pragma solidity ^0.8.10;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 interface Treasury_Interface {
-    function View_Account() external view returns(uint);  // -- ✓
-    function Redeem()external returns(bool);              // -- ✓
-    function Register_Account()external returns(bool);    // -- ✓
-    function CountRegisterdShards()external returns(uint);// -- ✓
+    function View_Account() external view returns(uint);
+    function Redeem()external returns(bool);
+    function Register_Account()external returns(bool);
+    function CountRegisterdShards()external returns(uint);
 }
+
+/// @title XRC-20 token that pays dividends to its holders
+/// @notice Every payment to this contract is shared across all holders by balance. Nobody has
+/// to register, and no payment loops over holders. Each payment raises a running total of what
+/// one token has earned. When a balance is about to change, the holder's earnings so far are
+/// recorded first, so dividends stay with whoever held the tokens at the time.
 contract Treasury is ERC20, Treasury_Interface {
-    uint counter =0;
-    uint public Account_Counter = 0;
+    //Lets the running total keep fractions of a wei
+    uint private constant MAGNITUDE = 2**128;
+
+    uint8 private immutable tokenDecimals;
+    //Total of all payments received
     uint public totalAllocated=0;
-    //mappings map Account amounts and micro ledger
-    mapping (address => Accounts) public accounts;
-    mapping (uint => Ledger) public ledger;
-    //Account Details
-    struct Accounts{
-        uint amount;
-        bool exist;
-    }
-    //Ledger
-    struct Ledger{
-        address account;
-        bool exist;
-    }
+    //Running total of what one token unit has earned, scaled by MAGNITUDE
+    uint public magnifiedPerShare=0;
+    //Part of past payments too small to split yet, scaled by MAGNITUDE
+    uint private carriedRemainder=0;
+    //Earnings recorded for each account and not yet redeemed, scaled by MAGNITUDE
+    mapping (address => uint) private magnifiedCredit;
+    //Value of the running total when each account was last recorded
+    mapping (address => uint) private lastPerShare;
+
     //launch Contract
     constructor(string memory name,string memory symbol,uint totalSupply,uint8 decimals) ERC20(name, symbol) {
-        totalSupply = totalSupply*(10**decimals);
-        _mint(msg.sender, uint(totalSupply));
-        Register_Account();
+        require(totalSupply > 0, "supply is required");
+        tokenDecimals = decimals;
+        _mint(msg.sender, totalSupply*(10**decimals));
     }
-    //Only Token Holders can use contract
-    modifier TokenHolder{
-        require(balanceOf(msg.sender) > 0, "only token holders can access");
-        _;
+    function decimals() public view override returns(uint8){
+        return tokenDecimals;
     }
-    //Test logging and accounting user dividends
-    function Register_Account() public TokenHolder returns(bool){
-        require(accounts[msg.sender].exist == false,"user already exist");
-        ledger[Account_Counter] = Ledger(msg.sender,true);
-        accounts[msg.sender] = Accounts(0,true);
-        Account_Counter++;
+    //Kept for older callers. Every holder now earns without registering.
+    function Register_Account() public pure returns(bool){
         return true;
-    }   
+    }
     //Account of your funds in contract
-    function View_Account() TokenHolder public view returns(uint){
-        require(accounts[msg.sender].exist == true,"user not registerd");
-        return accounts[msg.sender].amount;
+    function View_Account() public view returns(uint){
+        return (magnifiedCredit[msg.sender] + pendingFor(msg.sender)) / MAGNITUDE;
     }
-    //Accept payment from CoinBank and issue dividends to accounts
-    function callFromFallback(uint _singleShard)internal{
-        uint amountAllocated;
-        uint CurrentCount=0;
-
-        for(CurrentCount;CurrentCount<Account_Counter;CurrentCount++){
-            (CurrentCount,amountAllocated) = InternalAccounting(CurrentCount,_singleShard);
-            totalAllocated += amountAllocated;
-        }
-    }
-    //Counts all the accounts in the Treasury
+    //Counts all the tokens that earn dividends
     function CountRegisterdShards() public view returns(uint){
-        uint count =0;
-        uint totalAmount=0;
-        for(count;count<=Account_Counter-1;count++){
-            if(balanceOf(ledger[count].account) >0){
-                totalAmount += balanceOf(ledger[count].account);
-            }
-        }
-        return totalAmount;
+        return totalSupply();
     }
-    //Sorts funds into accounts
-    function InternalAccounting(uint _shardHolder,uint _singleShard)internal returns(uint,uint){
-        address Serach_result = ledger[_shardHolder].account;
-        if(balanceOf(ledger[_shardHolder].account) > 0){
-            accounts[ledger[_shardHolder].account].amount += balanceOf(ledger[_shardHolder].account) * _singleShard;
-        } else{
-            InternalAccounting(_shardHolder++,_singleShard);
+    function pendingFor(address _account) internal view returns(uint){
+        return balanceOf(_account) * (magnifiedPerShare - lastPerShare[_account]);
+    }
+    function settle(address _account) internal{
+        magnifiedCredit[_account] += pendingFor(_account);
+        lastPerShare[_account] = magnifiedPerShare;
+    }
+    //Records earnings at the old balance before any transfer changes it
+    function _beforeTokenTransfer(address from, address to, uint256 amount) internal override{
+        super._beforeTokenTransfer(from, to, amount);
+        if(from != address(0)){
+            settle(from);
         }
-        return (_shardHolder,accounts[Serach_result].amount);      
+        if(to != address(0)){
+            settle(to);
+        }
     }
     //Redeem Dividends from treasury
     function Redeem()public returns(bool){
-        address payable RedeemAddress = payable(msg.sender);
-        require(accounts[RedeemAddress].exist == true,"User does not exist");
-        require(accounts[msg.sender].amount > 0, "account value 0");
-        uint redeemValue = accounts[msg.sender].amount;
-        accounts[msg.sender].amount=0;
-        RedeemAddress.transfer(redeemValue);
-        return true;     
+        settle(msg.sender);
+        uint redeemValue = magnifiedCredit[msg.sender] / MAGNITUDE;
+        require(redeemValue > 0, "account value 0");
+        magnifiedCredit[msg.sender] -= redeemValue * MAGNITUDE;
+        (bool success, ) = payable(msg.sender).call{value: redeemValue}("");
+        require(success, "payment failed");
+        return true;
     }
     //Payments made to the contract
     receive() external payable {
-        uint Supply = CountRegisterdShards();
-        // add one timeInterval to the int 60
-        uint single_Shard = msg.value/Supply;
-        callFromFallback(single_Shard); //place treasury contract address here(single_Shard); //Call Accept from CoinBank
+        totalAllocated += msg.value;
+        uint magnified = msg.value * MAGNITUDE + carriedRemainder;
+        magnifiedPerShare += magnified / totalSupply();
+        carriedRemainder = magnified % totalSupply();
     }
 }
